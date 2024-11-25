@@ -2,15 +2,14 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace EfeTimer
 {
-    public class TimerDemo : MonoBehaviour
+    public class DemoTimer : MonoBehaviour
     {
         public float Duration;
 
-        public UnityEvent<string> OnTimerUpdate;
+        public UnityEvent<float> OnTimerUpdate;
         public UnityEvent OnTimerComplete;
 
         private Timer timer;
-        private float second;
         private void Awake()
         {
             timer = new Timer();
@@ -34,7 +33,7 @@ namespace EfeTimer
 
         private void TimerUpdate(float context)
         {
-            OnTimerUpdate?.Invoke(context.ToString("N0"));
+            OnTimerUpdate?.Invoke(context);
         }
 
         private void Update()
