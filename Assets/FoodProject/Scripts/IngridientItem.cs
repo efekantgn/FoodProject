@@ -1,10 +1,19 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
-
+public enum FoodState
+{
+    Raw, Cooked, ReadyToUse
+}
 public class IngridientItem : MonoBehaviour
 {
     [SerializeField] private FoodIngridientSO foodIngridient;
+
+    public GameObject Raw;
+    public GameObject Cooked;
+    public FoodState foodState = FoodState.Raw;
+
 
     [Header("Transport")]
     public float moveDuration = 2f; // Hareket süresi
@@ -16,7 +25,6 @@ public class IngridientItem : MonoBehaviour
     public UnityEvent<GameObject> OnMoveCompleteCarry; // Hareket bitiminde tetiklenir
 
 
-    [ContextMenu(nameof(StartMovement))]
     public void StartMovement(Vector3 targetPosition)
     {
         // Hareket başlarken UnityEvent tetiklenir
@@ -50,5 +58,12 @@ public class IngridientItem : MonoBehaviour
     public void DestroyThisItem()
     {
         Destroy(gameObject);
+    }
+
+    public void CookItem()
+    {
+        Raw.SetActive(false);
+        Cooked.SetActive(true);
+        foodState = FoodState.Cooked;
     }
 }

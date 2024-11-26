@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconContainer : MonoBehaviour
+public class IngridientSpawner : MonoBehaviour
 {
     [SerializeField] private FoodIngridientSO foodIngridient;
     [SerializeField] private Transform PrefabSpawnTransform;
@@ -33,7 +33,7 @@ public class IconContainer : MonoBehaviour
             RawItem.StartMovement(TargetObject.transform.position + Vector3.up);
             RawItem.OnMoveComplete.AddListener(cooker.StartCooking);
             cooker.OnCookComplete.AddListener(RawItem.DestroyThisItem);
-            cooker.foodIngridient = foodIngridient;
+            cooker.ingridientConfig = foodIngridient;
         }
         else if (TargetObject.TryGetComponent(out Plate plate))
         {

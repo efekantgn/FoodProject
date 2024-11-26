@@ -6,28 +6,14 @@ using UnityEngine.UI;
 
 public class PlateSpawner : MonoBehaviour
 {
-    public static PlateSpawner Instance;
-    private Button button;
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-
-        button = GetComponent<Button>();
-    }
+    public InteractionCanvasManager interactionCanvasManager;
     public Plate platePrefab;
     public Transform plateSpawnTransform;
     public List<Plate> plates = new();
 
-    private void OnEnable()
+    private void Start()
     {
-        button.onClick.AddListener(SpawnPlate);
-    }
-    private void OnDisable()
-    {
-        button.onClick.RemoveListener(SpawnPlate);
+        interactionCanvasManager.CanvasSetActive(false);
     }
     public void SpawnPlate()
     {
