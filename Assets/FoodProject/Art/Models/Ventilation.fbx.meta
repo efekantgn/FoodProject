@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77f617634fc96794196b931aeb05a637
+guid: bcb5254034df14e41b90599edd59f937
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fried|Cube.009Action
-      takeName: Fried|Cube.009Action
-      internalID: 6060273482759546266
+      name: ventilation|Action
+      takeName: ventilation|Action
+      internalID: -796017695486214991
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
