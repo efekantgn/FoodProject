@@ -43,28 +43,11 @@ public class IngridientCooker : MonoBehaviour
     }
     private void CookTimeComplete()
     {
-        SpawnCookedItem();
         OnCookComplete?.Invoke();
-    }
-    public void SpawnCookedItem()
-    {
-        IngridientItem cooked = Instantiate(foodIngridient.CookedPrefab, null).GetComponent<IngridientItem>();
-        cooked.transform.position = TransportTarget.position;
-        Plate plate = GetEmptyPlate();
-        plate.foodConfig = foodIngridient.foodSO;
-        cooked.StartMovement(plate.TransportPoint);
-        cooked.OnMoveCompleteCarry.AddListener(plate.IncreaseIngridients);
     }
     private void Update()
     {
         cookTimer.Tick(Time.deltaTime);
     }
-    public Plate GetEmptyPlate()
-    {
-        Plate plate = FindObjectOfType<Plate>();
-        if (plate == null)
-            Debug.Log("SpawnPlate");
 
-        return plate;
-    }
 }

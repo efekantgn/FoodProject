@@ -6,7 +6,7 @@ public class IconContainer : MonoBehaviour
 {
     [SerializeField] private FoodIngridientSO foodIngridient;
     [SerializeField] private Transform PrefabSpawnTransform;
-    [SerializeField] private GameObject Cooker;
+    [SerializeField] private GameObject TargetObject;
 
     private Button button;
     private void Awake()
@@ -25,13 +25,26 @@ public class IconContainer : MonoBehaviour
 
     private void ItemIconClick()
     {
-        IngridientItem ii = Instantiate(foodIngridient.RawPrefab).GetComponent<IngridientItem>();
-        ii.transform.parent = null;
-        ii.transform.position = PrefabSpawnTransform.position;
-        IngridientCooker cooker = Cooker.GetComponent<IngridientCooker>();
-        ii.StartMovement(cooker.TransportTarget);
-        ii.OnMoveComplete.AddListener(cooker.StartCooking);
-        cooker.OnCookComplete.AddListener(ii.DestroyThisItem);
-        cooker.foodIngridient = foodIngridient;
+        if (TargetObject.TryGetComponent(out IngridientCooker cooker))
+        {
+            IngridientItem RawItem = Instantiate(foodIngridient.RawPrefab).GetComponent<IngridientItem>();
+            RawItem.transform.parent = null;
+            RawItem.transform.position = PrefabSpawnTransform.position;
+            RawItem.StartMovement(TargetObject.transform.position + Vector3.up);
+            RawItem.OnMoveComplete.AddListener(cooker.StartCooking);
+            cooker.OnCookComplete.AddListener(RawItem.DestroyThisItem);
+            cooker.foodIngridient = foodIngridient;
+        }
+        else if (TargetObject.TryGetComponent(out Plate plate))
+        {
+            IngridientItem CookedItem = Instantiate(foodIngridient.CookedPrefab).GetComponent<IngridientItem>();
+            CookedItem.transform.parent = null;
+            CookedItem.transform.position = PrefabSpawnTransform.position;
+            CookedItem.StartMovement(TargetObject.transform.position + Vector3.up);
+            plate.foodConfig = foodIngridient.foodSO;
+            CookedItem.OnMoveCompleteCarry.AddListener(plate.IncreaseIngridients);
+        }
+
     }
+
 }

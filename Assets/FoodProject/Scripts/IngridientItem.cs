@@ -17,7 +17,7 @@ public class IngridientItem : MonoBehaviour
 
 
     [ContextMenu(nameof(StartMovement))]
-    public void StartMovement(Transform targetPosition)
+    public void StartMovement(Vector3 targetPosition)
     {
         // Hareket başlarken UnityEvent tetiklenir
         OnMoveStart?.Invoke();
@@ -29,7 +29,7 @@ public class IngridientItem : MonoBehaviour
         Sequence movementSequence = DOTween.Sequence();
 
         // Eğlenceli hareket animasyonu
-        movementSequence.Append(transform.DOMove(targetPosition.position, moveDuration).SetEase(Ease.InOutQuad));
+        movementSequence.Append(transform.DOMove(targetPosition, moveDuration).SetEase(Ease.InOutQuad));
 
         // Büyüme/küçülme efekti
         movementSequence.Join(transform.DOScale(originalScale * scaleMultiplier, moveDuration / 2).SetLoops(2, LoopType.Yoyo));
@@ -49,7 +49,6 @@ public class IngridientItem : MonoBehaviour
     }
     public void DestroyThisItem()
     {
-
         Destroy(gameObject);
     }
 }
