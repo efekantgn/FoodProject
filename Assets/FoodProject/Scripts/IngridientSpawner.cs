@@ -27,7 +27,7 @@ public class IngridientSpawner : MonoBehaviour
     {
         if (TargetObject.TryGetComponent(out IngridientCooker cooker))
         {
-            IngridientItem RawItem = Instantiate(foodIngridient.RawPrefab).GetComponent<IngridientItem>();
+            IngridientItem RawItem = Instantiate(foodIngridient.Prefab).GetComponent<IngridientItem>();
             RawItem.transform.parent = null;
             RawItem.transform.position = PrefabSpawnTransform.position;
             RawItem.StartMovement(TargetObject.transform.position + Vector3.up);
@@ -37,7 +37,7 @@ public class IngridientSpawner : MonoBehaviour
         }
         else if (TargetObject.TryGetComponent(out Plate plate))
         {
-            IngridientItem CookedItem = Instantiate(foodIngridient.CookedPrefab).GetComponent<IngridientItem>();
+            IngridientItem CookedItem = Instantiate(foodIngridient.Prefab).GetComponent<IngridientItem>();
             CookedItem.transform.parent = null;
             CookedItem.transform.position = PrefabSpawnTransform.position;
             CookedItem.StartMovement(TargetObject.transform.position + Vector3.up);
