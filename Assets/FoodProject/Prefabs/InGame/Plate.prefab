@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c08c8a5e9666d4e90733315f659b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodConfig: {fileID: 11400000, guid: 67e21897208aecf41b308aa9186aa677, type: 2}
-  spawnPoint: {fileID: 8907518140296558876}
+  foodConfig: {fileID: 0}
+  TransportPoint: {fileID: 8907518140296558876}
 --- !u!65 &5594654188017687409
 BoxCollider:
   m_ObjectHideFlags: 0

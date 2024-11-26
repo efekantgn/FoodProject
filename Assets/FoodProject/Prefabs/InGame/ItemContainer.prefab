@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6278791468063818333}
   - component: {fileID: 5562999801228595174}
   - component: {fileID: 2256433028639538239}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodIngridient: {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
-  PrefabSpawnTransform: {fileID: 0}
+  PrefabSpawnTransform: {fileID: 7333263440761940847}
+  Cooker: {fileID: 0}
 --- !u!1 &2558750598095935490
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +170,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7504710551912791419}
+  - {fileID: 7333263440761940847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7870020243107408794
@@ -255,6 +257,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionCanvas: {fileID: 490289302643389502}
+--- !u!1 &4507721563466079739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7333263440761940847}
+  m_Layer: 0
+  m_Name: TransportItemSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7333263440761940847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4507721563466079739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.821, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1331545253178644106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5704206882600000271
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +299,7 @@ GameObject:
   - component: {fileID: 7561551154196584088}
   - component: {fileID: 4915557615199290481}
   - component: {fileID: 2217734385641151802}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +376,7 @@ GameObject:
   - component: {fileID: 490289302643389502}
   - component: {fileID: 3564258888160846115}
   - component: {fileID: 8944924970355265568}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: InteractionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

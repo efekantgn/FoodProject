@@ -6,6 +6,7 @@ public class IconContainer : MonoBehaviour
 {
     [SerializeField] private FoodIngridientSO foodIngridient;
     [SerializeField] private Transform PrefabSpawnTransform;
+    [SerializeField] private GameObject Cooker;
 
     private Button button;
     private void Awake()
@@ -24,6 +25,13 @@ public class IconContainer : MonoBehaviour
 
     private void ItemIconClick()
     {
-        Instantiate(foodIngridient.Prefab, PrefabSpawnTransform);
+        IngridientItem ii = Instantiate(foodIngridient.RawPrefab).GetComponent<IngridientItem>();
+        ii.transform.parent = null;
+        ii.transform.position = PrefabSpawnTransform.position;
+        IngridientCooker cooker = Cooker.GetComponent<IngridientCooker>();
+        ii.StartMovement(cooker.TransportTarget);
+        ii.OnMoveComplete.AddListener(cooker.StartCooking);
+        cooker.OnCookComplete.AddListener(ii.DestroyThisItem);
+        cooker.foodIngridient = foodIngridient;
     }
 }

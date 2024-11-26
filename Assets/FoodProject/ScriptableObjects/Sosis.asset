@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3925f8ee3748c52468785d1a218d00a6, type: 3}
-  m_Name: FoodIngridientSO
+  m_Name: Sosis
   m_EditorClassIdentifier: 
   Name: Sosis
   Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  Prefab: {fileID: 289008561253425302, guid: 6a084adf2509a874690d5042748a92db, type: 3}
+  RawPrefab: {fileID: 5474005024490640491, guid: 2abd814a4112c3048a29ae34716e7dd1, type: 3}
+  CookedPrefab: {fileID: 7079410361570921774, guid: f87d9621028fa0843bc7055ddbb80ed3, type: 3}
+  foodSO: {fileID: 11400000, guid: 1e74b4b8182640a48a857437ebfe7084, type: 2}
