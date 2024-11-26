@@ -5,33 +5,35 @@ using UnityEngine.Events;
 
 public class IngridientCooker : MonoBehaviour
 {
-    public FoodIngridientSO foodIngridient;
-    private Timer cookTimer;
-    [SerializeField] private ProgressCanvas cookingCanvas;
+    [HideInInspector] public FoodIngridientSO ingridientConfig;
+    [SerializeField] private ProgressCanvas cookProgress;
+    [SerializeField] private InteractionCanvasManager interactionCanvasManager;
 
+    private Timer cookTimer;
     public float CookTime = 0f;
-    public Transform TransportTarget;
+    public Transform ItemPoint;
     public UnityEvent OnCookStart;
     public UnityEvent OnCookComplete;
 
     private void Awake()
     {
         cookTimer = new();
-        cookingCanvas.ingridientCooker = this;
+        cookProgress.ingridientCooker = this;
+        interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
     }
 
     private void OnEnable()
     {
         cookTimer.OnTimerStart += CookTimeStart;
         cookTimer.OnTimerComplete += CookTimeComplete;
-        cookTimer.OnTimerUpdate += cookingCanvas.UpdateProgressBar;
+        cookTimer.OnTimerUpdate += cookProgress.UpdateProgressBar;
     }
 
     private void OnDisable()
     {
         cookTimer.OnTimerStart -= CookTimeStart;
         cookTimer.OnTimerComplete -= CookTimeComplete;
-        cookTimer.OnTimerUpdate -= cookingCanvas.UpdateProgressBar;
+        cookTimer.OnTimerUpdate -= cookProgress.UpdateProgressBar;
     }
     public void StartCooking()
     {
@@ -43,28 +45,11 @@ public class IngridientCooker : MonoBehaviour
     }
     private void CookTimeComplete()
     {
-        SpawnCookedItem();
         OnCookComplete?.Invoke();
-    }
-    public void SpawnCookedItem()
-    {
-        IngridientItem cooked = Instantiate(foodIngridient.CookedPrefab, null).GetComponent<IngridientItem>();
-        cooked.transform.position = TransportTarget.position;
-        Plate plate = GetEmptyPlate();
-        plate.foodConfig = foodIngridient.foodSO;
-        cooked.StartMovement(plate.TransportPoint);
-        cooked.OnMoveCompleteCarry.AddListener(plate.IncreaseIngridients);
     }
     private void Update()
     {
         cookTimer.Tick(Time.deltaTime);
     }
-    public Plate GetEmptyPlate()
-    {
-        Plate plate = FindObjectOfType<Plate>();
-        if (plate == null)
-            Debug.Log("SpawnPlate");
 
-        return plate;
-    }
 }
