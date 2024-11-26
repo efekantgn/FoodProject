@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5600033396963105211}
   - component: {fileID: 3025113705329272591}
   m_Layer: 0
-  m_Name: Hamburger
+  m_Name: Sosis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
