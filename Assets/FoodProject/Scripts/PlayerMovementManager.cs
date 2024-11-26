@@ -9,11 +9,14 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovementManager : MonoBehaviour
 {
-    public float speed = 5f;
+    public float MovementSpeed = 5f;
+    public float Rotationspeed = 5f;
     private Rigidbody rb;
     private Vector2 moveInput;
     private PlayerInputManager inputManager;
     private bool isMoving = false;
+    Vector3 moveDirection = Vector3.zero;
+    Transform cameraTransform;
 
     public bool IsMoving
     {
@@ -29,6 +32,7 @@ public class PlayerMovementManager : MonoBehaviour
     {
         inputManager = GetComponentInParent<PlayerInputManager>();
         rb = GetComponentInChildren<Rigidbody>();
+        cameraTransform = Camera.main.transform;
     }
 
     private void OnEnable()
@@ -60,8 +64,26 @@ public class PlayerMovementManager : MonoBehaviour
     private void FixedUpdate()
     {
         // Hareketi Rigidbody'e uygula
-        Vector3 movement = new Vector3(moveInput.x, 0, moveInput.y);
-        rb.velocity = movement * speed + new Vector3(0, rb.velocity.y, 0); // Y eksenini sabitle
+        if (!isMoving) return;
+        moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+
+        if (cameraTransform != null)
+        {
+            // Kameraya göre joystick girdisini döndür
+            Vector3 cameraForward = cameraTransform.forward;
+            Vector3 cameraRight = cameraTransform.right;
+
+            // Y düzlemi üzerinde hareket yönü
+            cameraForward.y = 0;
+            cameraRight.y = 0;
+
+            moveDirection = (cameraForward.normalized * moveInput.y) + (cameraRight.normalized * moveInput.x);
+        }
+        rb.velocity = moveDirection.normalized * MovementSpeed;
+
+        // Karakteri hareket ettiği yöne döndür
+        Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * Rotationspeed));
     }
 }
 
