@@ -213,6 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodIngridient: {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
+  Raw: {fileID: 80945146428455854}
+  Cooked: {fileID: 3115986521223855355}
+  foodState: 0
   moveDuration: 1
   scaleMultiplier: 0.5
   rotationSpeed: 360
