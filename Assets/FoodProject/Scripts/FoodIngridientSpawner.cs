@@ -10,20 +10,20 @@ public class FoodIngridientSpawner : MonoBehaviour
     public Transform spawnTransform;
     public IngridientCooker cooker;
 
-    private Button button;
-
     private void Awake()
     {
-        button = GetComponentInChildren<Button>();
         interactionCanvasManager.CanvasSetActive(false);
+        interactionCanvasManager.SetIcon(ingridientConfig.Sprite);
+
     }
     private void OnEnable()
     {
-        button.onClick.AddListener(SpawnFood);
+        interactionCanvasManager.Button.onClick.AddListener(SpawnFood);
+
     }
     private void OnDisable()
     {
-        button.onClick.RemoveListener(SpawnFood);
+        interactionCanvasManager.Button.onClick.RemoveListener(SpawnFood);
     }
 
     public void SpawnFood()
@@ -41,8 +41,28 @@ public class FoodIngridientSpawner : MonoBehaviour
         if (RawItem.foodState == FoodState.ReadyToUse || RawItem.foodState == FoodState.Cooked)
         {
             //Go To Plate
+            if (PlateSpawner.instance.plates.Count > 0)
+            {
+                foreach (var p in PlateSpawner.instance.plates)
+                {
+                    if (!p.IsPlateHasIngridient(RawItem))
+                    {
+                        p.AddToPlate(RawItem);
+                        break;
+                    }
+                    else
+                    {
+                        Debug.Log("Need another Plate");
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("NoPlate exist");
+            }
         }
 
 
     }
+
 }

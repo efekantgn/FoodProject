@@ -37,7 +37,7 @@ public class Plate : MonoBehaviour
         {
             PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(true);
-            interactionCanvasManager.button.onClick.AddListener(PickUp.instance.PickUpGameObject);
+            interactionCanvasManager.Button.onClick.AddListener(PickUp.instance.PickUpGameObject);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -46,7 +46,7 @@ public class Plate : MonoBehaviour
         {
             PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
-            interactionCanvasManager.button.onClick.RemoveListener(PickUp.instance.PickUpGameObject);
+            interactionCanvasManager.Button.onClick.RemoveListener(PickUp.instance.PickUpGameObject);
         }
     }
 }

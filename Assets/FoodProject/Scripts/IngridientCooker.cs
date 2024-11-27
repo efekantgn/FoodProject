@@ -8,7 +8,6 @@ public class IngridientCooker : MonoBehaviour
     [HideInInspector] public IngridientItem ingridientItem;
     [SerializeField] private ProgressCanvas cookProgress;
     [SerializeField] private InteractionCanvasManager interactionCanvasManager;
-    [SerializeField] private PlateSpawner plateSpawner;
 
     private Timer cookTimer;
     public float CookTime = 0f;
@@ -21,6 +20,7 @@ public class IngridientCooker : MonoBehaviour
         cookTimer = new();
         cookProgress.ingridientCooker = this;
         interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
+
     }
 
     private void OnEnable()
@@ -29,7 +29,7 @@ public class IngridientCooker : MonoBehaviour
         cookTimer.OnTimerComplete += CookTimeComplete;
         cookTimer.OnTimerUpdate += cookProgress.UpdateProgressBar;
 
-        interactionCanvasManager.button.onClick.AddListener(SetTarget);
+        interactionCanvasManager.Button.onClick.AddListener(SetTarget);
     }
 
     private void OnDisable()
@@ -38,11 +38,12 @@ public class IngridientCooker : MonoBehaviour
         cookTimer.OnTimerComplete -= CookTimeComplete;
         cookTimer.OnTimerUpdate -= cookProgress.UpdateProgressBar;
 
-        interactionCanvasManager.button.onClick.RemoveListener(SetTarget);
+        interactionCanvasManager.Button.onClick.RemoveListener(SetTarget);
     }
     public void StartCooking()
     {
         cookTimer.StartTimer(CookTime);
+        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.Sprite);
     }
     private void CookTimeStart()
     {
@@ -60,12 +61,11 @@ public class IngridientCooker : MonoBehaviour
     {
         ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
         OnCookComplete.RemoveListener(ingridientItem.CookItem);
-        if (plateSpawner.plates.Count > 0)
+        if (PlateSpawner.instance.plates.Count > 0)
         {
-            foreach (var p in plateSpawner.plates)
+            foreach (var p in PlateSpawner.instance.plates)
             {
-
-                if (/*p.IsFoodContainIngridient(ingridientItem) &&*/ !p.IsPlateHasIngridient(ingridientItem))
+                if (!p.IsPlateHasIngridient(ingridientItem))
                 {
                     p.AddToPlate(ingridientItem);
                     break;

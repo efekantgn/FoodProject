@@ -14,17 +14,18 @@ public class NPCCustomer : MonoBehaviour
     }
     private void OnEnable()
     {
-        interactionCanvasManager.button.onClick.AddListener(TakeFood);
+        interactionCanvasManager.Button.onClick.AddListener(TakeFood);
     }
     private void OnDisable()
     {
-        interactionCanvasManager.button.onClick.RemoveListener(TakeFood);
+        interactionCanvasManager.Button.onClick.RemoveListener(TakeFood);
 
     }
     private void Start()
     {
-        interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
         OrderFood();
+        interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
+        interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
     }
 
     public void OrderFood()

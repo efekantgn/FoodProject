@@ -18,3 +18,4 @@ MonoBehaviour:
   FoodPrefab: {fileID: 4524975119508498484, guid: d6e50c709c115a9429e19b1b9aa3d1b4, type: 3}
   foodReciept:
   - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
+  - {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}

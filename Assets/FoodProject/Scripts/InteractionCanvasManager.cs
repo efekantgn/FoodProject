@@ -5,7 +5,8 @@ public class InteractionCanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject InteractionPanel;
     [SerializeField] private bool isReadyToOpen = true;
-    public Button button;
+    public Button Button;
+    public Image Image;
 
     public bool IsReadyToOpen { get => isReadyToOpen; set => isReadyToOpen = value; }
 
@@ -19,16 +20,6 @@ public class InteractionCanvasManager : MonoBehaviour
         InteractionPanel.gameObject.SetActive(b);
     }
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.collider.CompareTag("Player"))
-    //         CanvasSetActive(true);
-    // }
-    // private void OnCollisionExit(Collision other)
-    // {
-    //     if (other.collider.CompareTag("Player"))
-    //         CanvasSetActive(false);
-    // }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -39,5 +30,8 @@ public class InteractionCanvasManager : MonoBehaviour
         if (other.CompareTag("Player"))
             CanvasSetActive(false);
     }
-
+    public void SetIcon(Sprite sprite)
+    {
+        Image.sprite = sprite;
+    }
 }
