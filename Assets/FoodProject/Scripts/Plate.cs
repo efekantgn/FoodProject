@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    public FoodSO RequestFood;
     [SerializeField] public Transform TransportPoint;
     public List<IngridientItem> ingridientItems;
     public InteractionCanvasManager interactionCanvasManager;
@@ -21,11 +20,23 @@ public class Plate : MonoBehaviour
         ii.transform.SetParent(TransportPoint);
     }
 
-    public bool IsFoodContainIngridient(IngridientItem ii)
+    // public bool IsFoodContainIngridient(IngridientItem ii)
+    // {
+    //     foreach (var item in RequestFood.foodReciept)
+    //     {
+    //         if (item.ID == ii.foodIngridient.ID)
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    public bool IsPlateHasIngridient(IngridientItem ii)
     {
-        foreach (var item in RequestFood.foodReciept)
+        foreach (var item in ingridientItems)
         {
-            if (item.ID == ii.foodIngridient.ID)
+            if (item.foodIngridient.ID == ii.foodIngridient.ID)
             {
                 return true;
             }
@@ -36,20 +47,18 @@ public class Plate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PickUp p = other.transform.parent.GetComponentInChildren<PickUp>();
-            p.plate = this;
+            PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(true);
-            interactionCanvasManager.button.onClick.AddListener(p.PickUpGameObject);
+            interactionCanvasManager.button.onClick.AddListener(PickUp.instance.PickUpGameObject);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PickUp p = other.transform.parent.GetComponentInChildren<PickUp>();
-            p.plate = this;
+            PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
-            interactionCanvasManager.button.onClick.RemoveListener(p.PickUpGameObject);
+            interactionCanvasManager.button.onClick.RemoveListener(PickUp.instance.PickUpGameObject);
         }
     }
 }

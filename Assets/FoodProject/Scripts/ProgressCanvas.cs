@@ -9,7 +9,6 @@ public class ProgressCanvas : MonoBehaviour
 
     public void UpdateProgressBar(float value)
     {
-        Debug.Log($"timer: {value}");
         progres.fillAmount = value / ingridientCooker.CookTime;
     }
 }

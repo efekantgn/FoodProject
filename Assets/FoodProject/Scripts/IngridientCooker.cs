@@ -60,15 +60,21 @@ public class IngridientCooker : MonoBehaviour
     {
         ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
         OnCookComplete.RemoveListener(ingridientItem.CookItem);
-        if (plateSpawner.TryGetEmptyPlate(out Plate p))
+        if (plateSpawner.plates.Count > 0)
         {
-            if (!p.IsFoodContainIngridient(ingridientItem))
+            foreach (var p in plateSpawner.plates)
             {
-                //ToDo selectNext Plate
-                return;
-            }
 
-            p.AddToPlate(ingridientItem);
+                if (/*p.IsFoodContainIngridient(ingridientItem) &&*/ !p.IsPlateHasIngridient(ingridientItem))
+                {
+                    p.AddToPlate(ingridientItem);
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Need another Plate");
+                }
+            }
         }
         else
         {
