@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    [SerializeField] public FoodSO foodConfig;
     [SerializeField] public Transform TransportPoint;
     public List<IngridientItem> ingridientItems;
     public bool isEmpty = true;
 
-    public Canvas InteractionCanvas;
+    public InteractionCanvasManager interactionCanvasManager;
     private void Start()
     {
         ingridientItems = new();
@@ -18,36 +17,27 @@ public class Plate : MonoBehaviour
     {
         isEmpty = false;
         ingridientItems.Add(ii);
-        PrepareItem();
+        ii.transform.SetParent(TransportPoint);
     }
-    public void PrepareItem()
-    {
-        if (foodConfig.foodIngridients.Length >= ingridientItems.Count)
-        {
-            Instantiate(foodConfig.FoodPrefab, transform).transform.position = TransportPoint.position;
-            DestroyIngridients();
-        }
-    }
-    private void DestroyIngridients()
-    {
-        foreach (var item in ingridientItems)
-        {
-            Destroy(item);
-            ingridientItems.Remove(item);
-        }
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            InteractionCanvas.gameObject.SetActive(true);
+            PickUp p = other.transform.parent.GetComponentInChildren<PickUp>();
+            p.plate = this;
+            interactionCanvasManager.ForceOpenCloseInteractionCanvas(true);
+            interactionCanvasManager.button.onClick.AddListener(p.PickUpGameObject);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            InteractionCanvas.gameObject.SetActive(false);
+            PickUp p = other.transform.parent.GetComponentInChildren<PickUp>();
+            p.plate = this;
+            interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
+            interactionCanvasManager.button.onClick.RemoveListener(p.PickUpGameObject);
         }
     }
 }

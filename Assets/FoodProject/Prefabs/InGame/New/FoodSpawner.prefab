@@ -99,6 +99,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3896302832685836940}
   m_SourcePrefab: {fileID: 100100000, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
+--- !u!114 &7313905665564178615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5765511191818068654, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
+  m_PrefabInstance: {fileID: 3855929633512987161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d306a8579e45bc42a3e16c5ecd23856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8044345151199987950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6494264163107918583, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
@@ -116,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0ee50fc1f43fa4bbe07670fb97096e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCanvasManager: {fileID: 0}
+  interactionCanvasManager: {fileID: 7313905665564178615}
   ingridientConfig: {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
   spawnTransform: {fileID: 5990729436261649182}
   cooker: {fileID: 0}

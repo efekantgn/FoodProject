@@ -8,7 +8,7 @@ public enum FoodState
 }
 public class IngridientItem : MonoBehaviour
 {
-    [SerializeField] private FoodIngridientSO foodIngridient;
+    public FoodIngridientSO foodIngridient;
 
     public GameObject Raw;
     public GameObject Cooked;

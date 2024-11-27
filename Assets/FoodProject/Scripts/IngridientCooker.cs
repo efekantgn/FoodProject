@@ -58,6 +58,8 @@ public class IngridientCooker : MonoBehaviour
     }
     public void SetTarget()
     {
+        ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
+        OnCookComplete.RemoveListener(ingridientItem.CookItem);
         if (plateSpawner.TryGetEmptyPlate(out Plate p))
         {
             ingridientItem.StartMovement(p.TransportPoint.position);
@@ -67,6 +69,5 @@ public class IngridientCooker : MonoBehaviour
         {
             Debug.Log("NoPlate exist");
         }
-
     }
 }

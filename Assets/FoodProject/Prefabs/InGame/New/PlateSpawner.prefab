@@ -127,7 +127,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlateSpawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2195526719391718093, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
@@ -138,17 +139,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1657144896989926777}
   m_SourcePrefab: {fileID: 100100000, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
---- !u!114 &1300997484183858880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2195526719391718093, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
-  m_PrefabInstance: {fileID: 897907076738348045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6221234030857463546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d306a8579e45bc42a3e16c5ecd23856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5742202103886362970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
@@ -171,10 +161,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ba33a546c462341b951ceb39a0d4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCanvasManager: {fileID: 1300997484183858880}
+  interactionCanvasManager: {fileID: 6662288790663894691}
   platePrefab: {fileID: 6961817561328377257, guid: 8f5c633f4af798c4bbe03b98503e4775, type: 3}
   plateSpawnTransform: {fileID: 357129110509858990}
   plates: []
+--- !u!114 &6662288790663894691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5765511191818068654, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
+  m_PrefabInstance: {fileID: 897907076738348045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638935871408128733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d306a8579e45bc42a3e16c5ecd23856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7638935871408128733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7382791811163043536, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
