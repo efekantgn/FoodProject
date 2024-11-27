@@ -20,18 +20,6 @@ public class Plate : MonoBehaviour
         ii.transform.SetParent(TransportPoint);
     }
 
-    // public bool IsFoodContainIngridient(IngridientItem ii)
-    // {
-    //     foreach (var item in RequestFood.foodReciept)
-    //     {
-    //         if (item.ID == ii.foodIngridient.ID)
-    //         {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
     public bool IsPlateHasIngridient(IngridientItem ii)
     {
         foreach (var item in ingridientItems)
