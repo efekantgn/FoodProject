@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
+    public FoodSO RequestFood;
     [SerializeField] public Transform TransportPoint;
     public List<IngridientItem> ingridientItems;
-    public bool isEmpty = true;
-
     public InteractionCanvasManager interactionCanvasManager;
     private void Start()
     {
@@ -15,11 +16,22 @@ public class Plate : MonoBehaviour
     }
     public void AddToPlate(IngridientItem ii)
     {
-        isEmpty = false;
+        ii.StartMovement(TransportPoint.position);
         ingridientItems.Add(ii);
         ii.transform.SetParent(TransportPoint);
     }
 
+    public bool IsFoodContainIngridient(IngridientItem ii)
+    {
+        foreach (var item in RequestFood.foodReciept)
+        {
+            if (item.ID == ii.foodIngridient.ID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

@@ -62,7 +62,12 @@ public class IngridientCooker : MonoBehaviour
         OnCookComplete.RemoveListener(ingridientItem.CookItem);
         if (plateSpawner.TryGetEmptyPlate(out Plate p))
         {
-            ingridientItem.StartMovement(p.TransportPoint.position);
+            if (!p.IsFoodContainIngridient(ingridientItem))
+            {
+                //ToDo selectNext Plate
+                return;
+            }
+
             p.AddToPlate(ingridientItem);
         }
         else

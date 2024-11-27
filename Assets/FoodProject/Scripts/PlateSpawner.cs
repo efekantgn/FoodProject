@@ -28,11 +28,10 @@ public class PlateSpawner : MonoBehaviour
     {
         foreach (var item in plates)
         {
-            if (item.isEmpty)
-            {
-                p = item;
-                return true;
-            }
+
+            p = item;
+            return true;
+
         }
         p = null;
         return false;
