@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class IngridientCooker : MonoBehaviour
 {
-    [HideInInspector] public FoodIngridientSO ingridientConfig;
+    [HideInInspector] public IngridientItem ingridientItem;
     [SerializeField] private ProgressCanvas cookProgress;
     [SerializeField] private InteractionCanvasManager interactionCanvasManager;
+    [SerializeField] private PlateSpawner plateSpawner;
 
     private Timer cookTimer;
     public float CookTime = 0f;
@@ -27,6 +28,8 @@ public class IngridientCooker : MonoBehaviour
         cookTimer.OnTimerStart += CookTimeStart;
         cookTimer.OnTimerComplete += CookTimeComplete;
         cookTimer.OnTimerUpdate += cookProgress.UpdateProgressBar;
+
+        interactionCanvasManager.button.onClick.AddListener(SetTarget);
     }
 
     private void OnDisable()
@@ -34,6 +37,8 @@ public class IngridientCooker : MonoBehaviour
         cookTimer.OnTimerStart -= CookTimeStart;
         cookTimer.OnTimerComplete -= CookTimeComplete;
         cookTimer.OnTimerUpdate -= cookProgress.UpdateProgressBar;
+
+        interactionCanvasManager.button.onClick.RemoveListener(SetTarget);
     }
     public void StartCooking()
     {
@@ -51,5 +56,17 @@ public class IngridientCooker : MonoBehaviour
     {
         cookTimer.Tick(Time.deltaTime);
     }
+    public void SetTarget()
+    {
+        if (plateSpawner.TryGetEmptyPlate(out Plate p))
+        {
+            ingridientItem.StartMovement(p.TransportPoint.position);
+            p.AddToPlate(ingridientItem);
+        }
+        else
+        {
+            Debug.Log("NoPlate exist");
+        }
 
+    }
 }

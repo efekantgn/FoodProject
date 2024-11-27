@@ -34,7 +34,7 @@ public class FoodIngridientSpawner : MonoBehaviour
         if (RawItem.foodState == FoodState.Raw)
         {
             RawItem.OnMoveComplete.AddListener(cooker.StartCooking);
-            cooker.ingridientConfig = ingridientConfig;
+            cooker.ingridientItem = RawItem;
             cooker.OnCookComplete.AddListener(RawItem.CookItem);
             RawItem.StartMovement(cooker.ItemPoint.position);
         }

@@ -41,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.07
       objectReference: {fileID: 0}
     - target: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -87,7 +87,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2195526719391718093, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4883705028858727767, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
@@ -98,17 +99,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3896302832685836940}
   m_SourcePrefab: {fileID: 100100000, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
---- !u!114 &3169144875875123412 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2195526719391718093, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
-  m_PrefabInstance: {fileID: 3855929633512987161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044345151199987950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d306a8579e45bc42a3e16c5ecd23856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8044345151199987950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6494264163107918583, guid: 6b2074d13949b8742a6171701b98d7aa, type: 3}
@@ -126,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0ee50fc1f43fa4bbe07670fb97096e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCanvasManager: {fileID: 3169144875875123412}
-  ingridientConfig: {fileID: 0}
+  interactionCanvasManager: {fileID: 0}
+  ingridientConfig: {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
   spawnTransform: {fileID: 5990729436261649182}
   cooker: {fileID: 0}
 --- !u!4 &8522328144170473294 stripped

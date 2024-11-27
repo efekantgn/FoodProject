@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5515582563003985733}
   - component: {fileID: 8151799081549152855}
   - component: {fileID: 7723677044502548460}
-  - component: {fileID: 4130865613224672309}
   m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
@@ -133,21 +132,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4130865613224672309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922586160411387015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004fbfe821b4acb4bbbb7b1977a27344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodIngridient: {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
-  PrefabSpawnTransform: {fileID: 0}
-  TargetObject: {fileID: 0}
 --- !u!1 &6808299240474580510
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,13 +144,15 @@ GameObject:
   - component: {fileID: 2363939022077621300}
   - component: {fileID: 1690388158316699945}
   - component: {fileID: 6494608888064200746}
+  - component: {fileID: 7497429047129883232}
+  - component: {fileID: 5527601293557727880}
   m_Layer: 8
   m_Name: InteractionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5631096015504702833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -250,6 +236,42 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7497429047129883232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808299240474580510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d306a8579e45bc42a3e16c5ecd23856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPanel: {fileID: 7578102908996246277}
+  isReadyToOpen: 1
+  button: {fileID: 7723677044502548460}
+--- !u!135 &5527601293557727880
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808299240474580510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 100
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7578102908996246277
 GameObject:
   m_ObjectHideFlags: 0

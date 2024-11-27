@@ -17,14 +17,14 @@ public class PlateSpawner : MonoBehaviour
     }
     public void SpawnPlate()
     {
-        if (GetEmptyPlate(out Plate p)) return;
+        if (TryGetEmptyPlate(out Plate p)) return;
 
         Plate plate = Instantiate(platePrefab);
         plate.transform.position = plateSpawnTransform.position;
         plates.Add(plate);
     }
 
-    public bool GetEmptyPlate(out Plate p)
+    public bool TryGetEmptyPlate(out Plate p)
     {
         foreach (var item in plates)
         {

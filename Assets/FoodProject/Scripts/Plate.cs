@@ -6,20 +6,23 @@ public class Plate : MonoBehaviour
 {
     [SerializeField] public FoodSO foodConfig;
     [SerializeField] public Transform TransportPoint;
-    public List<GameObject> Ingridients = new();
+    public List<IngridientItem> ingridientItems;
     public bool isEmpty = true;
 
     public Canvas InteractionCanvas;
-
-    public void IncreaseIngridients(GameObject go)
+    private void Start()
+    {
+        ingridientItems = new();
+    }
+    public void AddToPlate(IngridientItem ii)
     {
         isEmpty = false;
-        Ingridients.Add(go);
+        ingridientItems.Add(ii);
         PrepareItem();
     }
     public void PrepareItem()
     {
-        if (foodConfig.foodIngridients.Length >= Ingridients.Count)
+        if (foodConfig.foodIngridients.Length >= ingridientItems.Count)
         {
             Instantiate(foodConfig.FoodPrefab, transform).transform.position = TransportPoint.position;
             DestroyIngridients();
@@ -27,10 +30,10 @@ public class Plate : MonoBehaviour
     }
     private void DestroyIngridients()
     {
-        foreach (var item in Ingridients)
+        foreach (var item in ingridientItems)
         {
             Destroy(item);
-            Ingridients.Remove(item);
+            ingridientItems.Remove(item);
         }
     }
     private void OnTriggerEnter(Collider other)

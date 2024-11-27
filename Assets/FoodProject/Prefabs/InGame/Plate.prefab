@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodConfig: {fileID: 0}
   TransportPoint: {fileID: 8907518140296558876}
-  Ingridients: []
+  ingridientItems: []
   isEmpty: 1
   InteractionCanvas: {fileID: 113560805423585936}
 --- !u!135 &2576773172017391744
@@ -280,38 +280,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6808299240474580510, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 9162262147541792954}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -325,10 +293,5 @@ Canvas:
 --- !u!224 &8032379988281299925 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5631096015504702833, guid: be7c155e508a895449b734d9672753c1, type: 3}
-  m_PrefabInstance: {fileID: 2404100829225217700}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9162262147541792954 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6808299240474580510, guid: be7c155e508a895449b734d9672753c1, type: 3}
   m_PrefabInstance: {fileID: 2404100829225217700}
   m_PrefabAsset: {fileID: 0}
