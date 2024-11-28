@@ -9,6 +9,7 @@ public class Plate : MonoBehaviour
     [SerializeField] public Transform TransportPoint;
     public List<IngridientItem> ingridientItems;
     public InteractionCanvasManager interactionCanvasManager;
+    public GameObject spawnedFood;
     private void Start()
     {
         ingridientItems = new();
@@ -18,6 +19,7 @@ public class Plate : MonoBehaviour
         ii.StartMovement(TransportPoint.position);
         ingridientItems.Add(ii);
         ii.transform.SetParent(TransportPoint);
+        SetFoodPrefab();
     }
 
     public bool IsPlateHasIngridient(IngridientItem ii)
@@ -30,6 +32,20 @@ public class Plate : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void SetFoodPrefab()
+    {
+        //food quest managera ingridientsları atıp bunlarla yapılan foodSOnun prefabını al.
+        GameObject go = FoodQuestManager.instance.GetFoodPrefab(ingridientItems);
+        if (spawnedFood != null) Destroy(spawnedFood);
+
+        if (go != null)
+        {
+            spawnedFood = Instantiate(go, TransportPoint);
+            spawnedFood.transform.position = TransportPoint.position;
+            ingridientItems.ForEach(item => item.gameObject.SetActive(false));
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -51,6 +52,33 @@ public class FoodQuestManager : MonoBehaviour
         UIItem.SetText(value.FoodName);
         UIItem.foodSO = value;
         foodQuestUIItems.Add(UIItem);
+    }
+    public GameObject GetFoodPrefab(List<IngridientItem> ingridients)
+    {
+        int ingridientCount = ingridients.Count;
+        List<FoodSO> foods = foodList
+            .Where(item => item.foodReciept != null && item.foodReciept.Count == ingridientCount)
+            .ToList();
+
+        foreach (var food in foods)
+        {
+            int matchedIngridient = 0;
+            foreach (var item in food.foodReciept)
+            {
+                foreach (var item2 in ingridients)
+                {
+                    if (item.ID == item2.foodIngridient.ID)
+                    {
+                        matchedIngridient++;
+                    }
+                }
+            }
+            if (matchedIngridient == ingridientCount)
+            {
+                return food.FoodPrefab;
+            }
+        }
+        return null;
     }
     public void FoodDeliver(FoodSO value, bool isSucces)
     {

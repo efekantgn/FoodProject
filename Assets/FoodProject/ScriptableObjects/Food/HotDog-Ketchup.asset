@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
-  m_Name: Sosisli
+  m_Name: HotDog-Ketchup
   m_EditorClassIdentifier: 
-  FoodID: 0
-  FoodName: Sosisli
-  FoodSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  FoodPrefab: {fileID: 4524975119508498484, guid: d6e50c709c115a9429e19b1b9aa3d1b4, type: 3}
+  FoodID: 1
+  FoodName: Hotdog - Ketchup
+  FoodSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  FoodPrefab: {fileID: 4524975119508498484, guid: 531af5207c42fc54097c72e0e0302043, type: 3}
   foodReciept:
   - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
   - {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}
+  - {fileID: 11400000, guid: 5646a626bbee17d4d88efbace76d43ff, type: 2}
