@@ -58,7 +58,6 @@ public class PlayerMovementManager : MonoBehaviour
     {
         //Debug.Log($"Move Ended at: {value}");
         moveInput = value;
-        IsMoving = false;
     }
 
     private void FixedUpdate()
@@ -81,6 +80,7 @@ public class PlayerMovementManager : MonoBehaviour
         }
         rb.velocity = moveDirection.normalized * MovementSpeed;
 
+        if (rb.velocity == Vector3.zero) IsMoving = false;
         // Karakteri hareket ettiği yöne döndür
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * Rotationspeed));

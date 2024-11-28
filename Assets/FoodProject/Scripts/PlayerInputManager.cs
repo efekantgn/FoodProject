@@ -36,7 +36,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void MoveEndHandler(InputAction.CallbackContext context)
     {
-        OnMoveEnd?.Invoke(context.ReadValue<Vector2>());
+        OnMoveEnd?.Invoke(Vector2.zero);
     }
 
 }

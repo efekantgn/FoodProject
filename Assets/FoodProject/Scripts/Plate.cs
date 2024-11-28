@@ -19,7 +19,7 @@ public class Plate : MonoBehaviour
         ii.StartMovement(TransportPoint.position);
         ingridientItems.Add(ii);
         ii.transform.SetParent(TransportPoint);
-        SetFoodPrefab();
+        ii.OnMoveComplete.AddListener(SetFoodPrefab);
     }
 
     public bool IsPlateHasIngridient(IngridientItem ii)
@@ -46,6 +46,7 @@ public class Plate : MonoBehaviour
             spawnedFood.transform.position = TransportPoint.position;
             ingridientItems.ForEach(item => item.gameObject.SetActive(false));
         }
+
     }
     private void OnTriggerEnter(Collider other)
     {
