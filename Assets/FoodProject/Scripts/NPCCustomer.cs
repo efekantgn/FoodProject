@@ -1,36 +1,69 @@
-using JetBrains.Annotations;
+using EfeTimer;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class NPCCustomer : MonoBehaviour
 {
     private FoodSO orderConfig;
-
     private InteractionCanvasManager interactionCanvasManager;
+    private ProgressCanvas progressCanvas;
+    private Timer timer;
+    [SerializeField] private float customerStayTime;
 
     private void Awake()
     {
         interactionCanvasManager = GetComponentInChildren<InteractionCanvasManager>();
+        progressCanvas = GetComponentInChildren<ProgressCanvas>();
+
+        timer = new Timer();
+
+        progressCanvas.GeneralPanel.SetActive(false);
+        progressCanvas.timer = timer;
+
     }
     private void OnEnable()
     {
         interactionCanvasManager.Button.onClick.AddListener(TakeFood);
+        interactionCanvasManager.Button.onClick.AddListener(PickUpEnd);
+
+        //Timer Actions
+        timer.OnTimerComplete += TimerComplete;
+        timer.OnTimerUpdate += progressCanvas.UpdateProgressBar;
     }
+
     private void OnDisable()
     {
         interactionCanvasManager.Button.onClick.RemoveListener(TakeFood);
+        interactionCanvasManager.Button.onClick.RemoveListener(PickUpEnd);
 
+        //Timer Actions
+        timer.OnTimerComplete -= TimerComplete;
+        timer.OnTimerUpdate -= progressCanvas.UpdateProgressBar;
     }
+    private void TimerComplete()
+    {
+        //Destroy Customer.
+        Destroy(gameObject);
+    }
+    public void PickUpEnd()
+    {
+        PickUp.instance.OnCarryEnd?.Invoke();
+    }
+
     private void Start()
     {
         OrderFood();
         interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
-        interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
     }
 
     public void OrderFood()
     {
         orderConfig = FoodQuestManager.instance.RequestFood();
+        timer.StartTimer(customerStayTime);
+        progressCanvas.GeneralPanel.SetActive(true);
+    }
+    private void Update()
+    {
+        timer.Tick(Time.deltaTime);
     }
     public void TakeFood()
     {
@@ -61,5 +94,20 @@ public class NPCCustomer : MonoBehaviour
         FoodQuestManager.instance.OnFoodDeliver?.Invoke(orderConfig, isSucces);
         Destroy(p.gameObject);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            interactionCanvasManager.Button.interactable = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            interactionCanvasManager.Button.interactable = false;
+        }
     }
 }

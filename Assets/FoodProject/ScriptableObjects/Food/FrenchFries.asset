@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
+  m_Name: FrenchFries
+  m_EditorClassIdentifier: 
+  FoodID: 3
+  FoodName: FrenchFries
+  FoodSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  FoodPrefab: {fileID: 4524975119508498484, guid: 8777704fb1d42e54baf7d3d77b45cc6a, type: 3}
+  foodReciept:
+  - {fileID: 11400000, guid: 054e5713e4e8db548982e53a642122e0, type: 2}

@@ -13,11 +13,11 @@ public class InteractionCanvasManager : MonoBehaviour
     public void CanvasSetActive(bool b)
     {
         if (!IsReadyToOpen) return;
-        InteractionPanel.gameObject.SetActive(b);
+        InteractionPanel.SetActive(b);
     }
     public void ForceOpenCloseInteractionCanvas(bool b)
     {
-        InteractionPanel.gameObject.SetActive(b);
+        InteractionPanel.SetActive(b);
     }
 
     private void OnTriggerEnter(Collider other)

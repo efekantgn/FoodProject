@@ -28,7 +28,7 @@ public class FoodIngridientSpawner : MonoBehaviour
 
     public void SpawnFood()
     {
-        IngridientItem RawItem = Instantiate(ingridientConfig.Prefab).GetComponent<IngridientItem>();
+        IngridientItem RawItem = Instantiate(ingridientConfig.Prefab);
         RawItem.transform.parent = null;
         RawItem.transform.position = spawnTransform.position;
         if (RawItem.foodState == FoodState.Raw)

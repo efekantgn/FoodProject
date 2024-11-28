@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1361000375662366506}
   - component: {fileID: 7568972715186710896}
   - component: {fileID: -4479634340428484071}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: WorldSpaceProgresUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progres: {fileID: 905771071221485235}
-  ingridientCooker: {fileID: 0}
+  GeneralPanel: {fileID: 8311373004692375484}
 --- !u!114 &-4479634340428484071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4304002980635042695}
   - component: {fileID: 6109241934635133869}
   - component: {fileID: 905771071221485235}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4284713592539424084}
   - component: {fileID: 6012254154760500410}
   - component: {fileID: 2359905903376966563}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Progres Bar Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
