@@ -1044,7 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739220826}
   m_Layer: 0
-  m_Name: Spawners
+  m_Name: IngridientSpawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3007,7 +3007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.08
+      value: 0.08000004
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3015,15 +3015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6223444317738964558, guid: 7ccdbaa7f2dbcd942b9b157f4c6fc369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3180,9 +3180,9 @@ SceneRoots:
   - {fileID: 333874845}
   - {fileID: 2004995102}
   - {fileID: 144889354665636680}
+  - {fileID: 7880202599134527057}
   - {fileID: 1144240281101523987}
   - {fileID: 4640265402540266097}
-  - {fileID: 7880202599134527057}
   - {fileID: 1917608899}
   - {fileID: 272341483}
   - {fileID: 1935276274}
