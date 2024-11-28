@@ -124,7 +124,6 @@ MonoBehaviour:
   ingridientItem: {fileID: 0}
   cookProgress: {fileID: 5372770862489196546}
   interactionCanvasManager: {fileID: 3578973237119392979}
-  plateSpawner: {fileID: 0}
   CookTime: 1
   ItemPoint: {fileID: 2175636908906745798}
   OnCookStart:
@@ -254,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870873384379953840, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.261
       objectReference: {fileID: 0}
     - target: {fileID: 3870873384379953840, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -278,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3870873384379953840, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.429
+      value: 0.946
       objectReference: {fileID: 0}
     - target: {fileID: 3870873384379953840, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -372,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5631096015504702833, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.277
       objectReference: {fileID: 0}
     - target: {fileID: 5631096015504702833, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -396,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5631096015504702833, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: -0.127
       objectReference: {fileID: 0}
     - target: {fileID: 5631096015504702833, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
