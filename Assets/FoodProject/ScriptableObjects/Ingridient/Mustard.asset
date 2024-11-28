@@ -15,4 +15,4 @@ MonoBehaviour:
   ID: 2
   Name: Mustard
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  Prefab: {fileID: 5474005024490640491, guid: 1d098c0395d8fa945b25d8b81abd8448, type: 3}
+  Prefab: {fileID: 8424583109889456073, guid: 1d098c0395d8fa945b25d8b81abd8448, type: 3}

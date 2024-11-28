@@ -15,4 +15,4 @@ MonoBehaviour:
   ID: 3
   Name: Potato
   Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  Prefab: {fileID: 5474005024490640491, guid: 37b37a5e982ea0f418fb7a8aad736ef1, type: 3}
+  Prefab: {fileID: 8424583109889456073, guid: 37b37a5e982ea0f418fb7a8aad736ef1, type: 3}

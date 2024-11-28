@@ -1808,7 +1808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935276274}
   m_Layer: 0
-  m_Name: Coocker
+  m_Name: Cookers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,6 +2650,18 @@ PrefabInstance:
     - target: {fileID: 1112263547494379485, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174336988444318979, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174336988444318979, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174336988444318979, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.308
       objectReference: {fileID: 0}
     - target: {fileID: 1184882278638116398, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: m_Layer

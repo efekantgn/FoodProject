@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,8 @@ public class PickUp : MonoBehaviour
 {
     public Transform PickUpTransform;
     public Plate plate;
-
+    public Action OnCarryStart;
+    public Action OnCarryEnd;
     public static PickUp instance;
 
     private void Awake()
@@ -19,6 +21,6 @@ public class PickUp : MonoBehaviour
         plate.transform.parent = PickUpTransform;
         plate.transform.position = PickUpTransform.position;
         PlateSpawner.instance.plates.Remove(plate);
-
+        OnCarryStart?.Invoke();
     }
 }

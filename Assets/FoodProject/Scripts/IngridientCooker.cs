@@ -18,7 +18,7 @@ public class IngridientCooker : MonoBehaviour
     private void Awake()
     {
         cookTimer = new();
-        cookProgress.ingridientCooker = this;
+        cookProgress.timer = cookTimer;
         interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
 
     }

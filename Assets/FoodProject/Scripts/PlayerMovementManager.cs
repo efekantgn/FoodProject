@@ -9,9 +9,9 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovementManager : MonoBehaviour
 {
-    private readonly int WalkingState = Animator.StringToHash("Armature|walking");
-    private readonly int IdleState = Animator.StringToHash("Armature|idle");
     private Animator animator;
+    private readonly string Animator_IsWalking = "IsWalking";
+    private readonly string Animator_IsCarry = "IsCarry";
     public float MovementSpeed = 5f;
     public float Rotationspeed = 5f;
     private Rigidbody rb;
@@ -52,6 +52,18 @@ public class PlayerMovementManager : MonoBehaviour
         inputManager.OnMoveEnd.AddListener(MoveEnd);
         OnPlayerMove += PlayerMoveStart;
         OnPlayerStop += PlayerMoveStop;
+        PickUp.instance.OnCarryStart += PickUpStart;
+        PickUp.instance.OnCarryEnd += PickUpEnd;
+    }
+
+    private void PickUpEnd()
+    {
+        animator.SetBool(Animator_IsCarry, false);
+    }
+
+    private void PickUpStart()
+    {
+        animator.SetBool(Animator_IsCarry, true);
     }
 
     private void OnDisable()
@@ -77,13 +89,13 @@ public class PlayerMovementManager : MonoBehaviour
     private void PlayerMoveStart()
     {
         IsMoving = true;
-        animator.Play(WalkingState);
+        animator.SetBool(Animator_IsWalking, true);
         animator.speed = MovementSpeed;
     }
     private void PlayerMoveStop()
     {
         IsMoving = false;
-        animator.Play(IdleState);
+        animator.SetBool(Animator_IsWalking, false);
         animator.speed = animatorStartSpeed;
     }
 
@@ -109,9 +121,9 @@ public class PlayerMovementManager : MonoBehaviour
 
         if (rb.velocity == Vector3.zero)
             OnPlayerStop?.Invoke();
+
         // Karakteri hareket ettiği yöne döndür
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * Rotationspeed));
     }
 }
-

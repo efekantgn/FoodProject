@@ -86,8 +86,6 @@ public class FoodQuestManager : MonoBehaviour
         {
             if (item.foodSO.FoodID == value.FoodID)
             {
-                Debug.Log($"item: {item.foodSO.FoodID} - value:{value.FoodID}");
-
                 foodQuestUIItems.Remove(item);
                 Destroy(item.gameObject);
                 break;

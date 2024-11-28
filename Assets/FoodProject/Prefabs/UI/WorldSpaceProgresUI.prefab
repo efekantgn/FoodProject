@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progres: {fileID: 905771071221485235}
-  ingridientCooker: {fileID: 0}
+  GeneralPanel: {fileID: 8311373004692375484}
 --- !u!114 &-4479634340428484071
 MonoBehaviour:
   m_ObjectHideFlags: 0
