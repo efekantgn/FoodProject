@@ -20,6 +20,7 @@ public class PickUp : MonoBehaviour
     {
         plate.transform.parent = PickUpTransform;
         plate.transform.position = PickUpTransform.position;
+        plate.transform.rotation = PickUpTransform.rotation;
         PlateSpawner.instance.plates.Remove(plate);
         OnCarryStart?.Invoke();
     }
