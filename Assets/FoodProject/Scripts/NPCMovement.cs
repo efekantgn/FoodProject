@@ -7,7 +7,7 @@ public class NPCMovement : MonoBehaviour
     private NavMeshAgent agent;
     public Action OnStartMoving;
     public Action OnReachedTarget;
-    private Chair targetChair;
+    public Chair targetChair;
 
 
     private void Awake()
