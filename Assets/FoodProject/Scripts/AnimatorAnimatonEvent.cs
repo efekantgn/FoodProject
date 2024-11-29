@@ -11,5 +11,6 @@ public class AnimatorAnimatonEvent : MonoBehaviour
     public void AnimationEvent()
     {
         charModelSelector.OnPlayerStandUp?.Invoke();
+        Debug.Log("a");
     }
 }

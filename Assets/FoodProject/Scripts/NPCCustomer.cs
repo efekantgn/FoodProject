@@ -47,7 +47,8 @@ public class NPCCustomer : MonoBehaviour
     private void TimerComplete()
     {
         //Destroy Customer.
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        charModel.OnPlayerStandUp?.Invoke();
     }
     public void PickUpEnd()
     {
