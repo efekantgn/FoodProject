@@ -5,14 +5,17 @@ public class NPCCustomer : MonoBehaviour
 {
     private FoodSO orderConfig;
     private InteractionCanvasManager interactionCanvasManager;
+    private NPCMovement movement;
     private ProgressCanvas progressCanvas;
     private Timer timer;
     [SerializeField] private float customerStayTime;
+
 
     private void Awake()
     {
         interactionCanvasManager = GetComponentInChildren<InteractionCanvasManager>();
         progressCanvas = GetComponentInChildren<ProgressCanvas>();
+        movement = GetComponentInChildren<NPCMovement>();
 
         timer = new Timer();
 
@@ -51,15 +54,20 @@ public class NPCCustomer : MonoBehaviour
 
     private void Start()
     {
-        OrderFood();
-        interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
+        if (movement.TrySetTarget(ChairManager.instance.GetAvailableChair()))
+        {
+            movement.OnReachedTarget += OrderFood;
+        }
     }
+
 
     public void OrderFood()
     {
         orderConfig = FoodQuestManager.instance.RequestFood();
         timer.StartTimer(customerStayTime);
         progressCanvas.GeneralPanel.SetActive(true);
+        interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
+        movement.OnReachedTarget -= OrderFood;
     }
     private void Update()
     {
