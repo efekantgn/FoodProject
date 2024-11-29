@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7550921965149565764}
   m_Layer: 9
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: -8653058624252974601}
   m_Layer: 9
   m_Name: NPCCustomer
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab454d4c2921238448d27509a9693332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetChair: {fileID: 0}
 --- !u!54 &6837455278928944430
 Rigidbody:
   m_ObjectHideFlags: 0
