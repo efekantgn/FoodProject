@@ -44,10 +44,19 @@ public class IngridientCooker : MonoBehaviour
     {
         cookTimer.StartTimer(CookTime);
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.Sprite);
+        ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
     }
+
+    private void SetIsReadyToOpen()
+    {
+        Debug.Log("a");
+        interactionCanvasManager.IsReadyToOpen = false;
+    }
+
     private void CookTimeStart()
     {
         OnCookStart?.Invoke();
+
     }
     private void CookTimeComplete()
     {
@@ -59,7 +68,8 @@ public class IngridientCooker : MonoBehaviour
     }
     public void SetTarget()
     {
-        ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
+
+
         OnCookComplete.RemoveListener(ingridientItem.CookItem);
         if (PlateSpawner.instance.plates.Count > 0)
         {
@@ -68,6 +78,8 @@ public class IngridientCooker : MonoBehaviour
                 if (!p.IsPlateHasIngridient(ingridientItem))
                 {
                     p.AddToPlate(ingridientItem);
+                    ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
+                    ingridientItem.OnMoveStart.RemoveListener(SetIsReadyToOpen);
                     break;
                 }
                 else
