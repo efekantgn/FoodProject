@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdf67eaca1ff8c4db5661383847ef9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerStayTime: 50
+  customerStayTime: 10
 --- !u!114 &6578867460623939419
 MonoBehaviour:
   m_ObjectHideFlags: 0

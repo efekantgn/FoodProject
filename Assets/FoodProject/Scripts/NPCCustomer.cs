@@ -1,3 +1,4 @@
+using System;
 using EfeTimer;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class NPCCustomer : MonoBehaviour
     private Timer timer;
     [SerializeField] private float customerStayTime;
     private CharModelSelector charModel;
+    private bool isYelled = false;
 
 
     private void Awake()
@@ -33,6 +35,16 @@ public class NPCCustomer : MonoBehaviour
         //Timer Actions
         timer.OnTimerComplete += TimerComplete;
         timer.OnTimerUpdate += progressCanvas.UpdateProgressBar;
+        timer.OnTimerUpdate += TimerUpdate;
+    }
+
+    private void TimerUpdate(float value)
+    {
+        if (!isYelled && value < timer.Duration / 2)
+        {
+            charModel.YellTimer();
+            isYelled = true;
+        }
     }
 
     private void OnDisable()
@@ -48,7 +60,8 @@ public class NPCCustomer : MonoBehaviour
     {
         //Destroy Customer.
         //Destroy(gameObject);
-        charModel.OnPlayerStandUp?.Invoke();
+        charModel.TriggerWin(false);
+
     }
     public void PickUpEnd()
     {

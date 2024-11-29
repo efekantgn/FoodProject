@@ -7,11 +7,9 @@ using UnityEngine;
 public class CharModelSelector : MonoBehaviour
 {
     private readonly string isWalkingBool = "isWalking";
-    private readonly string isSittingBool = "isSitting";
     private readonly string YellTrigger = "Yell";
     private readonly string LoseTrigger = "Lose";
     private readonly string WinTrigger = "Win";
-    private readonly string StandUpTrigger = "StandUp";
     private readonly string SitDownTrigger = "SitDown";
 
     [SerializeField] private GameObject[] models;
@@ -50,13 +48,16 @@ public class CharModelSelector : MonoBehaviour
     {
         animator.SetBool(isWalkingBool, true);
     }
+    public void YellTimer()
+    {
+        animator.SetTrigger(YellTrigger);
+    }
 
     private void OnDisable()
     {
         movement.OnStartMoving -= MoveStart;
         movement.OnReachedTarget -= ReachedTarget;
         OnPlayerStandUp -= PlayerStandUp;
-
     }
 
     public void EnableRandomModel()
