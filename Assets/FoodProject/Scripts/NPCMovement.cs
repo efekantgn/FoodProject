@@ -19,6 +19,7 @@ public class NPCMovement : MonoBehaviour
     {
         OnStartMoving += MovementStart;
         OnReachedTarget += TargetReached;
+
     }
     private void OnDisable()
     {
@@ -47,6 +48,12 @@ public class NPCMovement : MonoBehaviour
         agent.SetDestination(chair.TargetTransform.position);
         OnStartMoving?.Invoke();
         return true;
+    }
+
+    public void Exit()
+    {
+        agent.SetDestination(GameObject.FindWithTag("Exit").transform.position);
+        OnStartMoving?.Invoke();
     }
 
     private void Update()

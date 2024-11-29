@@ -9,6 +9,7 @@ public class NPCCustomer : MonoBehaviour
     private ProgressCanvas progressCanvas;
     private Timer timer;
     [SerializeField] private float customerStayTime;
+    private CharModelSelector charModel;
 
 
     private void Awake()
@@ -16,6 +17,7 @@ public class NPCCustomer : MonoBehaviour
         interactionCanvasManager = GetComponentInChildren<InteractionCanvasManager>();
         progressCanvas = GetComponentInChildren<ProgressCanvas>();
         movement = GetComponentInChildren<NPCMovement>();
+        charModel = GetComponentInChildren<CharModelSelector>();
 
         timer = new Timer();
 
@@ -60,7 +62,6 @@ public class NPCCustomer : MonoBehaviour
         }
     }
 
-
     public void OrderFood()
     {
         orderConfig = FoodQuestManager.instance.RequestFood();
@@ -98,10 +99,13 @@ public class NPCCustomer : MonoBehaviour
         {
             Debug.Log("Win");
             isSucces = true;
+
         }
+        charModel.TriggerWin(isSucces);
         FoodQuestManager.instance.OnFoodDeliver?.Invoke(orderConfig, isSucces);
+
         Destroy(p.gameObject);
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -119,3 +123,4 @@ public class NPCCustomer : MonoBehaviour
         }
     }
 }
+
