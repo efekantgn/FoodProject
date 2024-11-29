@@ -5,7 +5,8 @@ public class FoodIngridientSO : ScriptableObject
 {
     public int ID;
     public string Name;
-    public Sprite Sprite;
+    public Sprite RawSprite;
+    public Sprite CookedSprite;
     public IngridientItem Prefab;
 
 }

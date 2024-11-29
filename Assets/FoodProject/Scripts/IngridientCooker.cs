@@ -43,13 +43,12 @@ public class IngridientCooker : MonoBehaviour
     public void StartCooking()
     {
         cookTimer.StartTimer(CookTime);
-        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.Sprite);
+        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.RawSprite);
         ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
     }
 
     private void SetIsReadyToOpen()
     {
-        Debug.Log("a");
         interactionCanvasManager.IsReadyToOpen = false;
     }
 
@@ -61,6 +60,7 @@ public class IngridientCooker : MonoBehaviour
     private void CookTimeComplete()
     {
         OnCookComplete?.Invoke();
+        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.CookedSprite);
     }
     private void Update()
     {

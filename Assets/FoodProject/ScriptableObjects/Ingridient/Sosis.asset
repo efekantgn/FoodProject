@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 4
   Name: Sosis
-  Sprite: {fileID: 21300000, guid: c47360037d4f3684aab02e0b22810ad0, type: 3}
+  RawSprite: {fileID: 21300000, guid: c47360037d4f3684aab02e0b22810ad0, type: 3}
+  CookedSprite: {fileID: 21300000, guid: 718b7a45954a5fc438a882078bd4e674, type: 3}
   Prefab: {fileID: 8424583109889456073, guid: 2abd814a4112c3048a29ae34716e7dd1, type: 3}

@@ -13,7 +13,7 @@ public class FoodIngridientSpawner : MonoBehaviour
     private void Awake()
     {
         interactionCanvasManager.CanvasSetActive(false);
-        interactionCanvasManager.SetIcon(ingridientConfig.Sprite);
+        interactionCanvasManager.SetIcon(ingridientConfig.RawSprite);
 
     }
     private void OnEnable()

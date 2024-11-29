@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   Name: Bread
-  Sprite: {fileID: 21300000, guid: ef1ffeb62cf57bc459e01de880a1c891, type: 3}
+  RawSprite: {fileID: 21300000, guid: ef1ffeb62cf57bc459e01de880a1c891, type: 3}
+  CookedSprite: {fileID: 0}
   Prefab: {fileID: 8424583109889456073, guid: ce3087abfb3d71c4cb4626393bf68c9d, type: 3}
