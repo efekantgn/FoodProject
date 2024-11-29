@@ -3,46 +3,46 @@ using EfeTimer;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IngridientCooker : MonoBehaviour
+public class IngridientProcessor : MonoBehaviour
 {
     [HideInInspector] public IngridientItem ingridientItem;
-    [SerializeField] private ProgressCanvas cookProgress;
+    [SerializeField] private ProgressCanvas processProgress;
     [SerializeField] private InteractionCanvasManager interactionCanvasManager;
 
-    private Timer cookTimer;
-    public float CookTime = 0f;
+    private Timer processTimer;
+    public float ProcessTime = 0f;
     public Transform ItemPoint;
     public UnityEvent OnCookStart;
     public UnityEvent OnCookComplete;
 
     private void Awake()
     {
-        cookTimer = new();
-        cookProgress.timer = cookTimer;
-        cookProgress.CanvasSetActive(false);
+        processTimer = new();
+        processProgress.timer = processTimer;
+        processProgress.CanvasSetActive(false);
         interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
     }
 
     private void OnEnable()
     {
-        cookTimer.OnTimerStart += CookTimeStart;
-        cookTimer.OnTimerComplete += CookTimeComplete;
-        cookTimer.OnTimerUpdate += cookProgress.UpdateProgressBar;
+        processTimer.OnTimerStart += ProcessTimeStart;
+        processTimer.OnTimerComplete += ProcessTimeComplete;
+        processTimer.OnTimerUpdate += processProgress.UpdateProgressBar;
 
         interactionCanvasManager.Button.onClick.AddListener(SetTarget);
     }
 
     private void OnDisable()
     {
-        cookTimer.OnTimerStart -= CookTimeStart;
-        cookTimer.OnTimerComplete -= CookTimeComplete;
-        cookTimer.OnTimerUpdate -= cookProgress.UpdateProgressBar;
+        processTimer.OnTimerStart -= ProcessTimeStart;
+        processTimer.OnTimerComplete -= ProcessTimeComplete;
+        processTimer.OnTimerUpdate -= processProgress.UpdateProgressBar;
 
         interactionCanvasManager.Button.onClick.RemoveListener(SetTarget);
     }
-    public void StartCooking()
+    public void StartProcessing()
     {
-        cookTimer.StartTimer(CookTime);
+        processTimer.StartTimer(ProcessTime);
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.RawSprite);
         ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
     }
@@ -52,21 +52,21 @@ public class IngridientCooker : MonoBehaviour
         interactionCanvasManager.IsReadyToOpen = false;
     }
 
-    private void CookTimeStart()
+    private void ProcessTimeStart()
     {
         OnCookStart?.Invoke();
-        cookProgress.CanvasSetActive(true);
+        processProgress.CanvasSetActive(true);
     }
-    private void CookTimeComplete()
+    private void ProcessTimeComplete()
     {
         OnCookComplete?.Invoke();
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.CookedSprite);
-        cookProgress.CanvasSetActive(false);
+        processProgress.CanvasSetActive(false);
         interactionCanvasManager.IsReadyToOpen = true;
     }
     private void Update()
     {
-        cookTimer.Tick(Time.deltaTime);
+        processTimer.Tick(Time.deltaTime);
     }
     public void SetTarget()
     {
@@ -78,7 +78,7 @@ public class IngridientCooker : MonoBehaviour
                 if (!p.IsPlateHasIngridient(ingridientItem))
                 {
                     p.AddToPlate(ingridientItem);
-                    ingridientItem.OnMoveComplete.RemoveListener(StartCooking);
+                    ingridientItem.OnMoveComplete.RemoveListener(StartProcessing);
                     ingridientItem.OnMoveStart.RemoveListener(SetIsReadyToOpen);
                     break;
                 }

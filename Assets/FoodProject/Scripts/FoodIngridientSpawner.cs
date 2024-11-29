@@ -8,7 +8,7 @@ public class FoodIngridientSpawner : MonoBehaviour
     public InteractionCanvasManager interactionCanvasManager;
     public FoodIngridientSO ingridientConfig;
     public Transform spawnTransform;
-    public IngridientCooker cooker;
+    public IngridientProcessor cooker;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class FoodIngridientSpawner : MonoBehaviour
         RawItem.transform.position = spawnTransform.position;
         if (RawItem.foodState == FoodState.Raw)
         {
-            RawItem.OnMoveComplete.AddListener(cooker.StartCooking);
+            RawItem.OnMoveComplete.AddListener(cooker.StartProcessing);
             cooker.ingridientItem = RawItem;
             cooker.OnCookComplete.AddListener(RawItem.CookItem);
             RawItem.StartMovement(cooker.ItemPoint.position);

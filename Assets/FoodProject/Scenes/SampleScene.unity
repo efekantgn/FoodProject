@@ -2513,9 +2513,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeWendingMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 757112592771983050, guid: cff09234110b90741a1e0c43781331d6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3889820406121169758, guid: cff09234110b90741a1e0c43781331d6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5600467152560476312, guid: cff09234110b90741a1e0c43781331d6, type: 3}
       propertyPath: m_Layer
@@ -2618,9 +2622,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5781444509603660155, guid: bdae2dd3273ec2943adb05af1212e41c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7409153242416881089, guid: bdae2dd3273ec2943adb05af1212e41c, type: 3}
       propertyPath: m_Name
       value: Fryer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016820542541800687, guid: bdae2dd3273ec2943adb05af1212e41c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3098,17 +3110,9 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4000318208393040395, guid: 473bbe191262be946a52345440f0ce54, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832648400855612676, guid: 473bbe191262be946a52345440f0ce54, type: 3}
-      propertyPath: OnCookStart.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832648400855612676, guid: 473bbe191262be946a52345440f0ce54, type: 3}
-      propertyPath: OnCookComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+    - target: {fileID: 661953741631714497, guid: 473bbe191262be946a52345440f0ce54, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.425
       objectReference: {fileID: 0}
     - target: {fileID: 8985834206648031399, guid: 473bbe191262be946a52345440f0ce54, type: 3}
       propertyPath: m_LocalPosition.x

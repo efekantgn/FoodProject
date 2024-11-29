@@ -48,52 +48,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingridientItem: {fileID: 0}
-  cookProgress: {fileID: 5372770862489196546}
+  processProgress: {fileID: 5372770862489196546}
   interactionCanvasManager: {fileID: 3578973237119392979}
-  CookTime: 1
+  ProcessTime: 5
   ItemPoint: {fileID: 2175636908906745798}
   OnCookStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2923350447872648456}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   OnCookComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2923350447872648456}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3578973237119392979}
-        m_TargetAssemblyTypeName: InteractionCanvasManager, Assembly-CSharp
-        m_MethodName: set_IsReadyToOpen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7004006136315522890
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,17 +195,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3870873384379953840, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
   m_PrefabInstance: {fileID: 2559608330329731442}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2923350447872648456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 798365878721877114, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
-  m_PrefabInstance: {fileID: 2559608330329731442}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5372770862489196546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7568972715186710896, guid: 8f40fa916acbd3047bc82cd62467062d, type: 3}
   m_PrefabInstance: {fileID: 2559608330329731442}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923350447872648456}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5062438399c25a4c9cf6e2aae57a24a, type: 3}
