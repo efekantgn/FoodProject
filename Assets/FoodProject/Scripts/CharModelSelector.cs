@@ -41,7 +41,7 @@ public class CharModelSelector : MonoBehaviour
     private void ReachedTarget()
     {
         animator.SetTrigger(SitDownTrigger);
-        movement.transform.LookAt(movement.targetChair.transform.position, Vector3.up);
+        movement.transform.LookAt(movement.targetChair.transform.parent, Vector3.up);
         animator.SetBool(isWalkingBool, false);
     }
 
