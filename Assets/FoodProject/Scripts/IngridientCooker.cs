@@ -19,8 +19,8 @@ public class IngridientCooker : MonoBehaviour
     {
         cookTimer = new();
         cookProgress.timer = cookTimer;
+        cookProgress.CanvasSetActive(false);
         interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
-
     }
 
     private void OnEnable()
@@ -55,12 +55,14 @@ public class IngridientCooker : MonoBehaviour
     private void CookTimeStart()
     {
         OnCookStart?.Invoke();
-
+        cookProgress.CanvasSetActive(true);
     }
     private void CookTimeComplete()
     {
         OnCookComplete?.Invoke();
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.CookedSprite);
+        cookProgress.CanvasSetActive(false);
+        interactionCanvasManager.IsReadyToOpen = true;
     }
     private void Update()
     {
@@ -68,8 +70,6 @@ public class IngridientCooker : MonoBehaviour
     }
     public void SetTarget()
     {
-
-
         OnCookComplete.RemoveListener(ingridientItem.CookItem);
         if (PlateSpawner.instance.plates.Count > 0)
         {

@@ -3094,6 +3094,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cooker
       objectReference: {fileID: 0}
+    - target: {fileID: 646647938919331743, guid: 473bbe191262be946a52345440f0ce54, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000318208393040395, guid: 473bbe191262be946a52345440f0ce54, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832648400855612676, guid: 473bbe191262be946a52345440f0ce54, type: 3}
+      propertyPath: OnCookStart.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832648400855612676, guid: 473bbe191262be946a52345440f0ce54, type: 3}
+      propertyPath: OnCookComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8985834206648031399, guid: 473bbe191262be946a52345440f0ce54, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

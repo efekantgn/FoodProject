@@ -13,4 +13,8 @@ public class ProgressCanvas : MonoBehaviour
     {
         progres.fillAmount = value / timer.Duration;
     }
+    public void CanvasSetActive(bool b)
+    {
+        GeneralPanel.SetActive(b);
+    }
 }
