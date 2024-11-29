@@ -21,9 +21,11 @@ public class ChairManager : MonoBehaviour
         {
             if (!chair.IsOccupied)
             {
+                Debug.Log($"{chair.name} selected");
                 return chair;
             }
         }
+        Debug.Log($"null");
 
         return null; // Boş sandalye bulunamadı
     }

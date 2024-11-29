@@ -4,10 +4,27 @@ using System;
 
 public class NPCMovement : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
     public Action OnStartMoving;
     public Action OnReachedTarget;
     private Chair targetChair;
+
+
+    private void Awake()
+    {
+        agent = GetComponentInChildren<NavMeshAgent>();
+    }
+
+    private void OnEnable()
+    {
+        OnStartMoving += MovementStart;
+        OnReachedTarget += TargetReached;
+    }
+    private void OnDisable()
+    {
+        OnStartMoving -= MovementStart;
+        OnReachedTarget -= TargetReached;
+    }
 
     /// <summary>
     /// NPC'yi hedef sandalyeye yönlendir.
@@ -43,16 +60,7 @@ public class NPCMovement : MonoBehaviour
             }
         }
     }
-    private void OnEnable()
-    {
-        OnStartMoving += MovementStart;
-        OnReachedTarget += TargetReached;
-    }
-    private void OnDisable()
-    {
-        OnStartMoving -= MovementStart;
-        OnReachedTarget -= TargetReached;
-    }
+
     public void MovementStart()
     {
         Debug.Log("MovementStart");
