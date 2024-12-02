@@ -24,4 +24,10 @@ public class PickUp : MonoBehaviour
         PlateSpawner.instance.plates.Remove(plate);
         OnCarryStart?.Invoke();
     }
+    public void RemovePlate()
+    {
+        Destroy(plate.gameObject);
+        plate = null;
+        OnCarryEnd?.Invoke();
+    }
 }

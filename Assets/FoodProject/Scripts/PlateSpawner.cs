@@ -20,6 +20,14 @@ public class PlateSpawner : MonoBehaviour
     {
         interactionCanvasManager.CanvasSetActive(false);
     }
+    private void OnEnable()
+    {
+        interactionCanvasManager.Button.onClick.AddListener(SpawnPlate);
+    }
+    private void OnDisable()
+    {
+        interactionCanvasManager.Button.onClick.RemoveListener(SpawnPlate);
+    }
     public void SpawnPlate()
     {
         if (plates.Count > 0) return;

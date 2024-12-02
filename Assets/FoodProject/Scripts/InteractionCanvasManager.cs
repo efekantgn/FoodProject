@@ -34,4 +34,9 @@ public class InteractionCanvasManager : MonoBehaviour
     {
         Image.sprite = sprite;
     }
+    private void LateUpdate()
+    {
+        InteractionPanel.transform.forward = -Camera.main.transform.forward;
+        InteractionPanel.transform.right = Camera.main.transform.right;
+    }
 }

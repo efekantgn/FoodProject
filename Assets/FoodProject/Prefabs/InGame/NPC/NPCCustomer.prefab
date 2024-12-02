@@ -114,6 +114,7 @@ Transform:
   m_Children:
   - {fileID: 3944598962632812728}
   - {fileID: 3242083928347024192}
+  - {fileID: 3005209208489751124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6383372265110696951
@@ -128,7 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdf67eaca1ff8c4db5661383847ef9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerStayTime: 10
+  customerStayTimeInSecond: 90
+  Money: {fileID: 2151735566730504916}
 --- !u!114 &6578867460623939419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,52 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &6205009824036518885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3005209208489751124}
+  - component: {fileID: 2151735566730504916}
+  m_Layer: 9
+  m_Name: Money
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3005209208489751124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205009824036518885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2424912607775741538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2151735566730504916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205009824036518885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678be69b5d4d04e4a8f11afb9d48e731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DollarPrefab: {fileID: 7894660075828032557, guid: 660a36d995602094ca0f0b6a81bb9d37, type: 3}
+  CoinPrefab: {fileID: 7139834988394478021, guid: f757d369704dc964faec6247139d693b, type: 3}
 --- !u!1 &6784095640868307695
 GameObject:
   m_ObjectHideFlags: 0

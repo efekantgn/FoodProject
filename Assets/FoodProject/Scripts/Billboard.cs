@@ -13,9 +13,9 @@ public class Billboard : MonoBehaviour
         }
 
     }
-    private void LateUpdate()
-    {
-        transform.forward = targetCamera.forward;
-        transform.right = targetCamera.right;
-    }
+    // private void LateUpdate()
+    // {
+    //     transform.forward = -targetCamera.forward;
+    //     transform.up = -targetCamera.up;
+    // }
 }

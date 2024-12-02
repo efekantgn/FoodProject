@@ -8,9 +8,11 @@ public class NPCCustomer : MonoBehaviour
     private InteractionCanvasManager interactionCanvasManager;
     private NPCMovement movement;
     public Timer timer;
-    [SerializeField] private float customerStayTime;
+    private float remainingTime = 0;
+    [SerializeField] private float customerStayTimeInSecond;
     private CharModelSelector charModel;
     private bool isYelled = false;
+    public Money Money;
 
 
     private void Awake()
@@ -30,11 +32,13 @@ public class NPCCustomer : MonoBehaviour
         //Timer Actions
         timer.OnTimerComplete += TimerComplete;
         timer.OnTimerUpdate += TimerUpdate;
+
     }
 
 
     private void TimerUpdate(float value)
     {
+        remainingTime = value;
         if (!isYelled && value < timer.Duration / 2)
         {
             charModel.YellTimer();
@@ -76,7 +80,7 @@ public class NPCCustomer : MonoBehaviour
     {
         interactionCanvasManager.gameObject.SetActive(true);
         orderConfig = FoodQuestManager.instance.RequestFood();
-        timer.StartTimer(customerStayTime);
+        timer.StartTimer(customerStayTimeInSecond);
         interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
         movement.OnReachedTarget -= OrderFood;
     }
@@ -109,6 +113,8 @@ public class NPCCustomer : MonoBehaviour
         {
             Debug.Log("Win");
             isSucces = true;
+
+            Money.SpawnMoneys(remainingTime);
 
         }
         charModel.TriggerWin(isSucces);

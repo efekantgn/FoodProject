@@ -46,4 +46,9 @@ public class NPCEmotionSystem : MonoBehaviour
         customer.timer.OnTimerUpdate -= OnTimeChanged;
 
     }
+    private void LateUpdate()
+    {
+        NPCState.transform.forward = -Camera.main.transform.forward;
+        NPCState.transform.right = Camera.main.transform.right;
+    }
 }
