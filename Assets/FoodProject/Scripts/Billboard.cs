@@ -11,13 +11,7 @@ public class Billboard : MonoBehaviour
         {
             targetCamera = Camera.main.transform;
         }
-    }
-
-    void LateUpdate()
-    {
-        // UI'nin hedef kameraya bakmasını sağla
-        Vector3 direction = targetCamera.position - transform.position;
-        //direction.y = 0; // Eğer sadece yatay düzlemde bakmasını istiyorsan bu satırı ekle
-        transform.rotation = Quaternion.LookRotation(-direction);
+        transform.forward = targetCamera.forward;
+        transform.right = targetCamera.right;
     }
 }
