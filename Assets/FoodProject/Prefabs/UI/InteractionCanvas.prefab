@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 6494608888064200746}
   - component: {fileID: 7497429047129883232}
   - component: {fileID: 5527601293557727880}
-  - component: {fileID: 1298930066262831909}
   m_Layer: 8
   m_Name: InteractionCanvas
   m_TagString: Untagged
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6494608888064200746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,19 +273,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1298930066262831909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6808299240474580510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 518a8ad202ac0d84d9faf6cb4577a398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCamera: {fileID: 0}
 --- !u!1 &7578102908996246277
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +305,7 @@ RectTransform:
   m_Children:
   - {fileID: 3156829500365572145}
   m_Father: {fileID: 5631096015504702833}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 50}

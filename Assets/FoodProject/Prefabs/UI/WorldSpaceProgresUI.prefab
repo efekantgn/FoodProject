@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3778233535665517038}
   - component: {fileID: 1361000375662366506}
   - component: {fileID: 7568972715186710896}
-  - component: {fileID: -4479634340428484071}
   m_Layer: 8
   m_Name: WorldSpaceProgresUI
   m_TagString: Untagged
@@ -118,19 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progres: {fileID: 905771071221485235}
   GeneralPanel: {fileID: 8311373004692375484}
---- !u!114 &-4479634340428484071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798365878721877114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 518a8ad202ac0d84d9faf6cb4577a398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCamera: {fileID: 0}
 --- !u!1 &6911328993708207673
 GameObject:
   m_ObjectHideFlags: 0

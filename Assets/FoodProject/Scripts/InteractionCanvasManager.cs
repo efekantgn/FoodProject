@@ -37,6 +37,8 @@ public class InteractionCanvasManager : MonoBehaviour
     private void LateUpdate()
     {
         //InteractionPanel.transform.forward = -Camera.main.transform.forward;
-        InteractionPanel.transform.LookAt(Camera.main.transform);
+        InteractionPanel.transform.LookAt(Camera.main.transform.position * -1);
+        InteractionPanel.transform.right = Camera.main.transform.right;
+
     }
 }
