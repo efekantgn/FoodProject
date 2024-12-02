@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9216630928210100372}
   - component: {fileID: 7612583761947334383}
   - component: {fileID: 1618877889448352166}
+  - component: {fileID: 1373523603551493266}
   m_Layer: 0
   m_Name: Traffic_Lamp
   m_TagString: Untagged
@@ -83,3 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1373523603551493266
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688150622984934703}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.43222892
+  m_Height: 2.2408822
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1158355, z: 0.06770031}
