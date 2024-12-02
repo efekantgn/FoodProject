@@ -16,6 +16,7 @@ namespace EfeTimer
         public event Action OnTimerStart;
         public event Action<float> OnTimerUpdate; // Geriye kalan süre
         public event Action OnTimerComplete;
+        public event Action OnTimerReset;
 
         /// <summary>
         /// Timer'ı başlatır.
@@ -50,8 +51,9 @@ namespace EfeTimer
         /// </summary>
         public void ResetTimer()
         {
-            isRunning = false;
+            PauseTimer();
             elapsedTime = 0f;
+            OnTimerReset?.Invoke();
         }
 
         /// <summary>

@@ -19,7 +19,6 @@ public class ProgressCanvas : MonoBehaviour
     }
     private void LateUpdate()
     {
-        GeneralPanel.transform.forward = -Camera.main.transform.forward;
-        GeneralPanel.transform.right = Camera.main.transform.right;
+        GeneralPanel.transform.LookAt(Camera.main.transform);
     }
 }

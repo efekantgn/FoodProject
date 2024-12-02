@@ -7,7 +7,7 @@ public class Money : MonoBehaviour
     public MoneyEntity CoinPrefab;
 
 
-    public void SpawnMoneys(float value)
+    public void SpawnMoneys(float value, Transform spawnTransform)
     {
         int CurrentMoney = (int)value;
         Debug.Log(CurrentMoney);
@@ -16,11 +16,11 @@ public class Money : MonoBehaviour
 
         for (int i = 0; i < DollarCount; i++)
         {
-            Instantiate(DollarPrefab);
+            Instantiate(DollarPrefab).transform.position = spawnTransform.position;
         }
         for (int i = 0; i < CoinCount; i++)
         {
-            Instantiate(CoinPrefab);
+            Instantiate(CoinPrefab).transform.position = spawnTransform.position;
         }
     }
 }

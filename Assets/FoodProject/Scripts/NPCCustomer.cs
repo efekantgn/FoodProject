@@ -32,9 +32,14 @@ public class NPCCustomer : MonoBehaviour
         //Timer Actions
         timer.OnTimerComplete += TimerComplete;
         timer.OnTimerUpdate += TimerUpdate;
+        timer.OnTimerReset += TimerReset;
 
     }
 
+    private void TimerReset()
+    {
+        interactionCanvasManager.gameObject.SetActive(false);
+    }
 
     private void TimerUpdate(float value)
     {
@@ -53,13 +58,16 @@ public class NPCCustomer : MonoBehaviour
 
         //Timer Actions
         timer.OnTimerComplete -= TimerComplete;
+        timer.OnTimerReset -= TimerReset;
+        timer.OnTimerUpdate -= TimerUpdate;
+
+
     }
     private void TimerComplete()
     {
         //Destroy Customer.
         //Destroy(gameObject);
         charModel.TriggerWin(false);
-
     }
     public void PickUpEnd()
     {
@@ -73,7 +81,6 @@ public class NPCCustomer : MonoBehaviour
             movement.OnReachedTarget += OrderFood;
         }
         interactionCanvasManager.gameObject.SetActive(false);
-
     }
 
     public void OrderFood()
@@ -84,10 +91,12 @@ public class NPCCustomer : MonoBehaviour
         interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
         movement.OnReachedTarget -= OrderFood;
     }
+
     private void Update()
     {
         timer.Tick(Time.deltaTime);
     }
+
     public void TakeFood()
     {
         Plate p = PickUp.instance.plate;
@@ -114,14 +123,14 @@ public class NPCCustomer : MonoBehaviour
             Debug.Log("Win");
             isSucces = true;
 
-            Money.SpawnMoneys(remainingTime);
+            Money.SpawnMoneys(remainingTime, transform);
 
         }
         charModel.TriggerWin(isSucces);
+        timer.ResetTimer();
         FoodQuestManager.instance.OnFoodDeliver?.Invoke(orderConfig, isSucces);
 
         Destroy(p.gameObject);
-        // Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
