@@ -14,6 +14,7 @@ public class IngridientProcessor : MonoBehaviour
     public Transform ItemPoint;
     public UnityEvent OnCookStart;
     public UnityEvent OnCookComplete;
+    public bool isBusy = false;
 
     private void Awake()
     {
@@ -80,6 +81,7 @@ public class IngridientProcessor : MonoBehaviour
                     p.AddToPlate(ingridientItem);
                     ingridientItem.OnMoveComplete.RemoveListener(StartProcessing);
                     ingridientItem.OnMoveStart.RemoveListener(SetIsReadyToOpen);
+                    isBusy = false;
                     break;
                 }
                 else

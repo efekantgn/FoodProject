@@ -19,7 +19,6 @@ public class FoodIngridientSpawner : MonoBehaviour
     private void OnEnable()
     {
         interactionCanvasManager.Button.onClick.AddListener(SpawnFood);
-
     }
     private void OnDisable()
     {
@@ -33,6 +32,8 @@ public class FoodIngridientSpawner : MonoBehaviour
         RawItem.transform.position = spawnTransform.position;
         if (RawItem.foodState == FoodState.Raw)
         {
+            if (cooker.isBusy) return;
+
             RawItem.OnMoveComplete.AddListener(cooker.StartProcessing);
             cooker.ingridientItem = RawItem;
             cooker.OnCookComplete.AddListener(RawItem.CookItem);
@@ -61,8 +62,5 @@ public class FoodIngridientSpawner : MonoBehaviour
                 Debug.Log("NoPlate exist");
             }
         }
-
-
     }
-
 }
