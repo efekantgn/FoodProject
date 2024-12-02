@@ -32,8 +32,11 @@ public class FoodIngridientSpawner : MonoBehaviour
         RawItem.transform.position = spawnTransform.position;
         if (RawItem.foodState == FoodState.Raw)
         {
-            if (cooker.isBusy) return;
-
+            if (cooker.isBusy)
+            {
+                Warning.instance.GiveWarning("Processor is busy.");
+                return;
+            }
             RawItem.OnMoveComplete.AddListener(cooker.StartProcessing);
             cooker.ingridientItem = RawItem;
             cooker.OnCookComplete.AddListener(RawItem.CookItem);
@@ -53,13 +56,13 @@ public class FoodIngridientSpawner : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Need another Plate");
+                        Warning.instance.GiveWarning("Need another Plate");
                     }
                 }
             }
             else
             {
-                Debug.Log("NoPlate exist");
+                Warning.instance.GiveWarning("No Plate exist");
             }
         }
     }

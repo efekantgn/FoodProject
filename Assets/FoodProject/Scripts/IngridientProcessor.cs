@@ -43,6 +43,7 @@ public class IngridientProcessor : MonoBehaviour
     }
     public void StartProcessing()
     {
+        isBusy = true;
         processTimer.StartTimer(ProcessTime);
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.RawSprite);
         ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
@@ -86,13 +87,14 @@ public class IngridientProcessor : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Need another Plate");
+                    Warning.instance.GiveWarning("Need another Plate");
+
                 }
             }
         }
         else
         {
-            Debug.Log("NoPlate exist");
+            Warning.instance.GiveWarning("No Plate exist");
         }
     }
 }
