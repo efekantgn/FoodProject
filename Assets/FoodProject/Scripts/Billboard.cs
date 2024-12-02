@@ -11,6 +11,10 @@ public class Billboard : MonoBehaviour
         {
             targetCamera = Camera.main.transform;
         }
+
+    }
+    private void LateUpdate()
+    {
         transform.forward = targetCamera.forward;
         transform.right = targetCamera.right;
     }

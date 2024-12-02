@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Plate : MonoBehaviour
 {
-    [SerializeField] public Transform TransportPoint;
+    public Transform TransportPoint;
     public List<IngridientItem> ingridientItems;
     public InteractionCanvasManager interactionCanvasManager;
     public GameObject spawnedFood;
+    public Image FoodImage;
     private void Start()
     {
         ingridientItems = new();
@@ -34,13 +36,15 @@ public class Plate : MonoBehaviour
     public void SetFoodPrefab()
     {
         //food quest managera ingridientsları atıp bunlarla yapılan foodSOnun prefabını al.
-        GameObject go = FoodQuestManager.instance.GetFoodPrefab(ingridientItems);
         if (spawnedFood != null) Destroy(spawnedFood);
+        FoodSO foodSO = FoodQuestManager.instance.GetFoodPrefab(ingridientItems);
 
-        if (go != null)
+        if (foodSO != null)
         {
-            spawnedFood = Instantiate(go, TransportPoint);
+            spawnedFood = Instantiate(foodSO.FoodPrefab, TransportPoint);
             spawnedFood.transform.position = TransportPoint.position;
+            FoodImage.enabled = true;
+            FoodImage.sprite = foodSO.FoodSprite;
             ingridientItems.ForEach(item => item.gameObject.SetActive(false));
         }
 

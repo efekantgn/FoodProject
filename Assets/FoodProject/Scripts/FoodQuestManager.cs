@@ -50,7 +50,7 @@ public class FoodQuestManager : MonoBehaviour
     {
         Instantiate(foodQuestUIItemPrefab, QuestSpawnPanel);
     }
-    public GameObject GetFoodPrefab(List<IngridientItem> ingridients)
+    public FoodSO GetFoodPrefab(List<IngridientItem> ingridients)
     {
         int ingridientCount = ingridients.Count;
         List<FoodSO> foods = foodList
@@ -72,7 +72,7 @@ public class FoodQuestManager : MonoBehaviour
             }
             if (matchedIngridient == ingridientCount)
             {
-                return food.FoodPrefab;
+                return food;
             }
         }
         return null;

@@ -7,8 +7,7 @@ public class NPCCustomer : MonoBehaviour
     private FoodSO orderConfig;
     private InteractionCanvasManager interactionCanvasManager;
     private NPCMovement movement;
-    private ProgressCanvas progressCanvas;
-    private Timer timer;
+    public Timer timer;
     [SerializeField] private float customerStayTime;
     private CharModelSelector charModel;
     private bool isYelled = false;
@@ -17,14 +16,10 @@ public class NPCCustomer : MonoBehaviour
     private void Awake()
     {
         interactionCanvasManager = GetComponentInChildren<InteractionCanvasManager>();
-        progressCanvas = GetComponentInChildren<ProgressCanvas>();
         movement = GetComponentInChildren<NPCMovement>();
         charModel = GetComponentInChildren<CharModelSelector>();
 
         timer = new Timer();
-
-        progressCanvas.GeneralPanel.SetActive(false);
-        progressCanvas.timer = timer;
 
     }
     private void OnEnable()
@@ -34,9 +29,9 @@ public class NPCCustomer : MonoBehaviour
 
         //Timer Actions
         timer.OnTimerComplete += TimerComplete;
-        timer.OnTimerUpdate += progressCanvas.UpdateProgressBar;
         timer.OnTimerUpdate += TimerUpdate;
     }
+
 
     private void TimerUpdate(float value)
     {
@@ -54,7 +49,6 @@ public class NPCCustomer : MonoBehaviour
 
         //Timer Actions
         timer.OnTimerComplete -= TimerComplete;
-        timer.OnTimerUpdate -= progressCanvas.UpdateProgressBar;
     }
     private void TimerComplete()
     {
@@ -74,13 +68,15 @@ public class NPCCustomer : MonoBehaviour
         {
             movement.OnReachedTarget += OrderFood;
         }
+        interactionCanvasManager.gameObject.SetActive(false);
+
     }
 
     public void OrderFood()
     {
+        interactionCanvasManager.gameObject.SetActive(true);
         orderConfig = FoodQuestManager.instance.RequestFood();
         timer.StartTimer(customerStayTime);
-        progressCanvas.GeneralPanel.SetActive(true);
         interactionCanvasManager.SetIcon(orderConfig.FoodSprite);
         movement.OnReachedTarget -= OrderFood;
     }
@@ -137,4 +133,3 @@ public class NPCCustomer : MonoBehaviour
         }
     }
 }
-
