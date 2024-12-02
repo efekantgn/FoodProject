@@ -10,7 +10,7 @@ public class FoodQuestManager : MonoBehaviour
     public List<FoodSO> foodList;
     public FoodQuestUIItem foodQuestUIItemPrefab;
     public Transform QuestSpawnPanel;
-    private List<FoodQuestUIItem> foodQuestUIItems;
+    public List<FoodQuestUIItem> foodQuestUIItems;
     public Action<FoodSO> OnFoodRequest;
     public Action<FoodSO, bool> OnFoodDeliver;
 
@@ -48,10 +48,7 @@ public class FoodQuestManager : MonoBehaviour
 
     public void SpawnFoodQuest(FoodSO value)
     {
-        FoodQuestUIItem UIItem = Instantiate(foodQuestUIItemPrefab, QuestSpawnPanel);
-        UIItem.SetText(value.FoodName);
-        UIItem.foodSO = value;
-        foodQuestUIItems.Add(UIItem);
+        Instantiate(foodQuestUIItemPrefab, QuestSpawnPanel);
     }
     public GameObject GetFoodPrefab(List<IngridientItem> ingridients)
     {
