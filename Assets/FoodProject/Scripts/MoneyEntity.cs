@@ -71,7 +71,7 @@ public class MoneyEntity : MonoBehaviour
             PlayerCurrency pc = other.transform.parent.GetComponentInChildren<PlayerCurrency>();
             if (pc != null)
             {
-                pc.MoneyAmount += Amount;
+                pc.CurrentMoney += Amount;
             }
             Destroy(gameObject);
         }

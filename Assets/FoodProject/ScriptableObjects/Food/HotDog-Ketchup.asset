@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodID: 1
   FoodName: Hotdog - Ketchup
-  FoodSprite: {fileID: 21300000, guid: 2cfe580fd8df3aa4faffa0964241b31b, type: 3}
+  FoodSprite: {fileID: 21300000, guid: ece8eeed224a1584cab9aa28f57af43b, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 531af5207c42fc54097c72e0e0302043, type: 3}
   foodReciept:
   - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}

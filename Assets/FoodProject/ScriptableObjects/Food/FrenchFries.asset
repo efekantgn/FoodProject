@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoodID: 3
   FoodName: FrenchFries
-  FoodSprite: {fileID: 21300000, guid: 8291839461b0d714c9e4a8eb0f61be68, type: 3}
+  FoodSprite: {fileID: 21300000, guid: e021c2fdab2ec0345b95b53dfd2215d7, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 8777704fb1d42e54baf7d3d77b45cc6a, type: 3}
   foodReciept:
   - {fileID: 11400000, guid: 054e5713e4e8db548982e53a642122e0, type: 2}
