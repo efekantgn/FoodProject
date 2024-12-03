@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   Name: Potato
-  RawSprite: {fileID: 21300000, guid: ca0580dbfb9432147a53b6af2b16d256, type: 3}
-  CookedSprite: {fileID: 21300000, guid: 8291839461b0d714c9e4a8eb0f61be68, type: 3}
+  RawSprite: {fileID: 21300000, guid: 4e1884d220f0c4240b2cab76afabc9ca, type: 3}
+  CookedSprite: {fileID: 21300000, guid: e021c2fdab2ec0345b95b53dfd2215d7, type: 3}
   Prefab: {fileID: 8424583109889456073, guid: 37b37a5e982ea0f418fb7a8aad736ef1, type: 3}
