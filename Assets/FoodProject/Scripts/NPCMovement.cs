@@ -8,6 +8,9 @@ public class NPCMovement : MonoBehaviour
     public Action OnStartMoving;
     public Action OnReachedTarget;
     public Chair targetChair;
+    public Action OnPlayerStandUp;
+    private bool hasReachedToTarget = false;
+
 
 
     private void Awake()
@@ -17,14 +20,18 @@ public class NPCMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        OnStartMoving += MovementStart;
-        OnReachedTarget += TargetReached;
-
+        OnPlayerStandUp += CustomerLeavesChair;
     }
+
+    private void CustomerLeavesChair()
+    {
+        targetChair.Vacate();
+        targetChair = null;
+    }
+
     private void OnDisable()
     {
-        OnStartMoving -= MovementStart;
-        OnReachedTarget -= TargetReached;
+        OnPlayerStandUp += CustomerLeavesChair;
     }
 
     /// <summary>
@@ -53,27 +60,19 @@ public class NPCMovement : MonoBehaviour
     public void Exit()
     {
         agent.SetDestination(GameObject.FindWithTag("Exit").transform.position);
+        hasReachedToTarget = false;
         OnStartMoving?.Invoke();
     }
 
     private void Update()
     {
-        if (targetChair != null && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (!hasReachedToTarget && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 OnReachedTarget?.Invoke();
-                targetChair = null;
+                hasReachedToTarget = true;
             }
         }
-    }
-
-    public void MovementStart()
-    {
-        Debug.Log("MovementStart");
-    }
-    public void TargetReached()
-    {
-        Debug.Log("TargetReached");
     }
 }

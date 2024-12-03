@@ -18,7 +18,6 @@ public class CharModelSelector : MonoBehaviour
 
     public NPCMovement movement;
 
-    public Action OnPlayerStandUp;
 
     private void Awake()
     {
@@ -29,7 +28,7 @@ public class CharModelSelector : MonoBehaviour
     {
         movement.OnStartMoving += MoveStart;
         movement.OnReachedTarget += ReachedTarget;
-        OnPlayerStandUp += PlayerStandUp;
+        movement.OnPlayerStandUp += PlayerStandUp;
     }
 
     private void PlayerStandUp()
@@ -58,7 +57,7 @@ public class CharModelSelector : MonoBehaviour
     {
         movement.OnStartMoving -= MoveStart;
         movement.OnReachedTarget -= ReachedTarget;
-        OnPlayerStandUp -= PlayerStandUp;
+        movement.OnPlayerStandUp -= PlayerStandUp;
     }
 
     public void EnableRandomModel()
