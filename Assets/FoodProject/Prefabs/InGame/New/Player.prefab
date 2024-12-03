@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174336988444318979}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CarryTransform
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -214,6 +214,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8458186612012082734}
     m_Modifications:
+    - target: {fileID: 2205543996577210399, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3788ed29c5c9e4549bad84d7a00f0891, type: 2}
     - target: {fileID: 5116254561225897351, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -254,6 +258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5276588916525118138, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6184309182963679756, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
       propertyPath: m_Name
       value: Main_Character1
@@ -261,6 +269,10 @@ PrefabInstance:
     - target: {fileID: 6184309182963679756, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184309182963679756, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6623241777480285917, guid: 59df75aa2726b914f9de29e57951166c, type: 3}
       propertyPath: m_Controller
