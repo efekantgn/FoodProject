@@ -1413,7 +1413,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 3a3b90151920d1b418974ef3901084cd, type: 3}
     - target: {fileID: 4090750798997888304, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Color.a
-      value: 0.64705884
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5527601293557727880, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Radius
