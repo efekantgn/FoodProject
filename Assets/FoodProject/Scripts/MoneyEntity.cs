@@ -41,23 +41,27 @@ public class MoneyEntity : MonoBehaviour
         Vector3 targetPosition = initialPosition + randomOffset;
 
         // Yukarı doğru hareket ve geri dönüş animasyonu
-        transform.DOMoveY(initialPosition.y + upwardDistance, animationDuration / 2)
-            .SetEase(Ease.OutQuad) // Yukarı çıkarken yavaşlayarak hareket et
+        transform.DOMoveY(initialPosition.y + upwardDistance, animationDuration / 3)
+            .SetEase(Ease.OutBack) // Yukarı çıkarken mutluluk hissi veren esnek bir hareket
             .OnComplete(() =>
             {
-                transform.DOMoveY(initialPosition.y, animationDuration / 2)
-                    .SetEase(Ease.InQuad)
+                // X-Z eksenindeki saçılma hareketi
+                transform.DOMove(targetPosition, animationDuration)
+                    .SetEase(Ease.OutQuad) // Daha kavisli bir dağılım
+                    .OnStart(() =>
+                    {
+                        // Objeye hafif bir döndürme animasyonu ekle
+                        transform.DORotate(new Vector3(0, 360, 0), animationDuration, RotateMode.FastBeyond360)
+                            .SetEase(Ease.Linear); // Sürekli dönen hareket
+                    })
                     .OnComplete(() =>
                     {
-                        // X-Z eksenindeki saçılma hareketi
-                        transform.DOMoveX(targetPosition.x, animationDuration).SetEase(Ease.OutCirc);
-                        transform.DOMoveZ(targetPosition.z, animationDuration).SetEase(Ease.OutCirc);
-
                         // Animasyon tamamlandığında onComplete Action'ını tetikle
                         OnAnimatonComplete?.Invoke();
                     });
             });
     }
+
 
 
     private void OnTriggerEnter(Collider other)
