@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7711121090602638244}
   - component: {fileID: 7894660075828032557}
   - component: {fileID: 1332294708012077738}
+  - component: {fileID: 6207282557679981530}
   m_Layer: 0
   m_Name: DolarEntity
   m_TagString: Untagged
@@ -71,6 +72,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6207282557679981530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753784223802293856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5369fddefb60a84b89438df759d42b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyUI: {fileID: 0}
+  duration: 1
+  easeType: 7
 --- !u!1001 &7519006240467580030
 PrefabInstance:
   m_ObjectHideFlags: 0

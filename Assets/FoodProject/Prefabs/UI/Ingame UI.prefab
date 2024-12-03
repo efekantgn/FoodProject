@@ -828,4 +828,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbceea551758ea84eb545f8baa89b656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 1153724119139140693}
   moneyText: {fileID: 6757056603810276660}

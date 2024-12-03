@@ -1,10 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoneyUI : MonoBehaviour
 {
     PlayerCurrency playerCurrency;
+    public Image Icon;
 
     [SerializeField] TextMeshProUGUI moneyText;
 

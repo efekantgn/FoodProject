@@ -13,10 +13,14 @@ public class MoneyEntity : MonoBehaviour
     private Vector3 initialPosition;
     private Action OnAnimatonComplete;
     private SphereCollider col;
+    private MoneyCollectEffect collectEffect;
+    private PlayerCurrency playerCurrency;
 
     private void Awake()
     {
         col = GetComponentInChildren<SphereCollider>();
+        collectEffect = GetComponentInChildren<MoneyCollectEffect>();
+        playerCurrency = FindObjectOfType<PlayerCurrency>();
     }
     private void Start()
     {
@@ -25,6 +29,11 @@ public class MoneyEntity : MonoBehaviour
     private void OnEnable()
     {
         OnAnimatonComplete += () => col.enabled = true;
+        collectEffect.OnMoveComplete += IncreaseMoney;
+    }
+    private void OnDisable()
+    {
+        collectEffect.OnMoveComplete -= IncreaseMoney;
     }
     private void Animation()
     {
@@ -68,12 +77,17 @@ public class MoneyEntity : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerCurrency pc = other.transform.parent.GetComponentInChildren<PlayerCurrency>();
-            if (pc != null)
-            {
-                pc.CurrentMoney += Amount;
-            }
-            Destroy(gameObject);
+            collectEffect.MoveToTarget();
+            //IncreaseMoney(other.transform.parent.GetComponentInChildren<PlayerCurrency>());
         }
+    }
+
+    private void IncreaseMoney()
+    {
+        if (playerCurrency != null)
+        {
+            playerCurrency.CurrentMoney += Amount;
+        }
+        Destroy(gameObject);
     }
 }

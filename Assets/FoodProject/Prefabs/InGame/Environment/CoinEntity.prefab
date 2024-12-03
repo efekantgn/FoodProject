@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7277491762772856245}
   - component: {fileID: 7139834988394478021}
   - component: {fileID: 8936579220374381731}
+  - component: {fileID: 5571893451698858433}
   m_Layer: 0
   m_Name: CoinEntity
   m_TagString: Untagged
@@ -71,6 +72,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5571893451698858433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7361519523310991295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5369fddefb60a84b89438df759d42b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyUI: {fileID: 0}
+  duration: 1
+  easeType: 7
 --- !u!1001 &4418514688852284953
 PrefabInstance:
   m_ObjectHideFlags: 0
