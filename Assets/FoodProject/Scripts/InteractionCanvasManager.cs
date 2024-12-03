@@ -25,6 +25,12 @@ public class InteractionCanvasManager : MonoBehaviour
         if (other.CompareTag("Player"))
             CanvasSetActive(true);
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            if (!InteractionPanel.activeSelf)
+                CanvasSetActive(true);
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -36,9 +42,7 @@ public class InteractionCanvasManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        //InteractionPanel.transform.forward = -Camera.main.transform.forward;
         InteractionPanel.transform.LookAt(Camera.main.transform.position * -1);
         InteractionPanel.transform.right = Camera.main.transform.right;
-
     }
 }
