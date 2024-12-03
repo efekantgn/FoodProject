@@ -40,6 +40,7 @@ public class CharModelSelector : MonoBehaviour
     private void ReachedTarget()
     {
         animator.SetTrigger(SitDownTrigger);
+        //TODO: Boş Sandalye yoksa null hatası veriyor.
         movement.transform.LookAt(movement.targetChair.transform.parent, Vector3.up);
         animator.SetBool(isWalkingBool, false);
     }
