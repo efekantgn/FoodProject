@@ -115,9 +115,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077e4568d92de8e409a0b70aaaefcb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodList: []
+  foodList:
+  - {fileID: 11400000, guid: 1e74b4b8182640a48a857437ebfe7084, type: 2}
+  - {fileID: 11400000, guid: e44cb987c69adb948b88900484985157, type: 2}
+  - {fileID: 11400000, guid: 999da2fbf483639448b10ae45abbb42d, type: 2}
+  - {fileID: 11400000, guid: 557ff214d6d8e3f4bbf0fec79626e1d9, type: 2}
+  - {fileID: 11400000, guid: 578a2be30f0760b44ae745d4415dca08, type: 2}
   foodQuestUIItemPrefab: {fileID: 5497772021830751396, guid: e27a1e994c7c7b844841b5ddee139f87, type: 3}
   QuestSpawnPanel: {fileID: 7627115052616757091}
+  foodQuestUIItems: []
+  onDeliverSucces:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeliverFail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8605300677568385490
 GameObject:
   m_ObjectHideFlags: 0

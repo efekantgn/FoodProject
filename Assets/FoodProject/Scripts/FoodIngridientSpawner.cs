@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class FoodIngridientSpawner : MonoBehaviour
@@ -9,6 +10,7 @@ public class FoodIngridientSpawner : MonoBehaviour
     public FoodIngridientSO ingridientConfig;
     public Transform spawnTransform;
     public IngridientProcessor cooker;
+    public UnityEvent OnIngridientSpawn;
 
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class FoodIngridientSpawner : MonoBehaviour
                     if (!p.IsPlateHasIngridient(RawItem))
                     {
                         p.AddToPlate(RawItem);
+                        OnIngridientSpawn?.Invoke();
                         break;
                     }
                     else
