@@ -9,6 +9,11 @@ public class Chair : MonoBehaviour
     public Action OnChairOccupy;
     public Action OnChairVacate;
 
+    private void Start()
+    {
+        ChairManager.instance.chairs.Add(this);
+    }
+
     public void Occupy()
     {
         IsOccupied = true;

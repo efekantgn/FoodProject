@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ChairManager : MonoBehaviour
 {
-    public Chair[] chairs;
+    public List<Chair> chairs;
 
     public static ChairManager instance;
 
