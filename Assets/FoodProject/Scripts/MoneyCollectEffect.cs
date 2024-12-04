@@ -2,35 +2,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using UnityEditor.Rendering;
 
 public class MoneyCollectEffect : MonoBehaviour
 {
-    public MoneyUI moneyUI; // Hedef UI ikonu (RectTransform)
-    public float duration = 1.0f; // Hareket süresi
-    public Ease easeType = Ease.InOutQuad; // Hareket eğrisi
-    private Camera mainCamera;
     public Action OnMoveComplete;
+    public float moveSpeed = 5f; // Objeyi hedefe taşırkenki hız
+    private bool isMovingToCanvas = false;
+    Transform Player;
 
-    private void Start()
-    {
-        // Ana kamerayı bul
-        mainCamera = Camera.main;
-    }
     private void Awake()
     {
-        moneyUI = FindObjectOfType<MoneyUI>();
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
     public void MoveToTarget()
     {
-        Vector3 targetScreenPosition = moneyUI.Icon.rectTransform.position;
-        // UI ikonu dünya uzayında bir pozisyona çevir
-        Vector3 targetWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(targetScreenPosition.x, targetScreenPosition.y, mainCamera.nearClipPlane));
-        targetWorldPosition.z = transform.position.z; // Z pozisyonunu sabit tut
+        isMovingToCanvas = true;
+    }
+    private void Update()
+    {
+        if (!isMovingToCanvas) return;
 
-        // GameObject'i UI ikonuna doğru taşı
-        transform.DOMove(targetWorldPosition, duration)
-                 .SetEase(easeType)
-                 .OnComplete(() => OnMoveComplete?.Invoke());
+        transform.position = Vector3.MoveTowards(transform.position, Player.position, moveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, Player.position) < 0.1f)
+        {
+            OnMoveComplete?.Invoke();
+            Destroy(gameObject);
+        }
+
     }
 }

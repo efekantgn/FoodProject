@@ -7,12 +7,14 @@ public class MoneyUI : MonoBehaviour
 {
     PlayerCurrency playerCurrency;
     public Image Icon;
+    public Canvas canvas;
 
     [SerializeField] TextMeshProUGUI moneyText;
 
     private void Awake()
     {
         playerCurrency = FindObjectOfType<PlayerCurrency>();
+        canvas = GetComponentInParent<Canvas>();
     }
 
     private void OnEnable()

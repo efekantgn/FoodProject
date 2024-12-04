@@ -28,12 +28,13 @@ public class MoneyEntity : MonoBehaviour
     }
     private void OnEnable()
     {
-        OnAnimatonComplete += () => col.enabled = true;
+        OnAnimatonComplete += collectEffect.MoveToTarget;
         collectEffect.OnMoveComplete += IncreaseMoney;
     }
     private void OnDisable()
     {
         collectEffect.OnMoveComplete -= IncreaseMoney;
+        OnAnimatonComplete -= collectEffect.MoveToTarget;
     }
     private void Animation()
     {
@@ -71,16 +72,6 @@ public class MoneyEntity : MonoBehaviour
             });
     }
 
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            collectEffect.MoveToTarget();
-            //IncreaseMoney(other.transform.parent.GetComponentInChildren<PlayerCurrency>());
-        }
-    }
 
     private void IncreaseMoney()
     {
