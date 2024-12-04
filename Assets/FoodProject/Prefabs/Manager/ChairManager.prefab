@@ -44,6 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0451ce97448aa744ba2ad43815b85310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairs:
-  - {fileID: 0}
-  - {fileID: 0}
+  chairs: []

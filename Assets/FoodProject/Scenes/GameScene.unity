@@ -4262,7 +4262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077be4094a9f3ce4da8c6eadcd658d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelConfig: {fileID: 11400000, guid: 7fe8d1771ef86f743b1322d9e8784f1a, type: 2}
+  LevelConfig: {fileID: 11400000, guid: 2a060f22df42bb64097f02f987a0d412, type: 2}
 --- !u!1001 &1118841339
 PrefabInstance:
   m_ObjectHideFlags: 0
