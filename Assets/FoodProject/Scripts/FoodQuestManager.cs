@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class FoodQuestManager : MonoBehaviour
 {
     public static FoodQuestManager instance;
-    public List<FoodSO> foodList;
+    public List<FoodSO> ReciptList;
     public FoodQuestUIItem foodQuestUIItemPrefab;
     public Transform QuestSpawnPanel;
     public List<FoodQuestUIItem> foodQuestUIItems;
@@ -37,7 +37,7 @@ public class FoodQuestManager : MonoBehaviour
     }
     public FoodSO SelectRandomFood()
     {
-        return foodList[UnityEngine.Random.Range(0, foodList.Count)];
+        return ReciptList[UnityEngine.Random.Range(0, ReciptList.Count)];
     }
     public FoodSO RequestFood()
     {
@@ -53,7 +53,7 @@ public class FoodQuestManager : MonoBehaviour
     public FoodSO GetFoodPrefab(List<IngridientItem> ingridients)
     {
         int ingridientCount = ingridients.Count;
-        List<FoodSO> foods = foodList
+        List<FoodSO> foods = ReciptList
             .Where(item => item.foodReciept != null && item.foodReciept.Count == ingridientCount)
             .ToList();
 

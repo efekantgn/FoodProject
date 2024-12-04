@@ -7,4 +7,5 @@ public class LevelConfigSO : ScriptableObject
     public int CustomerCount;
     public int TableCount;
     public int TargetMoneyAmount;
+    public FoodSO[] LevelRecipts;
 }

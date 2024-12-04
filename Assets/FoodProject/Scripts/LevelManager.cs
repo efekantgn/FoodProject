@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -31,6 +32,7 @@ public class LevelManager : MonoBehaviour
     {
         customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
         tableSpawner.SpawnTables(LevelConfig.TableCount);
+        FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
     }
 
     private void CheckTarget(int value)
