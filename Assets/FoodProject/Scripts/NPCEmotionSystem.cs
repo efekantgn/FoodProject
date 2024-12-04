@@ -47,6 +47,6 @@ public class NPCEmotionSystem : MonoBehaviour
     }
     private void LateUpdate()
     {
-        NPCState.transform.forward = -Camera.main.transform.forward;
+        NPCState.transform.forward = Camera.main.transform.forward;
     }
 }

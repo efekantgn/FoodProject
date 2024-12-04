@@ -9608,6 +9608,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5369988462008285547, guid: 5c98a3d02687d2142bb7c627a6fd18d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6545758855070146817, guid: 5c98a3d02687d2142bb7c627a6fd18d4, type: 3}
       propertyPath: cooker
       value: 
