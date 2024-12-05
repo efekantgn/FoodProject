@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612bb804c6ab67f4ea98841bebc68fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodIngridient: {fileID: 11400000, guid: 5646a626bbee17d4d88efbace76d43ff, type: 2}
+  foodIngridientConfig: {fileID: 11400000, guid: de5274c0c71049a49bb1c216b3f24b52, type: 2}
   Raw: {fileID: 0}
   Cooked: {fileID: 0}
   foodState: 2

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
   m_Name: HotDog
   m_EditorClassIdentifier: 
-  FoodID: 0
+  iD: 44d15374-d8b1-470b-a383-754f9a4e3824
   FoodName: Hotdog
   FoodSprite: {fileID: 21300000, guid: 8b41568c867ed9645ab4018ed57f7fd5, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: d6e50c709c115a9429e19b1b9aa3d1b4, type: 3}
   foodReciept:
-  - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
-  - {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}
+  - {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
+  - {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}

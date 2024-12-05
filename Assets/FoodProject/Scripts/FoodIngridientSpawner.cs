@@ -16,7 +16,6 @@ public class FoodIngridientSpawner : MonoBehaviour
     {
         interactionCanvasManager.CanvasSetActive(false);
         interactionCanvasManager.SetIcon(ingridientConfig.RawSprite);
-
     }
     private void OnEnable()
     {
@@ -41,7 +40,7 @@ public class FoodIngridientSpawner : MonoBehaviour
             }
             RawItem.OnMoveComplete.AddListener(cooker.StartProcessing);
             cooker.ingridientItem = RawItem;
-            cooker.OnCookComplete.AddListener(RawItem.CookItem);
+            cooker.OnCookComplete += RawItem.ProcessItem;
             RawItem.StartMovement(cooker.ItemPoint.position);
         }
         if (RawItem.foodState == FoodState.ReadyToUse || RawItem.foodState == FoodState.Cooked)

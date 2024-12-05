@@ -8,7 +8,7 @@ public enum FoodState
 }
 public class IngridientItem : MonoBehaviour
 {
-    public FoodIngridientSO foodIngridient;
+    public FoodIngridientSO foodIngridientConfig;
 
     public GameObject Raw;
     public GameObject Cooked;
@@ -60,7 +60,7 @@ public class IngridientItem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void CookItem()
+    public void ProcessItem()
     {
         Raw.SetActive(false);
         Cooked.SetActive(true);

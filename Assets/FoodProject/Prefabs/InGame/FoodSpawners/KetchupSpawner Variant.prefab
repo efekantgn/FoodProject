@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 3896302832685836940, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: ingridientConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 5646a626bbee17d4d88efbace76d43ff, type: 2}
+      objectReference: {fileID: 11400000, guid: de5274c0c71049a49bb1c216b3f24b52, type: 2}
     - target: {fileID: 3896302832685836940, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: OnIngridientSpawn.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3896302832685836940, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: OnIngridientSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 3896302832685836940, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: OnIngridientSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

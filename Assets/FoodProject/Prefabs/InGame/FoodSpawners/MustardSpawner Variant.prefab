@@ -144,14 +144,14 @@ PrefabInstance:
     - target: {fileID: 4170337189942252466, guid: 2d144d1aa63f85b409ea605122fb20e1, type: 3}
       propertyPath: ingridientConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 3cfacd9ef33f044439938e4024dd1605, type: 2}
+      objectReference: {fileID: 11400000, guid: 3d2d2b4be560c984581bbf6c1d07857d, type: 2}
     - target: {fileID: 4170337189942252466, guid: 2d144d1aa63f85b409ea605122fb20e1, type: 3}
       propertyPath: OnIngridientSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4277985516154101990}
     - target: {fileID: 4170337189942252466, guid: 2d144d1aa63f85b409ea605122fb20e1, type: 3}
       propertyPath: OnIngridientSpawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 6940381376170750416, guid: 2d144d1aa63f85b409ea605122fb20e1, type: 3}
       propertyPath: m_Name

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
   m_Name: HotDog-Ketchup
   m_EditorClassIdentifier: 
-  FoodID: 1
+  iD: 0f74e946-a5d4-4648-ae80-06d1140913b1
   FoodName: Hotdog - Ketchup
   FoodSprite: {fileID: 21300000, guid: ece8eeed224a1584cab9aa28f57af43b, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 531af5207c42fc54097c72e0e0302043, type: 3}
   foodReciept:
-  - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
-  - {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}
-  - {fileID: 11400000, guid: 5646a626bbee17d4d88efbace76d43ff, type: 2}
+  - {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
+  - {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}
+  - {fileID: 11400000, guid: de5274c0c71049a49bb1c216b3f24b52, type: 2}

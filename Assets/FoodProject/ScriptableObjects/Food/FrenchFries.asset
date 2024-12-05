@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
   m_Name: FrenchFries
   m_EditorClassIdentifier: 
-  FoodID: 3
+  iD: 7ddf376e-67a7-4187-b8fa-a5b86acbceaa
   FoodName: FrenchFries
   FoodSprite: {fileID: 21300000, guid: e021c2fdab2ec0345b95b53dfd2215d7, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 8777704fb1d42e54baf7d3d77b45cc6a, type: 3}
   foodReciept:
-  - {fileID: 11400000, guid: 054e5713e4e8db548982e53a642122e0, type: 2}
+  - {fileID: 11400000, guid: 34985a683268e2d4e81b93c8ad816f7e, type: 2}
