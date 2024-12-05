@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public enum FoodState
 {
-    Raw, Cooked, ReadyToUse
+    Raw, Cooked, ReadyToUse, Burned
 }
 public class IngridientItem : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class IngridientItem : MonoBehaviour
 
     public GameObject Raw;
     public GameObject Cooked;
+    public GameObject Burned;
     public FoodState foodState = FoodState.Raw;
 
 

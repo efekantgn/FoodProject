@@ -70,7 +70,7 @@ public class IngridientProcessor : MonoBehaviour
             interactionCanvasManager.IsReadyToOpen = true;
         }
     }
-    private void Update()
+    protected virtual void Update()
     {
         processTimer.Tick(Time.deltaTime);
     }
