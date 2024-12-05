@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2214063090887595740, guid: 2b63be0d0086b334092254a6c1da55b0, type: 3}
       propertyPath: ingridientConfig
       value: 
-      objectReference: {fileID: 11400000, guid: acdb8c0841b49f947b38a6b9e93f5a7d, type: 2}
+      objectReference: {fileID: 11400000, guid: 4f192101594bd094a8dc7613f8e04bd2, type: 2}
     - target: {fileID: 5118584130691904702, guid: 2b63be0d0086b334092254a6c1da55b0, type: 3}
       propertyPath: m_Name
       value: CupSpawner Variant

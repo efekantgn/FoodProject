@@ -4094,6 +4094,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8082715923678731321, guid: 601056d07f7c4664b80ef509d53de812, type: 3}
   m_PrefabInstance: {fileID: 7823301383055538565}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100047625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4347519190286438473, guid: bdae2dd3273ec2943adb05af1212e41c, type: 3}
+  m_PrefabInstance: {fileID: 1576844184995280900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71deaea5d4533b41a5fbb66348cd613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1104354125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6224265448978156493, guid: 56910885813e54045bddab39e9b421f1, type: 3}
@@ -5252,6 +5263,7 @@ Transform:
   - {fileID: 144889354665636681}
   - {fileID: 1913675699}
   - {fileID: 7880202599134527058}
+  - {fileID: 1956582068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401724777
@@ -7392,6 +7404,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9136835667910658546, guid: cff09234110b90741a1e0c43781331d6, type: 3}
   m_PrefabInstance: {fileID: 1498101586352352543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877030001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7222568742368392280, guid: cff09234110b90741a1e0c43781331d6, type: 3}
+  m_PrefabInstance: {fileID: 1498101586352352543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c19b36a6f9c2a1479a96bfb88b42b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878388925
 GameObject:
   m_ObjectHideFlags: 0
@@ -7775,6 +7798,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1956582067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956582068}
+  - component: {fileID: 1956582069}
+  m_Layer: 0
+  m_Name: DebugManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1956582068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956582067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1398398302}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956582069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956582067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a740e3d31e15ca4b9576265d43b1f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodUpgradeTiers:
+  - {fileID: 11400000, guid: 054998f74491cb34b80362e64920914e, type: 2}
+  - {fileID: 11400000, guid: fa8c207cdea894745b3916999c0b57b7, type: 2}
+  foods:
+  - {fileID: 11400000, guid: 578a2be30f0760b44ae745d4415dca08, type: 2}
+  - {fileID: 11400000, guid: 557ff214d6d8e3f4bbf0fec79626e1d9, type: 2}
+  - {fileID: 11400000, guid: e44cb987c69adb948b88900484985157, type: 2}
+  - {fileID: 11400000, guid: 999da2fbf483639448b10ae45abbb42d, type: 2}
+  - {fileID: 11400000, guid: 1e74b4b8182640a48a857437ebfe7084, type: 2}
 --- !u!1 &1970312207
 GameObject:
   m_ObjectHideFlags: 0
@@ -9112,11 +9188,7 @@ PrefabInstance:
     - target: {fileID: 2214063090887595740, guid: 2b63be0d0086b334092254a6c1da55b0, type: 3}
       propertyPath: cooker
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214063090887595740, guid: 2b63be0d0086b334092254a6c1da55b0, type: 3}
-      propertyPath: ingridientConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 34985a683268e2d4e81b93c8ad816f7e, type: 2}
+      objectReference: {fileID: 1100047625}
     - target: {fileID: 5118584130691904702, guid: 2b63be0d0086b334092254a6c1da55b0, type: 3}
       propertyPath: m_Name
       value: PotatoSpawner
@@ -9454,10 +9526,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreadSpawner (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5066212171911941027, guid: bfed74214ae55a048b6058f5d21dfb56, type: 3}
-      propertyPath: ingridientConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9675,10 +9743,6 @@ PrefabInstance:
       propertyPath: cooker
       value: 
       objectReference: {fileID: 1879794705}
-    - target: {fileID: 3493814529136894459, guid: 601056d07f7c4664b80ef509d53de812, type: 3}
-      propertyPath: ingridientConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
     - target: {fileID: 7623950192818160537, guid: 601056d07f7c4664b80ef509d53de812, type: 3}
       propertyPath: m_Name
       value: SausageSpawner
@@ -9865,11 +9929,7 @@ PrefabInstance:
     - target: {fileID: 6545758855070146817, guid: 5c98a3d02687d2142bb7c627a6fd18d4, type: 3}
       propertyPath: cooker
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545758855070146817, guid: 5c98a3d02687d2142bb7c627a6fd18d4, type: 3}
-      propertyPath: ingridientConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f192101594bd094a8dc7613f8e04bd2, type: 2}
+      objectReference: {fileID: 1877030001}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

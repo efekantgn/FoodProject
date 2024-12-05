@@ -11,10 +11,10 @@ PrefabInstance:
     - target: {fileID: 3896302832685836940, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: ingridientConfig
       value: 
-      objectReference: {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}
+      objectReference: {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}
     - target: {fileID: 8044345151199987950, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: m_Name
-      value: BreadSpawner (1) Variant
+      value: BreadSpawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8522328144170473294, guid: 5416a7151b5216e46bf0cc045393effa, type: 3}
       propertyPath: m_LocalPosition.x
