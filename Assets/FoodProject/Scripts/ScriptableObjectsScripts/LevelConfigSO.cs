@@ -5,7 +5,10 @@ public class LevelConfigSO : ScriptableObject
 {
     public int Level;
     public int CustomerCount;
-    public int TableCount;
+    /// <summary>
+    /// Masa sistemi statik hale geldi
+    /// </summary>
+    /// //public int TableCount;
     public int TargetMoneyAmount;
     public FoodSO[] LevelRecipts;
 }

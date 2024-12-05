@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3925f8ee3748c52468785d1a218d00a6, type: 3}
-  m_Name: Ketchup
+  m_Name: Bread
   m_EditorClassIdentifier: 
-  ID: 1
-  Name: Ketchup
-  RawSprite: {fileID: 21300000, guid: 31d6fd4e6315ebf41a7b9ea2b6b806aa, type: 3}
-  CookedSprite: {fileID: 0}
-  Prefab: {fileID: 8424583109889456073, guid: 1a13bb0405d89654da805ded993ce180, type: 3}
+  iD: 02a460d0-0886-4a64-951e-ae03de792bef
+  Name: Bread
+  RawSprite: {fileID: 21300000, guid: 92e06e117714ce6439d2048753e3cfb6, type: 3}
+  Prefab: {fileID: 8424583109889456073, guid: ce3087abfb3d71c4cb4626393bf68c9d, type: 3}

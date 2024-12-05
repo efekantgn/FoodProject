@@ -64,7 +64,7 @@ public class FoodQuestManager : MonoBehaviour
             {
                 foreach (var item2 in ingridients)
                 {
-                    if (item.ID == item2.foodIngridient.ID)
+                    if (item.ID == item2.foodIngridientConfig.ID)
                     {
                         matchedIngridient++;
                     }
@@ -81,7 +81,7 @@ public class FoodQuestManager : MonoBehaviour
     {
         foreach (var item in foodQuestUIItems)
         {
-            if (item.foodSO.FoodID == value.FoodID)
+            if (item.foodSO.ID.Equals(value.ID))
             {
                 foodQuestUIItems.Remove(item);
                 Destroy(item.gameObject);

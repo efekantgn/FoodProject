@@ -25,7 +25,7 @@ public class Plate : MonoBehaviour
     {
         foreach (var item in ingridientItems)
         {
-            if (item.foodIngridient.ID == ii.foodIngridient.ID)
+            if (item.foodIngridientConfig.ID == ii.foodIngridientConfig.ID)
             {
                 return true;
             }

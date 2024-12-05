@@ -1,7 +1,6 @@
 using System;
 using EfeTimer;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class IngridientProcessor : MonoBehaviour
 {
@@ -9,14 +8,12 @@ public class IngridientProcessor : MonoBehaviour
     [SerializeField] private ProgressCanvas processProgress;
     [SerializeField] private InteractionCanvasManager interactionCanvasManager;
 
-    private Timer processTimer;
-    public float ProcessTime = 0f;
+    protected Timer processTimer;
     public bool isProcessing = false;
     public Transform ItemPoint;
-    public UnityEvent OnCookStart;
-    public UnityEvent OnCookComplete;
+    public Action OnCookComplete;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         processTimer = new();
         processProgress.timer = processTimer;
@@ -24,7 +21,7 @@ public class IngridientProcessor : MonoBehaviour
         interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         processTimer.OnTimerStart += ProcessTimeStart;
         processTimer.OnTimerComplete += ProcessTimeComplete;
@@ -34,7 +31,7 @@ public class IngridientProcessor : MonoBehaviour
 
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         processTimer.OnTimerStart -= ProcessTimeStart;
         processTimer.OnTimerComplete -= ProcessTimeComplete;
@@ -44,10 +41,13 @@ public class IngridientProcessor : MonoBehaviour
     }
     public void StartProcessing()
     {
-        isProcessing = true;
-        processTimer.StartTimer(ProcessTime);
-        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.RawSprite);
-        ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
+        if (ingridientItem.foodIngridientConfig is ProcessIngridientSO processIngridientConfig)
+        {
+            isProcessing = true;
+            processTimer.StartTimer(processIngridientConfig.ProcessTime);
+            interactionCanvasManager.SetIcon(processIngridientConfig.RawSprite);
+            ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
+        }
     }
 
     private void SetIsReadyToOpen()
@@ -57,15 +57,18 @@ public class IngridientProcessor : MonoBehaviour
 
     private void ProcessTimeStart()
     {
-        OnCookStart?.Invoke();
         processProgress.CanvasSetActive(true);
     }
     private void ProcessTimeComplete()
     {
-        OnCookComplete?.Invoke();
-        interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.CookedSprite);
-        processProgress.CanvasSetActive(false);
-        interactionCanvasManager.IsReadyToOpen = true;
+        if (ingridientItem.foodIngridientConfig is ProcessIngridientSO processIngridient)
+        {
+            Debug.Log($"processIngidient:{processIngridient.Name}");
+            OnCookComplete?.Invoke();
+            interactionCanvasManager.SetIcon(processIngridient.ProcessedSprite);
+            processProgress.CanvasSetActive(false);
+            interactionCanvasManager.IsReadyToOpen = true;
+        }
     }
     private void Update()
     {
@@ -73,7 +76,7 @@ public class IngridientProcessor : MonoBehaviour
     }
     public void SetTarget()
     {
-        OnCookComplete.RemoveListener(ingridientItem.CookItem);
+        OnCookComplete -= ingridientItem.ProcessItem;
         if (PlateSpawner.instance.plates.Count > 0)
         {
             foreach (var p in PlateSpawner.instance.plates)
@@ -88,8 +91,7 @@ public class IngridientProcessor : MonoBehaviour
                 }
                 else
                 {
-                    Warning.instance.GiveWarning("Need another Plate");
-
+                    Warning.instance.GiveWarning("Already added to plate.");
                 }
             }
         }

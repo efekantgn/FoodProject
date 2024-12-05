@@ -9,14 +9,12 @@ public class LevelManager : MonoBehaviour
 
     private PlayerCurrency playerCurrency;
     private CustomerSpawner customerSpawner;
-    private TableSpawner tableSpawner;
     private bool isSucced = false;
 
     private void Awake()
     {
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         customerSpawner = FindObjectOfType<CustomerSpawner>();
-        tableSpawner = FindObjectOfType<TableSpawner>();
     }
 
     private void OnEnable()
@@ -31,7 +29,6 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
-        tableSpawner.SpawnTables(LevelConfig.TableCount);
         FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
     }
 

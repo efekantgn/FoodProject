@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 1
   CustomerCount: 4
-  TableCount: 5
+  TableCount: 2
   TargetMoneyAmount: 100
+  LevelRecipts:
+  - {fileID: 11400000, guid: 557ff214d6d8e3f4bbf0fec79626e1d9, type: 2}
+  - {fileID: 11400000, guid: 1e74b4b8182640a48a857437ebfe7084, type: 2}

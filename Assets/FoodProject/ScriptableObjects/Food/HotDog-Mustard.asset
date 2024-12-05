@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7225b5374fd18d345b673535929db442, type: 3}
   m_Name: HotDog-Mustard
   m_EditorClassIdentifier: 
-  FoodID: 2
+  iD: 140c63c4-7c5a-4e6e-b43b-6a98a17c4e0a
   FoodName: Hotdog - Mustard
   FoodSprite: {fileID: 21300000, guid: c1cc290e8c86a3b4da939e66141bc406, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 5374ccb652cd57b42beec3fe97303b0f, type: 3}
   foodReciept:
-  - {fileID: 11400000, guid: 6c96dbc1d942a714c94e089ffb2847f3, type: 2}
-  - {fileID: 11400000, guid: f51d1ce3e54b34e4385b32ecf1166ad0, type: 2}
-  - {fileID: 11400000, guid: 3cfacd9ef33f044439938e4024dd1605, type: 2}
+  - {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
+  - {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}
+  - {fileID: 11400000, guid: 3d2d2b4be560c984581bbf6c1d07857d, type: 2}

@@ -116,7 +116,7 @@ public class NPCCustomer : MonoBehaviour
         {
             foreach (var item2 in orderConfig.foodReciept)
             {
-                if (item.foodIngridient.ID == item2.ID)
+                if (item.foodIngridientConfig.ID == item2.ID)
                 {
                     ingridientCount++;
                     break;

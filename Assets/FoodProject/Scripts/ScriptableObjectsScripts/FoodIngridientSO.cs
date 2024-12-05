@@ -1,12 +1,18 @@
 using System;
 using UnityEngine;
-[CreateAssetMenu(fileName = "FoodIngridientSO", menuName = "FoodIngridientSO", order = 0)]
+[CreateAssetMenu(fileName = "FoodIngridients", menuName = "FoodIngridient/ReadyToUse", order = 0)]
 public class FoodIngridientSO : ScriptableObject
 {
-    public int ID;
+    [SerializeField] private string iD;
     public string Name;
     public Sprite RawSprite;
-    public Sprite CookedSprite;
     public IngridientItem Prefab;
 
+    public string ID { get => iD; private set => iD = value; }
+
+    public void GenerateID()
+    {
+        ID = Guid.NewGuid().ToString();
+        Debug.Log($"Generated Unique ID for {name}: {ID}");
+    }
 }

@@ -16,3 +16,7 @@ MonoBehaviour:
   CustomerCount: 1
   TableCount: 10
   TargetMoneyAmount: 50
+  LevelRecipts:
+  - {fileID: 11400000, guid: e44cb987c69adb948b88900484985157, type: 2}
+  - {fileID: 11400000, guid: 999da2fbf483639448b10ae45abbb42d, type: 2}
+  - {fileID: 11400000, guid: 578a2be30f0760b44ae745d4415dca08, type: 2}
