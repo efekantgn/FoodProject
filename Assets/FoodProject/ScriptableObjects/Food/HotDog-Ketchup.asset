@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 0f74e946-a5d4-4648-ae80-06d1140913b1
   FoodName: Hotdog - Ketchup
+  FoodPrice: 20
   FoodSprite: {fileID: 21300000, guid: ece8eeed224a1584cab9aa28f57af43b, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 531af5207c42fc54097c72e0e0302043, type: 3}
+  currentTier: {fileID: 11400000, guid: 054998f74491cb34b80362e64920914e, type: 2}
   foodReciept:
   - {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
   - {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}

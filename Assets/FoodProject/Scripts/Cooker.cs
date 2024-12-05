@@ -14,12 +14,21 @@ public class Cooker : IngridientProcessor
         burnProgressCanvas.timer = burnTimer;
         burnProgressCanvas.CanvasSetActive(false);
     }
+
+    private void StopBurning()
+    {
+        burnTimer.ResetTimer();
+        burnProgressCanvas.CanvasSetActive(false);
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
         OnCookComplete += StartBurnTimer;
         burnTimer.OnTimerComplete += BurnIngridient;
         burnTimer.OnTimerUpdate += burnProgressCanvas.UpdateProgressBar;
+        OnItemTakenFromProcessor += StopBurning;
+
     }
 
     private void BurnIngridient()
@@ -35,14 +44,18 @@ public class Cooker : IngridientProcessor
         OnCookComplete -= StartBurnTimer;
         burnTimer.OnTimerComplete -= BurnIngridient;
         burnTimer.OnTimerUpdate -= burnProgressCanvas.UpdateProgressBar;
+        OnItemTakenFromProcessor -= StopBurning;
     }
 
     private void StartBurnTimer()
     {
         if (ingridientItem.foodIngridientConfig is CookIngridientSO cookConfig)
         {
-            burnTimer.StartTimer(cookConfig.BurnTime);
-            burnProgressCanvas.CanvasSetActive(true);
+            if (upgradeTierConfig is CookTierSO cookTierconfig)
+            {
+                burnTimer.StartTimer(cookConfig.BurnTime * cookTierconfig.BurnMultiplier);
+                burnProgressCanvas.CanvasSetActive(true);
+            }
         }
     }
     protected override void Update()

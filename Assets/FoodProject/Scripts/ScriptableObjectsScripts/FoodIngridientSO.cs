@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-[CreateAssetMenu(fileName = "FoodIngridients", menuName = "FoodIngridient/ReadyToUse", order = 0)]
+[CreateAssetMenu(fileName = "FoodIngridients", menuName = "FoodProject/FoodIngridient/New ReadyToUse", order = 0)]
 public class FoodIngridientSO : ScriptableObject
 {
     [SerializeField] private string iD;

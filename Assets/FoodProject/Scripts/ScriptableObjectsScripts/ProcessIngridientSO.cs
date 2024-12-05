@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProcessIngridient", menuName = "FoodIngridient/Processable", order = 0)]
+[CreateAssetMenu(fileName = "ProcessIngridient", menuName = "FoodProject/FoodIngridient/New Processable", order = 0)]
 public class ProcessIngridientSO : FoodIngridientSO
 {
     public Sprite ProcessedSprite;

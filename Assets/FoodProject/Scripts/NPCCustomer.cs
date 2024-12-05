@@ -138,7 +138,7 @@ public class NPCCustomer : MonoBehaviour
             Debug.Log("Win");
             isSucces = true;
 
-            Money.SpawnMoneys(remainingTime, transform);
+            Money.SpawnMoneys(orderConfig.FoodPrice * orderConfig.currentTier.PriceMultiplier, transform);
 
         }
         charModel.TriggerWin(isSucces);

@@ -9,6 +9,7 @@ public enum FoodState
 public class IngridientItem : MonoBehaviour
 {
     public FoodIngridientSO foodIngridientConfig;
+    public FoodUpgradeTierSO tierConfig;
 
     public GameObject Raw;
     public GameObject Cooked;

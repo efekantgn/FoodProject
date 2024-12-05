@@ -6,12 +6,14 @@ public class IngridientProcessor : MonoBehaviour
 {
     [HideInInspector] public IngridientItem ingridientItem;
     [SerializeField] private ProgressCanvas processProgress;
-    [SerializeField] private InteractionCanvasManager interactionCanvasManager;
+    [SerializeField] protected InteractionCanvasManager interactionCanvasManager;
 
     protected Timer processTimer;
     public bool isProcessing = false;
     public Transform ItemPoint;
+    public ProcessUpgradeTierSO upgradeTierConfig;
     public Action OnCookComplete;
+    protected Action OnItemTakenFromProcessor;
 
     protected virtual void Awake()
     {
@@ -44,7 +46,7 @@ public class IngridientProcessor : MonoBehaviour
         if (ingridientItem.foodIngridientConfig is ProcessIngridientSO processIngridientConfig)
         {
             isProcessing = true;
-            processTimer.StartTimer(processIngridientConfig.ProcessTime);
+            processTimer.StartTimer(processIngridientConfig.ProcessTime * upgradeTierConfig.ProcessMultiplier);
             interactionCanvasManager.SetIcon(processIngridientConfig.RawSprite);
             ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
         }
@@ -87,6 +89,7 @@ public class IngridientProcessor : MonoBehaviour
                     ingridientItem.OnMoveComplete.RemoveListener(StartProcessing);
                     ingridientItem.OnMoveStart.RemoveListener(SetIsReadyToOpen);
                     isProcessing = false;
+                    OnItemTakenFromProcessor?.Invoke();
                     break;
                 }
                 else

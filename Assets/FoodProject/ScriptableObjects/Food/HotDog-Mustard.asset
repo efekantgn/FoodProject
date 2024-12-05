@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 140c63c4-7c5a-4e6e-b43b-6a98a17c4e0a
   FoodName: Hotdog - Mustard
+  FoodPrice: 20
   FoodSprite: {fileID: 21300000, guid: c1cc290e8c86a3b4da939e66141bc406, type: 3}
   FoodPrefab: {fileID: 4524975119508498484, guid: 5374ccb652cd57b42beec3fe97303b0f, type: 3}
+  currentTier: {fileID: 11400000, guid: 054998f74491cb34b80362e64920914e, type: 2}
   foodReciept:
   - {fileID: 11400000, guid: c3f2f3f6984ace94f838dc8fcd54b9f8, type: 2}
   - {fileID: 11400000, guid: 8a2158acff5ea524d9827b9be69eeb49, type: 2}
