@@ -114,6 +114,10 @@ public class NPCCustomer : MonoBehaviour
         int ingridientCount = 0;
         foreach (var item in p.ingridientItems)
         {
+            if (item.foodState == FoodState.Burned)
+            {
+                break;
+            }
             foreach (var item2 in orderConfig.foodReciept)
             {
                 if (item.foodIngridientConfig.ID == item2.ID)
