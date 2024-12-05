@@ -4,33 +4,18 @@ using UnityEngine;
 
 public class PlayerCurrency : MonoBehaviour
 {
-    private int moneyAmount = 0;
+    private int currentMoney = 0;
+
+    /// <summary>
+    /// parametre olarak CurrentMoney alıyor.
+    /// </summary>
     public Action<int> OnMoneyChange;
-    public TextMeshProUGUI textMesh;
-
-    public int MoneyAmount
+    public int CurrentMoney
     {
-        get => moneyAmount; set
+        get => currentMoney; set
         {
-            moneyAmount = value;
-            OnMoneyChange?.Invoke(moneyAmount);
+            currentMoney = value;
+            OnMoneyChange?.Invoke(currentMoney);
         }
-    }
-    private void OnEnable()
-    {
-        OnMoneyChange += UpdateUI;
-    }
-    private void OnDisable()
-    {
-        OnMoneyChange -= UpdateUI;
-    }
-
-    private void Start()
-    {
-        UpdateUI(moneyAmount);
-    }
-    public void UpdateUI(int value)
-    {
-        textMesh.text = value.ToString();
     }
 }

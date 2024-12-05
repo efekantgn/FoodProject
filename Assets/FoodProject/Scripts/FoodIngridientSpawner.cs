@@ -32,7 +32,7 @@ public class FoodIngridientSpawner : MonoBehaviour
         RawItem.transform.position = spawnTransform.position;
         if (RawItem.foodState == FoodState.Raw)
         {
-            if (cooker.isBusy)
+            if (cooker.isProcessing)
             {
                 Warning.instance.GiveWarning("Processor is busy.");
                 return;

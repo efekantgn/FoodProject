@@ -18,7 +18,6 @@ public class CharModelSelector : MonoBehaviour
 
     public NPCMovement movement;
 
-    public Action OnPlayerStandUp;
 
     private void Awake()
     {
@@ -29,7 +28,7 @@ public class CharModelSelector : MonoBehaviour
     {
         movement.OnStartMoving += MoveStart;
         movement.OnReachedTarget += ReachedTarget;
-        OnPlayerStandUp += PlayerStandUp;
+        movement.OnPlayerStandUp += PlayerStandUp;
     }
 
     private void PlayerStandUp()
@@ -41,6 +40,7 @@ public class CharModelSelector : MonoBehaviour
     private void ReachedTarget()
     {
         animator.SetTrigger(SitDownTrigger);
+        //TODO: Boş Sandalye yoksa null hatası veriyor.
         movement.transform.LookAt(movement.targetChair.transform.parent, Vector3.up);
         animator.SetBool(isWalkingBool, false);
     }
@@ -58,7 +58,7 @@ public class CharModelSelector : MonoBehaviour
     {
         movement.OnStartMoving -= MoveStart;
         movement.OnReachedTarget -= ReachedTarget;
-        OnPlayerStandUp -= PlayerStandUp;
+        movement.OnPlayerStandUp -= PlayerStandUp;
     }
 
     public void EnableRandomModel()

@@ -11,10 +11,10 @@ public class IngridientProcessor : MonoBehaviour
 
     private Timer processTimer;
     public float ProcessTime = 0f;
+    public bool isProcessing = false;
     public Transform ItemPoint;
     public UnityEvent OnCookStart;
     public UnityEvent OnCookComplete;
-    public bool isBusy = false;
 
     private void Awake()
     {
@@ -31,6 +31,7 @@ public class IngridientProcessor : MonoBehaviour
         processTimer.OnTimerUpdate += processProgress.UpdateProgressBar;
 
         interactionCanvasManager.Button.onClick.AddListener(SetTarget);
+
     }
 
     private void OnDisable()
@@ -43,7 +44,7 @@ public class IngridientProcessor : MonoBehaviour
     }
     public void StartProcessing()
     {
-        isBusy = true;
+        isProcessing = true;
         processTimer.StartTimer(ProcessTime);
         interactionCanvasManager.SetIcon(ingridientItem.foodIngridient.RawSprite);
         ingridientItem.OnMoveStart.AddListener(SetIsReadyToOpen);
@@ -82,7 +83,7 @@ public class IngridientProcessor : MonoBehaviour
                     p.AddToPlate(ingridientItem);
                     ingridientItem.OnMoveComplete.RemoveListener(StartProcessing);
                     ingridientItem.OnMoveStart.RemoveListener(SetIsReadyToOpen);
-                    isBusy = false;
+                    isProcessing = false;
                     break;
                 }
                 else

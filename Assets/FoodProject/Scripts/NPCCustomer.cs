@@ -34,6 +34,9 @@ public class NPCCustomer : MonoBehaviour
         timer.OnTimerUpdate += TimerUpdate;
         timer.OnTimerReset += TimerReset;
 
+        movement.OnPlayerStandUp += PlayerStandUp;
+
+
     }
 
     private void TimerReset()
@@ -60,9 +63,17 @@ public class NPCCustomer : MonoBehaviour
         timer.OnTimerComplete -= TimerComplete;
         timer.OnTimerReset -= TimerReset;
         timer.OnTimerUpdate -= TimerUpdate;
+        movement.OnPlayerStandUp -= PlayerStandUp;
 
 
     }
+
+    private void PlayerStandUp()
+    {
+        //TODO: süre bitince değil ayağa kalkınca kapat
+        interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
+    }
+
     private void TimerComplete()
     {
         //Destroy Customer.
