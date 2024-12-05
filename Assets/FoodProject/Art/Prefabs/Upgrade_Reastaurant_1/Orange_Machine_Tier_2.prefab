@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1387786787293871923}
   - component: {fileID: 2927216588498912809}
   m_Layer: 0
-  m_Name: Orange_Machine
+  m_Name: Orange_Machine_Tier_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
