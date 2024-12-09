@@ -4,12 +4,12 @@ using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 
-public static class SaveManager
+public static class SaveLoadSystem
 {
     private static readonly string SaveFolderPath = Application.persistentDataPath + "/Saves/";
     private static readonly string EncryptionKey = "qqqqqqqqqqqqqqqq"; // 16 karakter uzunluğunda bir key kullanın.
 
-    static SaveManager()
+    static SaveLoadSystem()
     {
         if (!Directory.Exists(SaveFolderPath))
         {

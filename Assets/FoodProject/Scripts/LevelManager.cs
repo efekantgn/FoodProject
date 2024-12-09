@@ -16,7 +16,6 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         customerSpawner = FindObjectOfType<CustomerSpawner>();
     }
