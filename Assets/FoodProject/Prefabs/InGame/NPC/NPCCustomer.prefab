@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fdf67eaca1ff8c4db5661383847ef9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerStayTimeInSecond: 90
+  customerStayTimeInSecond: 15
   Money: {fileID: 2151735566730504916}
 --- !u!114 &6578867460623939419
 MonoBehaviour:

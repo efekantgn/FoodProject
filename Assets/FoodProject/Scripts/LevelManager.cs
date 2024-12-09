@@ -41,4 +41,6 @@ public class LevelManager : MonoBehaviour
             isSucced = true;
         }
     }
+
+
 }
