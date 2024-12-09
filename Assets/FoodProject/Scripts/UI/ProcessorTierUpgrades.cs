@@ -1,12 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProcessorTierUpgrades : MonoBehaviour
 {
-    [SerializeField] private IngridientProcessor processor;
     [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private IngridientProcessor processor;
 
-    public void UpgradeCookerTier()
+    private void Start()
+    {
+        UpdateUI();
+    }
+    public void UpgradeProcessorTier()
     {
         if (processor.upgradeTierConfig.NextTier == null)
         {
@@ -19,7 +24,11 @@ public class ProcessorTierUpgrades : MonoBehaviour
         else
             processor.upgradeTierConfig = (ProcessUpgradeTierSO)processor.upgradeTierConfig.NextTier;
 
-        textMesh.text = "Tier: " + processor.upgradeTierConfig.Tier.ToString();
+        UpdateUI();
+    }
 
+    private void UpdateUI()
+    {
+        textMesh.text = "Tier: " + processor.upgradeTierConfig.Tier.ToString();
     }
 }
