@@ -11,8 +11,6 @@ public class NPCMovement : MonoBehaviour
     public Action OnPlayerStandUp;
     private bool hasReachedToTarget = false;
 
-
-
     private void Awake()
     {
         agent = GetComponentInChildren<NavMeshAgent>();
@@ -21,17 +19,31 @@ public class NPCMovement : MonoBehaviour
     private void OnEnable()
     {
         OnPlayerStandUp += CustomerLeavesChair;
+        OnReachedTarget += SnapToTarget;
     }
 
     private void CustomerLeavesChair()
     {
+        agent.enabled = true;
+
         targetChair.Vacate();
         targetChair = null;
     }
 
     private void OnDisable()
     {
-        OnPlayerStandUp += CustomerLeavesChair;
+        OnPlayerStandUp -= CustomerLeavesChair;
+        OnReachedTarget -= SnapToTarget;
+    }
+
+    public void SnapToTarget()
+    {
+        if (targetChair == null) return;
+
+        agent.enabled = false;
+        transform.position = targetChair.TargetTransform.position;
+        transform.rotation = targetChair.TargetTransform.rotation;
+
     }
 
     /// <summary>
