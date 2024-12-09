@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: CookerTier3
   m_EditorClassIdentifier: 
   Tier: 3
+  NextTier: {fileID: 11400000, guid: c2b5c31e9f4b89b42b8f907fae16d0b4, type: 2}
   ProcessMultiplier: 0.8
   BurnMultiplier: 1.2

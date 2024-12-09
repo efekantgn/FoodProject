@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: FoodTier3
   m_EditorClassIdentifier: 
   Tier: 3
+  NextTier: {fileID: 11400000, guid: 21badc77c50d8804685bf14a93686fde, type: 2}
   PriceMultiplier: 1.4

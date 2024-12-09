@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelConfigSO : ScriptableObject
 {
     public int Level;
+    public LevelConfigSO NextLevel;
     public int CustomerCount;
     public int TargetMoneyAmount;
     public FoodSO[] LevelRecipts;

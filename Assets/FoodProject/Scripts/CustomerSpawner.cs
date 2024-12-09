@@ -8,6 +8,7 @@ public class CustomerSpawner : MonoBehaviour
     public Transform SpawnTransform;
     public Exit Exit;
     private int RemainingNPCCount = 0;
+    public Action OnLastNPCLeft;
 
     private void OnEnable()
     {
@@ -24,6 +25,7 @@ public class CustomerSpawner : MonoBehaviour
         if (RemainingNPCCount <= 0)
         {
             Warning.instance.GiveWarning("Level End");
+            OnLastNPCLeft?.Invoke();
         }
     }
 

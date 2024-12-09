@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   Level: 1
+  NextLevel: {fileID: 11400000, guid: 2a060f22df42bb64097f02f987a0d412, type: 2}
   CustomerCount: 4
-  TableCount: 2
   TargetMoneyAmount: 100
   LevelRecipts:
   - {fileID: 11400000, guid: 557ff214d6d8e3f4bbf0fec79626e1d9, type: 2}

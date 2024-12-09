@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ProcessorTier 5
   m_EditorClassIdentifier: 
   Tier: 5
+  NextTier: {fileID: 11400000, guid: d0d671eea61f65c4485f19a42a15da20, type: 2}
   ProcessMultiplier: 0.6

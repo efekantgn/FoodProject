@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class LevelManager : MonoBehaviour
     private PlayerCurrency playerCurrency;
     private CustomerSpawner customerSpawner;
     private bool isSucced = false;
+    public UnityEvent OnLevelStart;
+    public UnityEvent OnLevelFinish;
 
     private void Awake()
     {
+
         playerCurrency = FindObjectOfType<PlayerCurrency>();
         customerSpawner = FindObjectOfType<CustomerSpawner>();
     }
@@ -20,16 +24,23 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         playerCurrency.OnMoneyChange += CheckTarget;
+        customerSpawner.OnLastNPCLeft += LevelEnd;
+    }
+
+    private void LevelEnd()
+    {
+        OnLevelFinish?.Invoke();
     }
 
     private void OnDisable()
     {
         playerCurrency.OnMoneyChange -= CheckTarget;
+        customerSpawner.OnLastNPCLeft -= LevelEnd;
+
     }
     private void Start()
     {
-        customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
-        FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
+        StartNextLevel();
     }
 
     private void CheckTarget(int value)
@@ -42,5 +53,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void StartNextLevel()
+    {
+        OnLevelStart?.Invoke();
+        LevelConfig = LevelConfig.NextLevel;
+        customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
+        FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
+    }
 
 }
