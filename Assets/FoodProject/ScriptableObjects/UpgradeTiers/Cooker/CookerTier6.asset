@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7d27885e9462364bb69362c4c81d2c2, type: 3}
-  m_Name: CookerTier10
+  m_Name: CookerTier6
   m_EditorClassIdentifier: 
-  Tier: 10
-  ProcessMultiplier: 0.1
-  BurnMultiplier: 10
+  Tier: 6
+  ProcessMultiplier: 0.5
+  BurnMultiplier: 1.5

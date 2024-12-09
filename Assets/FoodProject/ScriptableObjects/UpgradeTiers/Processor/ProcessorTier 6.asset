@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b42aeb3ae8e56048a83d98ef50ab13d, type: 3}
-  m_Name: FoodTier10
+  m_Script: {fileID: 11500000, guid: 19aa87bd612d598428cf9ad5aefd850c, type: 3}
+  m_Name: ProcessorTier 6
   m_EditorClassIdentifier: 
-  Tier: 10
-  PriceMultiplier: 10
+  Tier: 6
+  ProcessMultiplier: 0.5
