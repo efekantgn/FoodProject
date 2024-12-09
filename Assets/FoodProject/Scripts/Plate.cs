@@ -53,21 +53,20 @@ public class Plate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //TODO: Burası plate elimize aldığımızda yeni plate spawnlarsak sistemi bozuyor.
-            //Bu PickUp.instance.plate bunu daha farklı şekilde setlememiz lazım.
-            //Setleme işlemini onclick içerisinde yapabilirim ancak parametreli olması lazım.
-            PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(true);
-            interactionCanvasManager.Button.onClick.AddListener(PickUp.instance.PickUpGameObject);
+            interactionCanvasManager.Button.onClick.AddListener(PickUpSetPlate);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PickUp.instance.plate = this;
             interactionCanvasManager.ForceOpenCloseInteractionCanvas(false);
-            interactionCanvasManager.Button.onClick.RemoveListener(PickUp.instance.PickUpGameObject);
+            interactionCanvasManager.Button.onClick.RemoveListener(PickUpSetPlate);
         }
+    }
+    public void PickUpSetPlate()
+    {
+        PickUp.instance.PickUpGameObject(this);
     }
 }

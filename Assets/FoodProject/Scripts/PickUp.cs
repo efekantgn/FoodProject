@@ -16,8 +16,9 @@ public class PickUp : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void PickUpGameObject()
+    public void PickUpGameObject(Plate p)
     {
+        plate = p;
         plate.transform.parent = PickUpTransform;
         plate.transform.position = PickUpTransform.position;
         plate.transform.rotation = PickUpTransform.rotation;
