@@ -1,10 +1,12 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class SaveLoad : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
-    public static SaveLoad instance;
+    public static SaveManager instance;
     PlayerCurrency playerCurrency;
-    private IngridientProcessor[] ingridientProcessor;
+    public IngridientProcessor[] ingridientProcessor;
+    public FoodSO[] Foods;
 
     private void Awake()
     {
@@ -12,7 +14,6 @@ public class SaveLoad : MonoBehaviour
         else Destroy(gameObject);
 
         playerCurrency = FindObjectOfType<PlayerCurrency>();
-        ingridientProcessor = FindObjectsOfType<IngridientProcessor>();
     }
     public void Save()
     {
@@ -22,15 +23,36 @@ public class SaveLoad : MonoBehaviour
             FoodAndTiers = new(),
             ProcessorsAndTiers = new()
         };
-        foreach (var item in FoodQuestManager.instance.ReciptList)
+        foreach (var item in Foods)
         {
             saveData.FoodAndTiers.Add(item, item.currentTier);
+            Debug.Log($"item:{item} - Tier:{item.currentTier}");
         }
         foreach (var item in ingridientProcessor)
         {
             saveData.ProcessorsAndTiers.Add(item, item.upgradeTierConfig);
+            Debug.Log($"item:{item} - Tier:{item.upgradeTierConfig}");
         }
+
         SaveLoadSystem.Save("SaveLoad", saveData);
+    }
+
+    public void Load()
+    {
+        SaveData saveData = SaveLoadSystem.Load<SaveData>("SaveLoad");
+        playerCurrency.CurrentMoney = saveData.Money;
+        // foreach (var item in ingridientProcessor)
+        // {
+        //     saveData.ProcessorsAndTiers.TryGetValue(item, out item.upgradeTierConfig);
+        //     Debug.Log($"item:{item} - Tier:{item.upgradeTierConfig}");
+
+        // }
+        // foreach (var item in Foods)
+        // {
+        //     saveData.FoodAndTiers.TryGetValue(item, out item.currentTier);
+        //     Debug.Log($"item:{item} - Tier:{item.currentTier}");
+        // }
+
     }
 
 }
