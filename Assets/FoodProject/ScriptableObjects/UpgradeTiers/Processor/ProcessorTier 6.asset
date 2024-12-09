@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ProcessorTier 6
   m_EditorClassIdentifier: 
   Tier: 6
+  NextTier: {fileID: 0}
+  Price: 300
   ProcessMultiplier: 0.5

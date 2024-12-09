@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tier: 4
   NextTier: {fileID: 11400000, guid: db3a73f87cfc275439b70d53fcdd5269, type: 2}
+  Price: 300
   ProcessMultiplier: 0.7
   BurnMultiplier: 1.3

@@ -55,6 +55,11 @@ public class LevelManager : MonoBehaviour
     public void StartNextLevel()
     {
         OnLevelStart?.Invoke();
+        if (LevelConfig.NextLevel == null)
+        {
+            Warning.instance.GiveWarning("Demo version completed.");
+            return;
+        }
         LevelConfig = LevelConfig.NextLevel;
         customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
         FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();

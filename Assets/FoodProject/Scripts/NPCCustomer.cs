@@ -82,6 +82,8 @@ public class NPCCustomer : MonoBehaviour
     }
     public void PickUpEnd()
     {
+        if (PickUp.instance.plate == null) return;
+
         PickUp.instance.OnCarryEnd?.Invoke();
     }
 
@@ -111,6 +113,8 @@ public class NPCCustomer : MonoBehaviour
     public void TakeFood()
     {
         Plate p = PickUp.instance.plate;
+        if (p == null) return;
+
         int ingridientCount = 0;
         foreach (var item in p.ingridientItems)
         {

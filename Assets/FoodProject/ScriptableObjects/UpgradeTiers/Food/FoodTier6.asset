@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: FoodTier6
   m_EditorClassIdentifier: 
   Tier: 6
+  NextTier: {fileID: 0}
+  Price: 300
   PriceMultiplier: 2

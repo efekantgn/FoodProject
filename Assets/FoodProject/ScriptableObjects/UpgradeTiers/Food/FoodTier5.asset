@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tier: 5
   NextTier: {fileID: 11400000, guid: 11234a2e3768fd345941d7b2588dfe28, type: 2}
+  Price: 250
   PriceMultiplier: 1.8

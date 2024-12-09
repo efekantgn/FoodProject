@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodIngridientConfig: {fileID: 11400000, guid: 4f192101594bd094a8dc7613f8e04bd2, type: 2}
+  tierConfig: {fileID: 0}
   Raw: {fileID: 3475706856343820129}
   Cooked: {fileID: 1977450556148408871}
+  Burned: {fileID: 0}
   foodState: 0
   moveDuration: 1
   scaleMultiplier: 0.5
@@ -175,6 +177,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4597386073050335319}
     m_Modifications:
+    - target: {fileID: 984058696110853686, guid: 44076f139abca5043ae3377da769112f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3606050111302145361, guid: 44076f139abca5043ae3377da769112f, type: 3}
       propertyPath: m_Name
       value: Cup_Empty

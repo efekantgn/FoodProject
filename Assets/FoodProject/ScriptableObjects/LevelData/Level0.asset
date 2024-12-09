@@ -15,5 +15,5 @@ MonoBehaviour:
   Level: 0
   NextLevel: {fileID: 11400000, guid: 7fe8d1771ef86f743b1322d9e8784f1a, type: 2}
   CustomerCount: 0
-  TargetMoneyAmount: 0
+  TargetMoneyAmount: 2147483647
   LevelRecipts: []
