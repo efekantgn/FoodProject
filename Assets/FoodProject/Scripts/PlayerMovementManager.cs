@@ -89,7 +89,6 @@ public class PlayerMovementManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(vector);
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            //if (hitInfo.collider.gameObject.layer != 7) return;
             if (!IsInLayerMask(PlayerMoveLayer, hitInfo.collider.gameObject)) return;
 
             OnPlayerMove?.Invoke();

@@ -22,6 +22,7 @@ public class PlayerCurrency : MonoBehaviour
     private void OnEnable()
     {
         OnMoneyChange += SaveMoney;
+        OnMoneyChange += (i) => Handheld.Vibrate();
     }
     private void Start()
     {

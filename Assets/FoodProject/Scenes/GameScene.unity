@@ -10062,6 +10062,14 @@ PrefabInstance:
       propertyPath: m_Extents.z
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4029163492033509020, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: movementType
       value: 1
