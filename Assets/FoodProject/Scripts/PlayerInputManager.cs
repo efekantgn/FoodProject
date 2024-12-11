@@ -10,6 +10,9 @@ public class PlayerInputManager : MonoBehaviour
     public UnityEvent<Vector2> OnMovePerform;
     public UnityEvent<Vector2> OnMoveEnd;
 
+    public Action<Vector2> OnTouch;
+
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -20,12 +23,20 @@ public class PlayerInputManager : MonoBehaviour
         inputActions.Enable();
         inputActions.Touch.Move.performed += MovePerformHandler;
         inputActions.Touch.Move.canceled += MoveEndHandler;
+        inputActions.Touch.TouchPos.performed += TouchPerformed;
+    }
+
+    private void TouchPerformed(InputAction.CallbackContext context)
+    {
+        OnTouch?.Invoke(context.ReadValue<Vector2>());
     }
 
     private void OnDisable()
     {
         inputActions.Touch.Move.performed -= MovePerformHandler;
         inputActions.Touch.Move.canceled -= MoveEndHandler;
+        inputActions.Touch.TouchPos.performed -= TouchPerformed;
+
         inputActions.Disable();
 
     }
@@ -38,5 +49,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         OnMoveEnd?.Invoke(Vector2.zero);
     }
+
 
 }

@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
-
+public enum MovementType
+{
+    Joystick,
+    ClickToMove
+}
 public class PlayerMovementManager : MonoBehaviour
 {
     private Animator animator;
@@ -16,7 +21,10 @@ public class PlayerMovementManager : MonoBehaviour
     public float Rotationspeed = 5f;
     private Rigidbody rb;
     private Vector2 moveInput;
+    [SerializeField] private MovementType movementType;
     private PlayerInputManager inputManager;
+    private NavMeshAgent agent;
+    [SerializeField] private LayerMask PlayerMoveLayer;
     private bool isMoving = false;
     Vector3 moveDirection = Vector3.zero;
     Transform cameraTransform;
@@ -34,26 +42,55 @@ public class PlayerMovementManager : MonoBehaviour
         }
     }
 
+    public MovementType MovementType
+    {
+        get => movementType; set => movementType = value;
+    }
+
     private void Awake()
     {
         inputManager = GetComponentInParent<PlayerInputManager>();
         rb = GetComponentInChildren<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        agent = GetComponentInChildren<NavMeshAgent>();
         cameraTransform = Camera.main.transform;
     }
     private void Start()
     {
         animatorStartSpeed = animator.speed;
+        agent.speed = MovementSpeed;
     }
 
     private void OnEnable()
     {
         inputManager.OnMovePerform.AddListener(MovePerform);
         inputManager.OnMoveEnd.AddListener(MoveEnd);
+        inputManager.OnTouch += MoveToPoint;
+
         OnPlayerMove += PlayerMoveStart;
         OnPlayerStop += PlayerMoveStop;
         PickUp.instance.OnCarryStart += PickUpStart;
         PickUp.instance.OnCarryEnd += PickUpEnd;
+    }
+    private void OnDisable()
+    {
+        inputManager.OnMovePerform.RemoveListener(MovePerform);
+        inputManager.OnMoveEnd.RemoveListener(MoveEnd);
+        inputManager.OnTouch -= MoveToPoint;
+
+        OnPlayerMove -= PlayerMoveStart;
+        OnPlayerStop -= PlayerMoveStop;
+    }
+
+    private void MoveToPoint(Vector2 vector)
+    {
+        if (movementType != MovementType.ClickToMove) return;
+        Ray ray = Camera.main.ScreenPointToRay(vector);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, PlayerMoveLayer))
+        {
+            OnPlayerMove?.Invoke();
+            agent.SetDestination(hitInfo.point);
+        }
     }
 
     private void PickUpEnd()
@@ -66,16 +103,10 @@ public class PlayerMovementManager : MonoBehaviour
         animator.SetBool(Animator_IsCarry, true);
     }
 
-    private void OnDisable()
-    {
-        inputManager.OnMovePerform.RemoveListener(MovePerform);
-        inputManager.OnMoveEnd.RemoveListener(MoveEnd);
-        OnPlayerMove -= PlayerMoveStart;
-        OnPlayerStop -= PlayerMoveStop;
-    }
 
     private void MovePerform(Vector2 value)
     {
+        if (movementType != MovementType.Joystick) return;
         //Debug.Log($"Move Perform at: {value}");
         moveInput = value;
         OnPlayerMove?.Invoke();
@@ -99,9 +130,22 @@ public class PlayerMovementManager : MonoBehaviour
         animator.speed = animatorStartSpeed;
     }
 
+
     private void FixedUpdate()
     {
-        // Hareketi Rigidbody'e uygula
+        switch (MovementType)
+        {
+            case MovementType.Joystick:
+                JoystickMovement();
+                break;
+            case MovementType.ClickToMove:
+                ReachedToTarget();
+                break;
+        }
+    }
+
+    private void JoystickMovement()
+    {
         if (!isMoving) return;
         moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
 
@@ -125,5 +169,14 @@ public class PlayerMovementManager : MonoBehaviour
         // Karakteri hareket ettiği yöne döndür
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * Rotationspeed));
+    }
+
+    private void ReachedToTarget()
+    {
+        if (!agent.hasPath) return;
+        if (Vector3.Distance(agent.destination, transform.position) <= agent.stoppingDistance)
+        {
+            OnPlayerStop?.Invoke();
+        }
     }
 }
