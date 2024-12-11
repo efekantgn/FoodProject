@@ -18,4 +18,35 @@ public class PlayerCurrency : MonoBehaviour
             OnMoneyChange?.Invoke(currentMoney);
         }
     }
+
+    private void OnEnable()
+    {
+        OnMoneyChange += SaveMoney;
+    }
+    private void OnDisable()
+    {
+        OnMoneyChange -= SaveMoney;
+    }
+    private void Start()
+    {
+        LoadMoney();
+    }
+    public void SaveMoney(int value)
+    {
+        PlayerCurrencyData data = new()
+        {
+            Money = value
+        };
+        SaveLoadSystem.Save("PlayerCurrencyData", data);
+    }
+
+    public void LoadMoney()
+    {
+        PlayerCurrencyData data = SaveLoadSystem.Load<PlayerCurrencyData>("PlayerCurrencyData");
+        CurrentMoney = data.Money;
+    }
+    public struct PlayerCurrencyData
+    {
+        public int Money;
+    }
 }
