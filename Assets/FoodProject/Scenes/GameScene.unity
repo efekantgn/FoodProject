@@ -10054,6 +10054,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2335548579293547342, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2555755493606666002, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: m_Extents.x
       value: 0.09
@@ -10064,6 +10068,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
