@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class SaveLoadSystem
@@ -36,7 +37,7 @@ public static class SaveLoadSystem
     /// <summary>
     /// Belirtilen anahtar için kaydedilmiş veriyi yükler.
     /// </summary>
-    public static T Load<T>(string key, bool useEncryption = false)
+    public static bool TryLoad<T>(string key, out T t, bool useEncryption = false)
     {
         string filePath = SaveFolderPath + key + ".json";
 
@@ -48,12 +49,14 @@ public static class SaveLoadSystem
             {
                 json = Decrypt(json);
             }
+            t = JsonUtility.FromJson<T>(json);
 
-            return JsonUtility.FromJson<T>(json);
+            return true;
         }
 
         Debug.LogWarning($"Save file not found: {filePath}");
-        return default;
+        t = default;
+        return false;
     }
 
     /// <summary>

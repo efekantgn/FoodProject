@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,5 +18,38 @@ public class PlayerCurrency : MonoBehaviour
             currentMoney = value;
             OnMoneyChange?.Invoke(currentMoney);
         }
+    }
+    private void OnEnable()
+    {
+        OnMoneyChange += SaveMoney;
+    }
+    private void Start()
+    {
+        LoadMoney();
+    }
+    private void OnDisable()
+    {
+        OnMoneyChange -= SaveMoney;
+    }
+    private void SaveMoney(int value)
+    {
+        SaveLoadSystem.Save<Currency>("Money", new()
+        {
+            Money = value
+        });
+    }
+    private void LoadMoney()
+    {
+        if (SaveLoadSystem.TryLoad("Money", out Currency c))
+        {
+            if (EqualityComparer<Currency>.Default.Equals(c, default)) return;
+
+            CurrentMoney = c.Money;
+        }
+    }
+
+    public struct Currency
+    {
+        public int Money;
     }
 }

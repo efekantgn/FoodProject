@@ -267,7 +267,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 24
   m_ObstacleAvoidanceType: 4
 --- !u!1 &6205009824036518885
 GameObject:
@@ -1754,6 +1754,18 @@ PrefabInstance:
     - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719867991393244144, guid: be7c155e508a895449b734d9672753c1, type: 3}
+      propertyPath: m_Size.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719867991393244144, guid: be7c155e508a895449b734d9672753c1, type: 3}
+      propertyPath: m_Size.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719867991393244144, guid: be7c155e508a895449b734d9672753c1, type: 3}
+      propertyPath: m_Center.y
+      value: -30
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1298930066262831909, guid: be7c155e508a895449b734d9672753c1, type: 3}

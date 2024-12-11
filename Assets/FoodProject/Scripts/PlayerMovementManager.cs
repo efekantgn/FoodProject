@@ -85,12 +85,21 @@ public class PlayerMovementManager : MonoBehaviour
     private void MoveToPoint(Vector2 vector)
     {
         if (movementType != MovementType.ClickToMove) return;
+
         Ray ray = Camera.main.ScreenPointToRay(vector);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, PlayerMoveLayer))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
+            //if (hitInfo.collider.gameObject.layer != 7) return;
+            if (!IsInLayerMask(PlayerMoveLayer, hitInfo.collider.gameObject)) return;
+
             OnPlayerMove?.Invoke();
             agent.SetDestination(hitInfo.point);
         }
+    }
+
+    private bool IsInLayerMask(LayerMask mask, GameObject go)
+    {
+        return (mask.value & (1 << go.layer)) != 0;
     }
 
     private void PickUpEnd()

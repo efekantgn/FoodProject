@@ -36,7 +36,7 @@ public class ProcessorTierUpgrades : MonoBehaviour
         else
             processor.upgradeTierConfig = (ProcessUpgradeTierSO)processor.upgradeTierConfig.NextTier;
 
-        playerCurrency.CurrentMoney -= processor.upgradeTierConfig.NextTier.Price;
+        playerCurrency.CurrentMoney -= processor.upgradeTierConfig.Price;
         UpdateUI();
     }
 
