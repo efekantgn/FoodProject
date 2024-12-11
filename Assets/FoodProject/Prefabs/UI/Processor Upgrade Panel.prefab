@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2027ca64bb6cfef4bad61f6251198406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tier: {fileID: 0}
-  Price: {fileID: 0}
+  Tier: {fileID: 3765411002165374984}
+  Price: {fileID: 6839147915758771279}
   processor: {fileID: 0}
   playerCurrency: {fileID: 0}
 --- !u!114 &2097045921762053604

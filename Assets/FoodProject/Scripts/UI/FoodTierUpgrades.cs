@@ -27,21 +27,29 @@ public class FoodTierUpgrades : MonoBehaviour
             return;
         }
 
-        if (playerCurrency.CurrentMoney < Food.FoodPrice)
+        if (playerCurrency.CurrentMoney < Food.currentTier.Price)
         {
             Warning.instance.GiveWarning($"Not enough money.");
             return;
         }
 
         Food.currentTier = (FoodUpgradeTierSO)Food.currentTier.NextTier;
-        playerCurrency.CurrentMoney -= Food.FoodPrice;
+        playerCurrency.CurrentMoney -= Food.currentTier.Price;
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        textMesh.text = "Tier: " + Food.currentTier.NextTier.Tier.ToString();
-        Price.text = "Tier: " + Food.currentTier.NextTier.Price.ToString();
         Image.sprite = Food.FoodSprite;
+        if (Food.currentTier.NextTier == null)
+        {
+            textMesh.text = "Maxed";
+            Price.text = "-";
+        }
+        else
+        {
+            textMesh.text = "Tier: " + Food.currentTier.NextTier.Tier.ToString();
+            Price.text = "Tier: " + Food.currentTier.NextTier.Price.ToString();
+        }
     }
 }

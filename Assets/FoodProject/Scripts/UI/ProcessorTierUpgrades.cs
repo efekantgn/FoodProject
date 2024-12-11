@@ -42,7 +42,16 @@ public class ProcessorTierUpgrades : MonoBehaviour
 
     private void UpdateUI()
     {
-        Tier.text = "Tier: " + processor.upgradeTierConfig.NextTier.Tier.ToString();
-        Price.text = "Price: " + processor.upgradeTierConfig.NextTier.Price.ToString();
+        if (processor.upgradeTierConfig.NextTier == null)
+        {
+            Tier.text = "Maxed";
+            Price.text = "-";
+        }
+        else
+        {
+            Tier.text = "Tier: " + processor.upgradeTierConfig.NextTier.Tier.ToString();
+            Price.text = "Price: " + processor.upgradeTierConfig.NextTier.Price.ToString();
+
+        }
     }
 }
