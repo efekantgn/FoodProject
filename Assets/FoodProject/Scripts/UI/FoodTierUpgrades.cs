@@ -27,7 +27,7 @@ public class FoodTierUpgrades : MonoBehaviour
             return;
         }
 
-        if (playerCurrency.CurrentMoney < Food.FoodPrice)
+        if (playerCurrency.CurrentMoney < Food.currentTier.NextTier.Price)
         {
             Warning.instance.GiveWarning($"Not enough money.");
             return;
@@ -40,8 +40,16 @@ public class FoodTierUpgrades : MonoBehaviour
 
     private void UpdateUI()
     {
-        textMesh.text = "Tier: " + Food.currentTier.NextTier.Tier.ToString();
-        Price.text = "Tier: " + Food.currentTier.NextTier.Price.ToString();
         Image.sprite = Food.FoodSprite;
+        if (Food.currentTier.NextTier == null)
+        {
+            textMesh.text = "Tier: Max";
+            Price.text = "-";
+        }
+        else
+        {
+            textMesh.text = "Tier: " + Food.currentTier.NextTier.Tier.ToString();
+            Price.text = "Price: " + Food.currentTier.NextTier.Price.ToString();
+        }
     }
 }

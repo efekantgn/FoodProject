@@ -25,7 +25,7 @@ public class ProcessorTierUpgrades : MonoBehaviour
             return;
         }
 
-        if (playerCurrency.CurrentMoney < processor.upgradeTierConfig.Price)
+        if (playerCurrency.CurrentMoney < processor.upgradeTierConfig.NextTier.Price)
         {
             Warning.instance.GiveWarning($"Not enough money.");
             return;
@@ -36,13 +36,21 @@ public class ProcessorTierUpgrades : MonoBehaviour
         else
             processor.upgradeTierConfig = (ProcessUpgradeTierSO)processor.upgradeTierConfig.NextTier;
 
-        playerCurrency.CurrentMoney -= processor.upgradeTierConfig.Price;
+        playerCurrency.CurrentMoney -= processor.upgradeTierConfig.NextTier.Price;
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        Tier.text = "Tier: " + processor.upgradeTierConfig.NextTier.Tier.ToString();
-        Price.text = "Price: " + processor.upgradeTierConfig.NextTier.Price.ToString();
+        if (processor.upgradeTierConfig.NextTier == null)
+        {
+            Tier.text = "Tier: Max";
+            Price.text = "-";
+        }
+        else
+        {
+            Tier.text = "Tier: " + processor.upgradeTierConfig.NextTier.Tier.ToString();
+            Price.text = "Price: " + processor.upgradeTierConfig.NextTier.Price.ToString();
+        }
     }
 }
