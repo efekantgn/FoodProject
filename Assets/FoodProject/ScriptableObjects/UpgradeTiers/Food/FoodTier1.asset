@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b42aeb3ae8e56048a83d98ef50ab13d, type: 3}
   m_Name: FoodTier1
   m_EditorClassIdentifier: 
+  iD: 34df4b10-ff87-43fc-ba55-8c57adff7d7d
   Tier: 1
   NextTier: {fileID: 11400000, guid: cd548b1b90722a84c8b55ef5c8ebdac7, type: 2}
   Price: 0

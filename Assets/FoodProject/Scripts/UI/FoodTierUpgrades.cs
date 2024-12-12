@@ -17,6 +17,7 @@ public class FoodTierUpgrades : MonoBehaviour
     }
     private void Start()
     {
+        LoadFoodData();
         UpdateUI();
     }
     public void UpgradeFoodTier()
@@ -36,6 +37,30 @@ public class FoodTierUpgrades : MonoBehaviour
         Food.currentTier = (FoodUpgradeTierSO)Food.currentTier.NextTier;
         playerCurrency.CurrentMoney -= Food.currentTier.Price;
         UpdateUI();
+        SaveFoodData();
+    }
+
+    [ContextMenu("Save")]
+    public void SaveFoodData()
+    {
+        SaveLoadSystem.Save<FoodTierSaveData>(Food.ID, new()
+        {
+            ID = Food.currentTier.ID
+        });
+    }
+
+    [ContextMenu("Load")]
+    public void LoadFoodData()
+    {
+        if (SaveLoadSystem.TryLoad(Food.ID, out FoodTierSaveData data))
+        {
+            //data.ID si ile arama yap ve o idye sahip olan  
+            // UpgradeTierSO yu upgradeTierConfig e ata.
+            if (AssetManager.instance.TryGetTier(data.ID, out BaseUpgradeTierSO tier))
+            {
+                Food.currentTier = (FoodUpgradeTierSO)tier;
+            }
+        }
     }
 
     private void UpdateUI()
@@ -51,5 +76,9 @@ public class FoodTierUpgrades : MonoBehaviour
             textMesh.text = "Tier: " + Food.currentTier.NextTier.Tier.ToString();
             Price.text = "Tier: " + Food.currentTier.NextTier.Price.ToString();
         }
+    }
+    public class FoodTierSaveData
+    {
+        public string ID;
     }
 }

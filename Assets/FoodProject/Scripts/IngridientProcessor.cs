@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IngridientProcessor : MonoBehaviour
 {
+    private readonly string processorID = Guid.NewGuid().ToString();
     [HideInInspector] public IngridientItem ingridientItem;
     [SerializeField] private ProgressCanvas processProgress;
     [SerializeField] protected InteractionCanvasManager interactionCanvasManager;
@@ -40,6 +41,10 @@ public class IngridientProcessor : MonoBehaviour
         processTimer.OnTimerUpdate -= processProgress.UpdateProgressBar;
 
         interactionCanvasManager.Button.onClick.RemoveListener(SetTarget);
+    }
+    private void Start()
+    {
+        LoadProcessorData();
     }
     public void StartProcessing()
     {
@@ -102,5 +107,34 @@ public class IngridientProcessor : MonoBehaviour
         {
             Warning.instance.GiveWarning("No Plate exist");
         }
+    }
+
+    [ContextMenu("Save")]
+    public void SaveProcessorData()
+    {
+        SaveLoadSystem.Save<ProcessorTierSaveData>(processorID, new()
+        {
+            ID = upgradeTierConfig.ID
+        });
+    }
+
+    [ContextMenu("Load")]
+    public void LoadProcessorData()
+    {
+        if (SaveLoadSystem.TryLoad(processorID, out ProcessorTierSaveData data))
+        {
+            //data.ID si ile arama yap ve o idye sahip olan  
+            // UpgradeTierSO yu upgradeTierConfig e ata.
+            if (AssetManager.instance.TryGetTier(data.ID, out BaseUpgradeTierSO tier))
+            {
+                upgradeTierConfig = (ProcessUpgradeTierSO)tier;
+            }
+        }
+    }
+
+    [Serializable]
+    public class ProcessorTierSaveData
+    {
+        public string ID;
     }
 }

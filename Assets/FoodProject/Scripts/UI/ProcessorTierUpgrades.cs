@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,12 @@ public class ProcessorTierUpgrades : MonoBehaviour
 
         playerCurrency.CurrentMoney -= processor.upgradeTierConfig.Price;
         UpdateUI();
+        SaveToFile();
+    }
+
+    private void SaveToFile()
+    {
+        processor.SaveProcessorData();
     }
 
     private void UpdateUI()

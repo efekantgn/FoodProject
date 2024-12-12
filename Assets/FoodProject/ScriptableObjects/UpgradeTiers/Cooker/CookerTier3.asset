@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d27885e9462364bb69362c4c81d2c2, type: 3}
   m_Name: CookerTier3
   m_EditorClassIdentifier: 
+  iD: 56e4512a-1016-4b05-90a1-f727674ff305
   Tier: 3
   NextTier: {fileID: 11400000, guid: c2b5c31e9f4b89b42b8f907fae16d0b4, type: 2}
   Price: 250

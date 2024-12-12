@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19aa87bd612d598428cf9ad5aefd850c, type: 3}
   m_Name: ProcessorTier 1
   m_EditorClassIdentifier: 
+  iD: 1ce3efa8-7e60-4411-80b4-307c9bb8c9e4
   Tier: 1
   NextTier: {fileID: 11400000, guid: 5432c72b62db77549a79fb3532be3149, type: 2}
   Price: 0
