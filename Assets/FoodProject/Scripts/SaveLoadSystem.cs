@@ -4,11 +4,12 @@ using System.Security.Cryptography;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public static class SaveLoadSystem
 {
     private static readonly string SaveFolderPath = Application.persistentDataPath + "/Saves/";
-    private static readonly string EncryptionKey = "qqqqqqqqqqqqqqqq"; // 16 karakter uzunluğunda bir key kullanın.
+    private static readonly string EncryptionKey = "qqqqqqqqqqqqqqqq"; // 16 karakter uzunluğundaki bir key kullanın.
 
     static SaveLoadSystem()
     {
@@ -24,7 +25,7 @@ public static class SaveLoadSystem
     public static void Save<T>(string key, T data, bool useEncryption = false)
     {
         string filePath = SaveFolderPath + key + ".json";
-        string json = JsonUtility.ToJson(data, true);
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
         if (useEncryption)
         {
@@ -51,7 +52,7 @@ public static class SaveLoadSystem
             }
             t = JsonUtility.FromJson<T>(json);
 
-            return true;
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         Debug.LogWarning($"Save file not found: {filePath}");
