@@ -7095,7 +7095,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776377882}
-  - component: {fileID: 1776377883}
   m_Layer: 0
   m_Name: SaveLoad
   m_TagString: Untagged
@@ -7118,29 +7117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1398398302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1776377883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776377881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d550de4ec0ec24db1f5bcc28ca2b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCurrency: {fileID: 0}
-  ingridientProcessor:
-  - {fileID: 1879794705}
-  - {fileID: 1100047625}
-  - {fileID: 1877030001}
-  Foods:
-  - {fileID: 11400000, guid: 578a2be30f0760b44ae745d4415dca08, type: 2}
-  - {fileID: 11400000, guid: 557ff214d6d8e3f4bbf0fec79626e1d9, type: 2}
-  - {fileID: 11400000, guid: e44cb987c69adb948b88900484985157, type: 2}
-  - {fileID: 11400000, guid: 999da2fbf483639448b10ae45abbb42d, type: 2}
-  - {fileID: 11400000, guid: 1e74b4b8182640a48a857437ebfe7084, type: 2}
 --- !u!1001 &1790229968
 PrefabInstance:
   m_ObjectHideFlags: 0
