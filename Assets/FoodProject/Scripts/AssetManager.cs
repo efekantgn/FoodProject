@@ -24,4 +24,18 @@ public class AssetManager : MonoBehaviour
         tierSO = null;
         return false;
     }
+    public LevelConfigSO[] Levels;
+    public bool TryGetLevel(string id, out LevelConfigSO levelConfig)
+    {
+        foreach (var item in Levels)
+        {
+            if (item.ID == id)
+            {
+                levelConfig = item;
+                return true;
+            }
+        }
+        levelConfig = null;
+        return false;
+    }
 }

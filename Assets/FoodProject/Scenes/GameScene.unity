@@ -4247,14 +4247,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077be4094a9f3ce4da8c6eadcd658d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelConfig: {fileID: 11400000, guid: 71a63dfef27863f4abc0c366987646f3, type: 2}
+  LevelConfig: {fileID: 11400000, guid: 7fe8d1771ef86f743b1322d9e8784f1a, type: 2}
   OnLevelStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1828923874}
         m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 6
+        m_MethodName: MoveOffScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4268,16 +4268,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1828923874}
         m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 6
+        m_MethodName: MoveOnScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
+  UseSave: 0
 --- !u!1001 &1118841339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7560,6 +7561,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14089fef554615a49a566f396a34a26f, type: 2}
   - {fileID: 11400000, guid: 35e694b69999ab54680273679982e179, type: 2}
   - {fileID: 11400000, guid: d0d671eea61f65c4485f19a42a15da20, type: 2}
+  Levels:
+  - {fileID: 11400000, guid: 71a63dfef27863f4abc0c366987646f3, type: 2}
+  - {fileID: 11400000, guid: 7fe8d1771ef86f743b1322d9e8784f1a, type: 2}
+  - {fileID: 11400000, guid: 2a060f22df42bb64097f02f987a0d412, type: 2}
 --- !u!4 &1877030000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9136835667910658546, guid: cff09234110b90741a1e0c43781331d6, type: 3}
@@ -9190,11 +9195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 395593635509318003, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 292.4531
       objectReference: {fileID: 0}
     - target: {fileID: 395593635509318003, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 163.5357
+      objectReference: {fileID: 0}
+    - target: {fileID: 395593635509318003, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.6422
       objectReference: {fileID: 0}
     - target: {fileID: 517905855242993394, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_fontSize
@@ -9218,7 +9227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 695180842331814032, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00022734536
+      value: -0.00013337767
       objectReference: {fileID: 0}
     - target: {fileID: 753367103789324736, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9387,6 +9396,10 @@ PrefabInstance:
     - target: {fileID: 2713467206930835066, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981618367009882073, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: ease
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3033349871556779779, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_fontSize
@@ -9609,6 +9622,10 @@ PrefabInstance:
       value: 13.909546
       objectReference: {fileID: 0}
     - target: {fileID: 5347556949502408898, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347556949502408898, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1116735778}
@@ -9650,7 +9667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303797298518274910, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_Size
-      value: 0.9996611
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6303797298518274910, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_Value
@@ -9839,6 +9856,22 @@ PrefabInstance:
     - target: {fileID: 7416982156691272715, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492411309162998342, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492411309162998342, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492411309162998342, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492411309162998342, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7559730830504489461, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10215,18 +10248,6 @@ PrefabInstance:
     - target: {fileID: 2555755493606666002, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: m_Extents.z
       value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3769469039922165714, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4029163492033509020, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: movementType

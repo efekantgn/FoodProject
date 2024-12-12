@@ -11,26 +11,20 @@ public class PanelController : MonoBehaviour
 
     private void Start()
     {
-        // Offscreen pozisyonunu ekranın genişliğine göre ayarla
-        offScreenPosition = new Vector2(Screen.width, panel.anchoredPosition.y);
+        // Offscreen pozisyonunu hesapla: Panelin genişliğini ekleyerek tamamen sahne dışına taşır
+        offScreenPosition = new Vector2(Screen.width + panel.rect.width, panel.anchoredPosition.y);
 
         // Paneli başlangıçta sahne dışına yerleştir
         panel.anchoredPosition = offScreenPosition;
-
     }
 
-    [ContextMenu("TogglePanel")]
-    public void TogglePanel(bool isOpen)
+    public void MoveOffScreen()
     {
-        if (!isOpen)
-        {
-            // Paneli sahne dışına kaydır (deaktif et)
-            panel.DOAnchorPos(offScreenPosition, transitionDuration).SetEase(ease);
-        }
-        else
-        {
-            // Paneli sahne içine kaydır (aktif et)
-            panel.DOAnchorPos(onScreenPosition, transitionDuration).SetEase(ease);
-        }
+        panel.DOAnchorPos(offScreenPosition, transitionDuration).SetEase(ease);
+    }
+
+    public void MoveOnScreen()
+    {
+        panel.DOAnchorPos(onScreenPosition, transitionDuration).SetEase(ease);
     }
 }

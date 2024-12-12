@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
+  m_AnchoredPosition: {x: -27.3, y: 7.2000027}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2058947722088979259
@@ -1521,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156829500365572145, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 3156829500365572145, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1538,7 +1538,7 @@ PrefabInstance:
     - target: {fileID: 4090750798997888304, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4c2ce05856cd94f96bda820d2353988c, type: 3}
+      objectReference: {fileID: 21300000, guid: ba11d08d3621d1b4fafc7173bbe7fb36, type: 3}
     - target: {fileID: 4090750798997888304, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1553,11 +1553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090750798997888304, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Color.r
-      value: 0.3764706
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4090750798997888304, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 1.27
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5527601293557727880, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Radius
@@ -1657,59 +1657,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 69.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.9
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.72416574
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.689626
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 90
+      value: 101.1
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -87.201
       objectReference: {fileID: 0}
     - target: {fileID: 5689096602291033746, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1744,12 +1748,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
-      propertyPath: m_Colors.m_ColorMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
-      value: 0.6509804
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7723677044502548460, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1765,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719867991393244144, guid: be7c155e508a895449b734d9672753c1, type: 3}
       propertyPath: m_Center.y
-      value: -30
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1298930066262831909, guid: be7c155e508a895449b734d9672753c1, type: 3}

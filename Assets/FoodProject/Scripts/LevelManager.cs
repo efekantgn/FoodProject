@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     private bool isSucced = false;
     public UnityEvent OnLevelStart;
     public UnityEvent OnLevelFinish;
+    public bool UseSave = false;
 
     private void Awake()
     {
@@ -39,7 +40,14 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-        StartNextLevel();
+        LoadLevelData();
+        StartCurrentLevel();
+    }
+    public void StartCurrentLevel()
+    {
+        //OnLevelStart?.Invoke();
+        customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
+        FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
     }
 
     private void CheckTarget(int value)
@@ -52,17 +60,49 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    [ContextMenu(nameof(StartNextLevel))]
     public void StartNextLevel()
     {
-        OnLevelStart?.Invoke();
         if (LevelConfig.NextLevel == null)
         {
             Warning.instance.GiveWarning("Demo version completed.");
             return;
         }
+        OnLevelStart?.Invoke();
         LevelConfig = LevelConfig.NextLevel;
+        SaveLevelData();
         customerSpawner.SpawnNPCs(LevelConfig.CustomerCount);
         FoodQuestManager.instance.ReciptList = LevelConfig.LevelRecipts.ToList();
     }
 
+    [ContextMenu("Save")]
+    public void SaveLevelData()
+    {
+        if (!UseSave) return;
+        SaveLoadSystem.Save<LevelConfigSaveData>("LevelData", new()
+        {
+            ID = LevelConfig.ID
+        });
+    }
+
+    [ContextMenu("Load")]
+    public void LoadLevelData()
+    {
+        if (!UseSave) return;
+
+        if (SaveLoadSystem.TryLoad("LevelData", out LevelConfigSaveData data))
+        {
+            //data.ID si ile arama yap ve o idye sahip olan  
+            // UpgradeTierSO yu upgradeTierConfig e ata.
+            if (AssetManager.instance.TryGetLevel(data.ID, out LevelConfigSO config))
+            {
+                LevelConfig = config;
+            }
+        }
+    }
+
+    public class LevelConfigSaveData
+    {
+        public string ID;
+    }
 }
