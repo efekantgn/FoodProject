@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerCurrency : MonoBehaviour
@@ -43,13 +41,14 @@ public class PlayerCurrency : MonoBehaviour
     {
         if (SaveLoadSystem.TryLoad("Money", out Currency c))
         {
-            if (EqualityComparer<Currency>.Default.Equals(c, default)) return;
+            if (c == null) return;
 
             CurrentMoney = c.Money;
         }
     }
 
-    public struct Currency
+    [Serializable]
+    public class Currency
     {
         public int Money;
     }
