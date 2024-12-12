@@ -9333,7 +9333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3245283588760059677, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3592555131943926728, guid: d26442e3ebd0b2645b537f6eff818a2f, type: 3}
       propertyPath: processor
@@ -10033,7 +10033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4029163492033509020, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: movementType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4029163492033509020, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
       propertyPath: PlayerMoveLayer.m_Bits
@@ -10123,17 +10123,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4640265402540266106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2699684137113864758, guid: f285bcd2f6518be47aca398eccc8e6d7, type: 3}
-  m_PrefabInstance: {fileID: 4640265402540266097}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424169811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ab72ee77c8df543b7fa158ee0f12f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6585584800249848928
 PrefabInstance:
   m_ObjectHideFlags: 0
