@@ -52,7 +52,7 @@ public static class SaveLoadSystem
             }
             t = JsonUtility.FromJson<T>(json);
 
-            return JsonConvert.DeserializeObject<T>(json);
+            return true;
         }
 
         Debug.LogWarning($"Save file not found: {filePath}");
