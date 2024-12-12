@@ -27,7 +27,7 @@ public class FoodTierUpgrades : MonoBehaviour
             return;
         }
 
-        if (playerCurrency.CurrentMoney < Food.currentTier.Price)
+        if (playerCurrency.CurrentMoney < Food.currentTier.NextTier.Price)
         {
             Warning.instance.GiveWarning($"Not enough money.");
             return;
