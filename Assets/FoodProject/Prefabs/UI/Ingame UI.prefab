@@ -499,8 +499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00039571527}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.009456142}
+  m_SizeDelta: {x: 0, y: 360}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &192190232972145211
 MonoBehaviour:
@@ -1258,8 +1258,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.1807251}
-  m_SizeDelta: {x: -137.2848, y: -382.3575}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4653003195397847611
 CanvasRenderer:
@@ -1803,6 +1803,7 @@ GameObject:
   - component: {fileID: 6008320828437494401}
   - component: {fileID: 7017733317235442975}
   - component: {fileID: 7187080154679939414}
+  - component: {fileID: 2981618367009882073}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -1827,10 +1828,10 @@ RectTransform:
   - {fileID: 5275806337152484623}
   m_Father: {fileID: 6431525238751911518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 914.0691, y: 1200.259}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -49}
+  m_SizeDelta: {x: -268.9294, y: -374.9213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7017733317235442975
 CanvasRenderer:
@@ -1870,6 +1871,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2981618367009882073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106561082743514242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7794323d9719e5b4787d2c9e1d1bf861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 6008320828437494401}
+  onScreenPosition: {x: 0, y: 0}
+  transitionDuration: 1
+  ease: 19
 --- !u!1 &6178664156199046396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,10 +3524,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819681223567539000}
     m_Modifications:
-    - target: {fileID: 3765411002165374984, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
-      propertyPath: m_fontSize
-      value: 33.55
-      objectReference: {fileID: 0}
     - target: {fileID: 5310258235426507843, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
       propertyPath: m_Name
       value: Processor Upgrade Panel (2)
@@ -3943,10 +3956,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819681223567539000}
     m_Modifications:
-    - target: {fileID: 3765411002165374984, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
-      propertyPath: m_fontSize
-      value: 33.55
-      objectReference: {fileID: 0}
     - target: {fileID: 5310258235426507843, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
       propertyPath: m_Name
       value: Processor Upgrade Panel (1)
@@ -4049,10 +4058,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819681223567539000}
     m_Modifications:
-    - target: {fileID: 3765411002165374984, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
-      propertyPath: m_fontSize
-      value: 33.55
-      objectReference: {fileID: 0}
     - target: {fileID: 5310258235426507843, guid: 7a79f5c8d011ff049ac6acc70e182bb9, type: 3}
       propertyPath: m_Name
       value: Processor Upgrade Panel
