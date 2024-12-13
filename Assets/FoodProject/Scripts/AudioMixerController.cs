@@ -10,8 +10,13 @@ public class AudioMixerController : MonoBehaviour
     private const string PREF_KEY_SFX = "SFX"; // PlayerPrefs anahtarı
     public Button toggleMusic; // Unity'deki buton referansı
     public Button toggleSFX; // Unity'deki buton referansı
+    public Sprite MusicOn;
+    public Sprite MusicOff;
+    public Sprite SFXOn;
+    public Sprite SFXOff;
     private bool isOnMusic; // Durum değişkeni
     private bool isOnSFX; // Durum değişkeni
+
 
     public AudioMixer mixer;
 
@@ -43,8 +48,8 @@ public class AudioMixerController : MonoBehaviour
         toggleSFX.onClick.AddListener(ToggleStateSFX);
 
         // UI güncelle
-        UpdateButtonUI(toggleMusic, IsOnMusic);
-        UpdateButtonUI(toggleSFX, IsOnSFX);
+        UpdateButtonUI(toggleMusic, IsOnMusic, MusicOn, MusicOff);
+        UpdateButtonUI(toggleSFX, IsOnSFX, SFXOn, SFXOff);
     }
 
     void ToggleStateMusic()
@@ -58,7 +63,7 @@ public class AudioMixerController : MonoBehaviour
         Debug.Log("Current State: " + (IsOnMusic ? "On" : "Off")); // Konsola yaz
 
         // UI güncelle
-        UpdateButtonUI(toggleMusic, IsOnMusic);
+        UpdateButtonUI(toggleMusic, IsOnMusic, MusicOn, MusicOff);
 
     }
     void ToggleStateSFX()
@@ -72,16 +77,16 @@ public class AudioMixerController : MonoBehaviour
         Debug.Log("Current State: " + (IsOnSFX ? "On" : "Off")); // Konsola yaz
 
         // UI güncelle
-        UpdateButtonUI(toggleSFX, IsOnSFX);
+        UpdateButtonUI(toggleSFX, IsOnSFX, SFXOn, SFXOff);
     }
 
-    void UpdateButtonUI(Button button, bool value)
+    void UpdateButtonUI(Button button, bool value, Sprite on, Sprite off)
     {
         // UI metni değiştir (isteğe bağlı)
-        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-        if (buttonText != null)
+        Image buttonImage = button.GetComponentInChildren<Image>();
+        if (buttonImage != null)
         {
-            buttonText.text = value ? "Turn Off" : "Turn On";
+            buttonImage.sprite = value ? off : on;
         }
     }
 }
