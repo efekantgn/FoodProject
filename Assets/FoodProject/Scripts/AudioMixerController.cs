@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class ToggleButtonController : MonoBehaviour
+public class AudioMixerController : MonoBehaviour
 {
     private const string PREF_KEY_MUSIC = "Music"; // PlayerPrefs anahtarı
     private const string PREF_KEY_SFX = "SFX"; // PlayerPrefs anahtarı

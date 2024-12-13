@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/FoodProject/Scenes/Persistance.unity
+    guid: 7012453eddc506d4981bb841a9cf3e33
+  - enabled: 1
+    path: Assets/FoodProject/Scenes/MainMenu.unity
+    guid: 5a4010d413a78764499aa922707863a1
+  - enabled: 1
     path: Assets/FoodProject/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
